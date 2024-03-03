@@ -28,7 +28,7 @@ export default function Login(){
 
     //Handle Login API Integration here
     const authenticateUser = async () =>{
-        try { const response=await fetch('http://127.0.0.1:8000/api/users/login/',{
+        try { const response=await fetch('https://shotokanunited-backend-4.onrender.com/api/users/login/',{
             method:'POST',
             headers:{
               'Content-Type':'application/json'

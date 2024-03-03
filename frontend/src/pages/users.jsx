@@ -14,7 +14,7 @@ function Users() {
             const token = JSON.parse(authToken).token
             console.log(token)
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/users', {
+                const response = await fetch('https://shotokanunited-backend-4.onrender.com/api/users', {
                     headers : {
                         "Authorization": `Token ${token}`,
                     }
