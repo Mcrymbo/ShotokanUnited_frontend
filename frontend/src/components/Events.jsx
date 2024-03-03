@@ -12,6 +12,7 @@ function Events() {
             }
             const data = await response.json()
             setEvents(data)
+            console.log(events)
         } catch (error) {
             console.error(`Error ${error} occured`)
         }
