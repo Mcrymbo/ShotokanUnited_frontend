@@ -39,6 +39,7 @@ export default function Signup(){
         console.log(data)
       }
       else{
+        setSignupState(fieldsState)
         // setError(data.error)
         // setMessage('')
       }  
