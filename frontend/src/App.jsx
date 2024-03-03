@@ -8,11 +8,13 @@ import LandingPage from './pages/landingPage';
 import FooterComponent from './components/footer';
 import Users from './pages/users';
 import Events from './components/Events';
+import LoginPage from './pages/Login';
+import SignupPage from './pages/Signup';
 
 function App() {
 
   return (
-    <>
+    <div>
       <Router>
         <Navbar />
         {/* <LandingPage /> */}
@@ -22,10 +24,12 @@ function App() {
           <Route path='/contact' element={<Contact />}/>
           <Route path='users' element={<Users />}/>
           <Route path='events' element={<Events />} />
+          <Route path='login' element={<LoginPage />}/>
+          <Route path='signup' element={<SignupPage />} />
         </Routes>
         <FooterComponent />
       </Router>
-    </>
+    </div>
   )
 }
 

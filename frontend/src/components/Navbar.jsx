@@ -21,6 +21,8 @@ function Navbar() {
               <li><Link to='about'>About</Link></li>
               <li><Link to='events'>Events</Link></li>
               <li><Link to='contact'>Contact</Link></li>
+              <li><Link to='signup'>Sign Up</Link></li>
+              <li><Link to='login'>Login</Link></li>
                 {/* <li><button onClick={() => scrollToSection('home-section')}>Home</button></li>
                 <li><button onClick={() => scrollToSection('about-section')}>About</button></li>
                 <li><button onClick={() => scrollToSection('contact-section')}>Contact</button></li> */}

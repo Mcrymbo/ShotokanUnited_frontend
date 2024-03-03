@@ -5,7 +5,7 @@ function Events() {
 
     const getData = async () => {
         try {
-            const response = await fetch('https://shotokanunited-backend-4.onrender.com/api/events/')
+            const response = await fetch('http://localhost:8000/api/events/')
 
             if (!response.ok){
                 throw new Error('Invalid response')
