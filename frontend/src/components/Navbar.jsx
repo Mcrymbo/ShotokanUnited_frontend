@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth';
 
 function Navbar() {
+
+  const { user, logout } = useAuth()
  
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -21,8 +24,12 @@ function Navbar() {
               <li><Link to='about'>About</Link></li>
               <li><Link to='events'>Events</Link></li>
               <li><Link to='contact'>Contact</Link></li>
-              <li><Link to='signup'>Sign Up</Link></li>
-              <li><Link to='login'>Login</Link></li>
+              { user ? (<button onClick={logout}>logout</button>) : (
+                <div className='flex justify-center space-x-8'>
+                   <li><Link to='login'>Login</Link></li>
+                   <li><Link to='signup'>Sign Up</Link></li>
+                </div>
+              )}
                 {/* <li><button onClick={() => scrollToSection('home-section')}>Home</button></li>
                 <li><button onClick={() => scrollToSection('about-section')}>About</button></li>
                 <li><button onClick={() => scrollToSection('contact-section')}>Contact</button></li> */}

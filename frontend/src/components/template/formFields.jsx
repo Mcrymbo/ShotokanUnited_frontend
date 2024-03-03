@@ -2,7 +2,7 @@ const loginFields=[
     {
         labelText:"Email address",
         labelFor:"email-address",
-        id:"email-address",
+        id:"email",
         name:"email",
         type:"email",
         autoComplete:"email",
@@ -81,6 +81,16 @@ const signupFields=[
         autoComplete:"confirm-password",
         isRequired:true,
         placeholder:"Confirm Password"   
+    },
+    {
+        labelText:"Profile image",
+        labelFor:"profile_image",
+        id:"profile_image",
+        name:"profile-image",
+        type:"file",
+        autoComplete:"profile-image",
+        isRequired:false,
+        // placeholder:"Confirm Password"   
     }
 ]
 

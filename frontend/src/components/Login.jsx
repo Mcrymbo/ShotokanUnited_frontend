@@ -3,6 +3,8 @@ import { loginFields } from './template/formFields'
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./template/Input";
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from "../hooks/useAuth";
 
 const fields=loginFields;
 let fieldsState = {};
@@ -20,8 +22,36 @@ export default function Login(){
         authenticateUser();
     }
 
+    const { login } = useAuth();
+
+    const navigate = useNavigate();
+
     //Handle Login API Integration here
-    const authenticateUser = () =>{
+    const authenticateUser = async () =>{
+        try { const response=await fetch('http://127.0.0.1:8000/api/users/login/',{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json'
+            },
+            body:JSON.stringify({...loginState}),
+          }
+          );
+          const data=await response.json()
+          if (response.ok){
+        
+            await login(data)
+        
+            const intendedDestination = sessionStorage.getItem('intendedDestination') || '/';
+            navigate(intendedDestination);
+        
+            sessionStorage.removeItem('intendedDestination');
+
+          }
+          else{
+            console.error(data.error)
+          }  
+            } catch (error) {
+            }
 
     }
 

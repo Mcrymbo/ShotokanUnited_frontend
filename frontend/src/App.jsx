@@ -10,24 +10,28 @@ import Users from './pages/users';
 import Events from './components/Events';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
+import { AuthProvider } from './hooks/useAuth';
+import { ProtectedRoute } from './components/protectedRoute';
 
 function App() {
 
   return (
     <div>
       <Router>
+        <AuthProvider >
         <Navbar />
         {/* <LandingPage /> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />}/>
           <Route path='/contact' element={<Contact />}/>
-          <Route path='users' element={<Users />}/>
+          <Route path='users' element={<ProtectedRoute> <Users /> </ProtectedRoute>}/>
           <Route path='events' element={<Events />} />
           <Route path='login' element={<LoginPage />}/>
           <Route path='signup' element={<SignupPage />} />
         </Routes>
         <FooterComponent />
+        </AuthProvider>
       </Router>
     </div>
   )

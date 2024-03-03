@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Users from './users';
 
 import backgroundImage from '../assets/images/img7.jpg';
@@ -6,7 +7,12 @@ import backgroundImage2 from '../assets/images/img6.jpg';
 import hdki from '../assets/images/HDKI.jpg';
 import teamImg from '../assets/images/img5.jpg'
 
+import { useAuth } from '../hooks/useAuth';
+
 function Home() {
+
+  const { user } = useAuth()
+
   return (
     <div id='home-section' className='w-full'>
         <section className="relative bg-fixed overflow-hidden bg-cover bg-no-repeat p-12 text-center"
@@ -76,7 +82,7 @@ function Home() {
                   style={{ backgroundImage: `url(${hdki})`, height: '20vh', width: '10vw' }}></div>
         </section>
 
-        <Users />
+        <Link to='users'>users</Link>
       
     </div>
   )
