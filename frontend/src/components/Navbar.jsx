@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
+  const { user, logout } = useAuth();
   const [nav, setNav] = useState(false);
 
-  // Toggle function to handle the navbar's display
   const handleNav = () => {
     setNav(!nav);
   };
 
-  // Array containing navigation items
   const navItems = [
     { id: 1, text: 'Home', to: '/' },
     { id: 2, text: 'About', to: '/about' },
     { id: 3, text: 'Contact', to: '/contact' },
     { id: 4, text: 'Events', to: '/events' },
-    { id: 5, text: 'Login', to: '/login' },
+    { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' }, // Conditionally render Logout or Login
   ];
 
   return (
     <div className='bg-black flex justify-between items-center h-24 max-w-[100vw] mx-auto px-4 text-white'>
       {/* Logo */}
-      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Shotokan-United</h1>
+      <Link to='/'>
+        <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Shotokan-United</h1>
+      </Link>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
@@ -32,7 +33,9 @@ const Navbar = () => {
             key={item.id}
             className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
           >
-            <Link to={item.to}>{item.text}</Link>
+            <Link to={item.to} onClick={item.text === 'Logout' ? logout : undefined}>
+              {item.text}
+            </Link>
           </li>
         ))}
       </ul>
@@ -51,7 +54,9 @@ const Navbar = () => {
         }
       >
         {/* Mobile Logo */}
-        <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>SU</h1>
+        <Link to='/'>
+          <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>SU</h1>
+        </Link>
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
