@@ -23,7 +23,7 @@ export const Email = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="max-w-xl p-4 rounded-md shadow-2xl transition transform duration-500 hover:scale-x-105 hover:scale-y-105">
+    <form ref={form} onSubmit={sendEmail} className="p-4 rounded-md shadow-2xl transition transform duration-500 hover:scale-x-105 hover:scale-y-105">
         <div className="mb-4">
             <label htmlFor="user_name" className="block text-gray-600">Name</label>
             <input type="text" name="user_name" placeholder='username' id="user_name" required className="border-2 w-full py-2 px-3 rounded-md focus:outline-none focus:border-blue-500" />

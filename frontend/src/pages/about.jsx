@@ -6,19 +6,19 @@ import img6 from '../assets/images/img6.jpg'
 
 function About() {
   return (
-    <div id='about-section' className='bg-neutral-200 py-10'>
+    <div id='about-section' className='bg-neutral-200 p-4  md:py-10'>
         <div className='mx-auto w-3/4 border-b-2'>
-              <h1 className='text-center text-4xl p-6 font-semibold'>About Shotokan-United Kenya</h1>
+              <h1 className='text-center md:text-4xl p-6 font-semibold'>About Shotokan-United Kenya</h1>
         </div>
-        <section  className='px-20'>   
+        <section  className='md:px-20'>   
           <div>
-            <div className='grid lg:grid-cols-3 my-20'>
+            <div className='grid md:grid-cols-3 md:my-20'>
               <img src={img6} alt="" className='col-span-2 w-full h-full rounded-xl'/>
               <div>
                     <div className='text-center text-xl font-semibold mb-6'>
                         <h1>OUR VISION</h1>
                     </div>
-                    <div className='px-16 text-center'>
+                    <div className='md:px-16 text-center'>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Totam hic fugit cum, doloribus asperiores exercitationem a
                         error nulla delectus optio. Consectetur dolorem dolor saepe similique
@@ -34,9 +34,9 @@ function About() {
                 </div>
               </div>
             <div>
-              <div className='lg:grid grid-cols-5 grid-rows-2 gap-10'>
-                    <div className='lg:col-span-2 row-span-2 bg-neutral-300 rounded-lg'>
-                      <article className='mx-16 my-8 space-y-4 text-lg'>
+              <div className='md:grid grid-cols-5 grid-rows-2 gap-10'>
+                    <div className='md:col-span-2 row-span-2 bg-neutral-300 rounded-lg'>
+                      <article className='md:mx-16 my-8 space-y-4 text-lg'>
                         <h1 className='text-2xl font-semibold'>Karate Empowering communities through Holistic living</h1>
                         <p>
                             Karate serves as a catalyst for holistic community development,
@@ -64,8 +64,8 @@ function About() {
                       </article>
                     </div>
                     <div className='lg:col-span-3 row-span-1'>
-                        <h1 className='text-center text-xl font-semibold uppercase mb-8'>Core values</h1>
-                        <div className='grid sm: grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                        <h1 className='text-center text-xl font-semibold uppercase md:mb-8'>Core values</h1>
+                        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                           <div >
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                           Totam hic fugit cum, doloribus asperiores exercitationem a
@@ -100,10 +100,10 @@ function About() {
                           </div>
                         </div>
                     </div>
-                    <div className='lg:col-span-3'>
+                    <div className='md:col-span-3'>
                       <div className='mt-20'>
                         <div className=''>
-                            <h1 className='text-left ml-20 italic'>SHU-HA-RI</h1>
+                            <h1 className='text-left md:ml-20 italic'>SHU-HA-RI</h1>
                             <p className='italic mt-10 text-center'>
                               <p>"Teach good karate and be kind to people</p>
                               <p>Have Karate Adventures</p>
@@ -120,8 +120,8 @@ function About() {
 
         <section className='bg-gradient-to-tr from-neutral-900 to-neutral-700 relative mt-20'>
             <img src={backgroundImage} alt="" className='w-full h-full object-cover absolute mix-blend-overlay' />
-            <div className='grid grid-cols-4 w-full text-white px-20 py-10 '>
-                <div className='col-span-3'>
+            <div className='grid md:grid-cols-4 w-full text-white md:px-20 md:py-10 '>
+                <div className='col-span-3 p-4'>
                 <div >
                   <h1 className='text-2xl'><span className='uppercase font-semibold'>Shotokan-United Kenya</span> <span className='block'>"Empowering Communities through holistic living"</span></h1>
                   <div className='my-6'>

@@ -25,11 +25,11 @@ function Events() {
 
     }, [])
   return (
-    <div className='bg-neutral-200'>
+    <div className='bg-neutral-200 p-4 md:p-10'>
         <div className='p-10'>
               <h1 className='text-center py-6 text-4xl font-semibold border-b-2 border-neutral-300'>List of Events</h1>
         </div>
-        <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
+        <div className='mx-2 grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
             {events && events.map(event => (
                 <div key={event.id} className='border-2 border-slate-800 p-8 transition-transform duration-500 hover:scale-x-105 hover:scale-y-105'>
                     <div >
