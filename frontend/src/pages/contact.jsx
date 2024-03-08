@@ -10,7 +10,9 @@ import pic from '../assets/images/img7.jpg'
 function Contact() {
   return (
     <div id='contact-section' className='py-20 bg-neutral-200'>
-      <h1>This is contact page</h1>
+       <div className='mx-auto w-3/4 border-b-2'>
+          <h1 className='text-center text-4xl p-6 font-semibold'>Contact Us</h1>
+        </div>
       <section className='grid lg:grid-cols-2 gap-4 mx-20 my-10'>
         <div className='p-8'>
           <div>Where we are</div>

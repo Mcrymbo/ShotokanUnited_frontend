@@ -12,6 +12,7 @@ import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
 import { AuthProvider } from './hooks/useAuth';
 import { ProtectedRoute } from './components/protectedRoute';
+import EventPage from './components/event/Event';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='events' element={<Events />} />
           <Route path='login' element={<LoginPage />}/>
           <Route path='signup' element={<SignupPage />} />
+          <Route path='postEvent' element={<EventPage />} />
         </Routes>
         <FooterComponent />
         </AuthProvider>

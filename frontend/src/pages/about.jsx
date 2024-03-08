@@ -6,11 +6,13 @@ import img6 from '../assets/images/img6.jpg'
 
 function About() {
   return (
-    <div id='about-section' className='bg-neutral-200 py-20'>
-        <h1 className=''>This is about page</h1>
+    <div id='about-section' className='bg-neutral-200 py-10'>
+        <div className='mx-auto w-3/4 border-b-2'>
+              <h1 className='text-center text-4xl p-6 font-semibold'>About Shotokan-United Kenya</h1>
+        </div>
         <section  className='px-20'>   
           <div>
-            <div className='grid grid-cols-3 my-20'>
+            <div className='grid lg:grid-cols-3 my-20'>
               <img src={img6} alt="" className='col-span-2 w-full h-full rounded-xl'/>
               <div>
                     <div className='text-center text-xl font-semibold mb-6'>
@@ -32,8 +34,8 @@ function About() {
                 </div>
               </div>
             <div>
-              <div className='grid grid-cols-5 grid-rows-2 gap-10'>
-                    <div className='col-span-2 row-span-2 bg-neutral-300 rounded-lg'>
+              <div className='lg:grid grid-cols-5 grid-rows-2 gap-10'>
+                    <div className='lg:col-span-2 row-span-2 bg-neutral-300 rounded-lg'>
                       <article className='mx-16 my-8 space-y-4 text-lg'>
                         <h1 className='text-2xl font-semibold'>Karate Empowering communities through Holistic living</h1>
                         <p>
@@ -61,9 +63,9 @@ function About() {
                         </p>
                       </article>
                     </div>
-                    <div className='col-span-3 row-span-1'>
+                    <div className='lg:col-span-3 row-span-1'>
                         <h1 className='text-center text-xl font-semibold uppercase mb-8'>Core values</h1>
-                        <div className='grid grid-cols-4 gap-4'>
+                        <div className='grid sm: grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                           <div >
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                           Totam hic fugit cum, doloribus asperiores exercitationem a
@@ -98,7 +100,7 @@ function About() {
                           </div>
                         </div>
                     </div>
-                    <div className='col-span-3'>
+                    <div className='lg:col-span-3'>
                       <div className='mt-20'>
                         <div className=''>
                             <h1 className='text-left ml-20 italic'>SHU-HA-RI</h1>

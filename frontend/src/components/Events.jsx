@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+// import EventPage from './event/Event';
 
 function Events() {
     const [events, setEvents] = useState([]);
@@ -23,8 +25,10 @@ function Events() {
 
     }, [])
   return (
-    <div className='p-20 bg-neutral-200'>
-        <h1 className='text-center mb-10 text-2xl'>List of all events</h1>
+    <div className='bg-neutral-200'>
+        <div className='p-10'>
+              <h1 className='text-center py-6 text-4xl font-semibold border-b-2 border-neutral-300'>List of Events</h1>
+        </div>
         <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
             {events && events.map(event => (
                 <div key={event.id} className='border-2 border-slate-800 p-8 transition-transform duration-500 hover:scale-x-105 hover:scale-y-105'>
@@ -39,7 +43,8 @@ function Events() {
                     </div>
                 </div>
             ))}            
-        </div>      
+        </div>
+        <Link to='/postEvent'><button className='bg-purple-400 hover:bg-purple-300 py-2 px-4'>Add Event</button></Link>
     </div>
   )
 }

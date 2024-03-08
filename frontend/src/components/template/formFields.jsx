@@ -82,16 +82,69 @@ const signupFields=[
         isRequired:true,
         placeholder:"Confirm Password"   
     },
+    // {
+    //     labelText:"Profile image",
+    //     labelFor:"profile_image",
+    //     id:"profile_image",
+    //     name:"profile-image",
+    //     type:"file",
+    //     autoComplete:"profile-image",
+    //     isRequired:false,
+    //     // placeholder:"Confirm Password"   
+    // }
+]
+
+const eventField = [
     {
-        labelText:"Profile image",
-        labelFor:"profile_image",
-        id:"profile_image",
-        name:"profile-image",
+        labelText:"Event Name",
+        labelFor:"name",
+        id:"name",
+        name:"event",
+        type:"text",
+        autoComplete:"Event name",
+        isRequired:true,
+        placeholder:"Event Name"   
+    },
+    {
+        labelText:"Venue",
+        labelFor:"venue",
+        id:"venue",
+        name:"venue",
+        type:"text",
+        autoComplete:"Event venue",
+        isRequired:true,
+        placeholder:"Venue"   
+    },
+    {
+        labelText:"Date",
+        labelFor:"date",
+        id:"date",
+        name:"date",
+        type:"date",
+        autoComplete:"2024-03-05",
+        isRequired:true,
+        placeholder:"yyyy-mm-dd"   
+    },
+    {
+        labelText:"description",
+        labelFor:"description",
+        id:"description",
+        name:"description",
+        type:"text",
+        autoComplete:"description",
+        isRequired:true,
+        placeholder:"Add description here"   
+    },
+    {
+        labelText:"poster_image",
+        labelFor:"poster_image",
+        id:"poster_image",
+        name:"poster_image",
         type:"file",
-        autoComplete:"profile-image",
+        autoComplete:"",
         isRequired:false,
-        // placeholder:"Confirm Password"   
+        // placeholder:"Add description here"   
     }
 ]
 
-export {loginFields,signupFields}
+export {loginFields,signupFields, eventField}
