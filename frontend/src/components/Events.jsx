@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DeleteEvent from './event/deleteEvent';
+import UpdateEvent from './event/updateEvent';
 // import EventPage from './event/Event';
 
 function Events() {
     const [events, setEvents] = useState([]);
+    const [isUpdateMode, setIsUpdateMode] = useState(false);
+
+    const handleUpdateClick = () => {
+        setIsUpdateMode(true);
+      };
 
     const getData = async () => {
         try {
-            const response = await fetch('https://shotokanunited-backend-4.onrender.com/api/events/')
+            const response = await fetch('https://shotokan-united-frontend.vercel.app/api/events/')
 
             if (!response.ok){
                 throw new Error('Invalid response')
             }
             const data = await response.json()
             setEvents(data)
-            console.log(events)
+            // console.log(events)
         } catch (error) {
             console.error(`Error ${error} occured`)
         }
@@ -24,6 +31,11 @@ function Events() {
         getData();
 
     }, [])
+
+    const handleEventDelete = (eventId) => {
+        setEvents((prev) => prev.filter(event => event.id !== eventId));
+    }
+
   return (
     <div className='bg-neutral-200 p-4 md:p-10'>
         <div className='p-10'>
@@ -40,10 +52,14 @@ function Events() {
                         <div className='ml-2'><span className='text-red-500 text-xl'>Date </span><span className='block'>{event.date}</span></div>
                         <div className='ml-2'> <span className='text-red-500 text-xl'>Venue</span><span className='block'>{event.venue}</span></div>
                         <div className='ml-2'><span className='text-red-500 text-xl'>Description</span> <span className='block'>{event.description}</span> </div>
+                        
                     </div>
+                    <DeleteEvent id={event.id} onDelete={handleEventDelete} />
+                    <UpdateEvent id={event.id} />
                 </div>
             ))}            
         </div>
+        {/* <UpdateEvent /> */}
         <Link to='/postEvent'><button className='bg-purple-400 hover:bg-purple-300 py-2 px-4'>Add Event</button></Link>
     </div>
   )

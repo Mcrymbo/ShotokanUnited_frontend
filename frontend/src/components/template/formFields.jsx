@@ -82,16 +82,16 @@ const signupFields=[
         isRequired:true,
         placeholder:"Confirm Password"   
     },
-    // {
-    //     labelText:"Profile image",
-    //     labelFor:"profile_image",
-    //     id:"profile_image",
-    //     name:"profile-image",
-    //     type:"file",
-    //     autoComplete:"profile-image",
-    //     isRequired:false,
-    //     // placeholder:"Confirm Password"   
-    // }
+    {
+        labelText:"Profile image",
+        labelFor:"profile_image",
+        id:"profile_image",
+        name:"profile_image",
+        type:"file",
+        autoComplete:"",
+        isRequired:false,
+        // placeholder:"Confirm Password"   
+    }
 ]
 
 const eventField = [
@@ -99,7 +99,7 @@ const eventField = [
         labelText:"Event Name",
         labelFor:"name",
         id:"name",
-        name:"event",
+        name:"name",
         type:"text",
         autoComplete:"Event name",
         isRequired:true,

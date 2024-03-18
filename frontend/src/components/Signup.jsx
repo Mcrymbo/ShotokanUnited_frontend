@@ -24,12 +24,11 @@ export default function Signup(){
 
   const navigate = useNavigate()
   const createAccount = async ()=>{
-    try { const response=await fetch('https://shotokanunited-backend-4.onrender.com/api/users/register/',{
+    
+    const formdata = new FormData(document.querySelector('form'));
+    try { const response=await fetch('https://shotokan-united-frontend.vercel.app/api/users/register/',{
         method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-        },
-        body:JSON.stringify({...signupState}),
+        body: formdata,
       }
       );
       const data=await response.json()
