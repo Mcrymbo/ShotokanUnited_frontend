@@ -1,0 +1,69 @@
+.about-parent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    background-size: cover;
+    animation: backgroundAnimation 60s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    color: #ffffff;
+    background-image: url('../../assets/images/gym3.jpg');
+    z-index: -1; /* Ensure the background layer is behind the navbar */
+  }
+  
+  .about-parent::before {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(6, 5, 5, 0.9);
+    width: 100%;
+    height: 100%;
+  }
+  .content h4 {
+    font-size: 40px;
+    position: relative;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .content h1 {
+    font-size: 17px;
+    position: relative;
+    color: gold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .content p {
+    position: relative;
+    margin-bottom: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .homeimages {
+    z-index: 1000;
+    position: relative;
+    margin-left: 90px;
+  }
+  .container1 {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: flex-start; /* Align items to the start horizontally */
+  }
+  
+  .container2 {
+    /* background-color: blueviolet; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  

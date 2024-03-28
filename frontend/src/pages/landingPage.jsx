@@ -1,13 +1,14 @@
 import React from 'react'
-import Home from './Home'
-import About from './about'
-import Contact from './contact'
+import Home from './Home/Home'
+
+import Contact from './Contact/contact'
+import About from './About/about'
 
 function LandingPage() {
   return (
     <div>
-        <About />
-        <Contact />      
+      <About />
+      <Contact />
     </div>
   )
 }

@@ -1,0 +1,61 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 13vh;
+    background-color: transparent;
+  }
+  
+  .navbar li {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .navbar-brand .logo,
+  .navbar-brand .mobile-logo {
+    text-decoration: none;
+    color: gold;
+    font-weight: 900;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .navbar-nav .nav-link {
+    color: gold;
+    transition: color 0.3s ease;
+    margin-right: 12px;
+    margin-left: 1.5%;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: rgb(0, 255, 34);
+  }
+  
+  .show-sidebar {
+    display: block;
+  }
+  
+  .hide-sidebar {
+    display: none;
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100px;
+      background-color: #79096e; /* Adjust as needed */
+      padding: 10px;
+      border: 1px solid #a72121; /* Adjust as needed */
+      z-index: 999; /* Ensure it's above other content */
+    }
+ 
+  }

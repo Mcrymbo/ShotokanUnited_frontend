@@ -1,0 +1,39 @@
+.parent-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    justify-content: center; 
+    color: #ffffff;
+    background-image: url('../../assets/images/karate10.jpg');
+    
+  }
+  
+  .parent-container::before {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(6, 5, 5, 0.8);
+    width: 100%;
+    height: 100%;
+  }
+
+  .sub-parent {
+    z-index: 1000;
+    margin-top: 63vh;
+    
+  }
+
+  .contact-text {
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+  }

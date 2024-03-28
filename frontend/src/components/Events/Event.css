@@ -1,0 +1,41 @@
+.event-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    justify-content: center;
+    color: #ffffff;
+    background-image: url('../../assets/images/karate11.jpg')
+    
+  }
+  
+  .event-page::before {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(6, 5, 5, 0.8);
+    width: 100%;
+    height: 100%;
+  }
+  
+.parent-event{
+    z-index: 1000;
+    position: relative;
+    
+}
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
