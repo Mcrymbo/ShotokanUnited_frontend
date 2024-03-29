@@ -37,7 +37,7 @@ function Admin() {
           index
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | overview" />
               <ECommerce />
             </>
           }
@@ -46,7 +46,7 @@ function Admin() {
           path="/calendar"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | calender" />
               <Calendar />
             </>
           }
@@ -55,7 +55,7 @@ function Admin() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Profile" />
               <Profile />
             </>
           }
@@ -64,7 +64,7 @@ function Admin() {
           path="/forms/form-elements"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Form Elements" />
               <FormElements />
             </>
           }
@@ -73,7 +73,7 @@ function Admin() {
           path="/forms/form-layout"
           element={
             <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Form Layout " />
               <FormLayout />
             </>
           }
@@ -82,7 +82,7 @@ function Admin() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Tables" />
               <Tables />
             </>
           }
@@ -91,7 +91,7 @@ function Admin() {
           path="settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Settings" />
               <Settings />
             </>
           }
@@ -100,7 +100,7 @@ function Admin() {
           path="chart"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Basic Chart" />
               <Chart />
             </>
           }
@@ -109,7 +109,7 @@ function Admin() {
           path="/ui/alerts"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="SU | Alerts" />
               <Alerts />
             </>
           }
