@@ -3,6 +3,8 @@ import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
+import logo from '../assets/images/logo.png'
+
 const Navbar = () => {
   const { user, logout } = useAuth();
   const [nav, setNav] = useState(false);
@@ -20,10 +22,11 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-24 max-w-[100vw] mx-auto px-4 text-white'>
+    <div className='flex justify-between items-center h-40 max-w-[100vw] mx-auto px-4'>
       {/* Logo */}
       <Link to='/'>
-        <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Shotokan-United</h1>
+        <img src={logo} alt="" className='mx-10 w-[120px] h-[120px]' />
+        <h1 className='w-full text-3xl font-bold text-red-400'>Shotokan-United</h1>
       </Link>
 
       {/* Desktop Navigation */}
@@ -31,7 +34,7 @@ const Navbar = () => {
         {navItems.map(item => (
           <li
             key={item.id}
-            className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
+            className='p-4 hover:text-red-500 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
           >
             <Link to={item.to} onClick={item.text === 'Logout' ? logout : undefined}>
               {item.text}

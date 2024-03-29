@@ -1,0 +1,8 @@
+@keyframes bg-animation {
+    0% { background-image: url('../assets/images/HDKI.jpg'); }
+    20% { background-image: url('../assets/images/SUK.jpg'); }
+    40% { background-image: url('../assets/images/footer.jpg'); }
+    60% { background-image: url('../assets/images/img4.jpg'); }
+    80% { background-image: url('../assets/images/img5.jpg'); }
+    100% { background-image: url('../assets/images/img6.jpg'); } /* Repeat the first image to loop */
+  }
