@@ -2,21 +2,34 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faCircle, faCircleDot } from '@fortawesome/free-solid-svg-icons';
 import { DefaultLayout } from '../../layout';
-import {homePic} from '../../assets';
-import { heroimages } from  '../../constants'
+import { homePic } from '../../assets';
+import { heroimages } from '../../constants';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1) % heroimages.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroimages.length) % heroimages.length);
   };
 
   const handleNextClick = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroimages.length);
   };
+
+  const getDisplayedImages = () => {
+    if (window.innerWidth >= 1024) {
+      // For large screens, show 4 images
+      return heroimages.slice(currentImageIndex, currentImageIndex + 4);
+    } else {
+      // For smaller screens, show only the current image
+      return heroimages.slice(currentImageIndex, currentImageIndex + 1);
+    }
+  };
+
+  const displayedImages = getDisplayedImages();
+
   return (
-    <div className='mx-auto max-w-screen-lg py-10'>
+    <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
       <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
           <div>
@@ -35,48 +48,41 @@ const Hero = () => {
           className="w-full sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
           src={homePic}
           alt="SUK"
+          loading="lazy"
         />
       </div>
-      <div>
+      <div className="relative mt-6">
         <FontAwesomeIcon
           icon={faChevronLeft}
           size="2x"
           className="absolute left-4 sm:left-8 lg:left-12 cursor-pointer z-10"
+          onClick={handlePrevClick}
         />
-
         <div className="mx-auto max-w-screen-lg flex justify-center mt-4 lg:space-x-6">
-          {
-            heroimages.map((image, index) => (
-              <div key={index}>
-                 <img src={image.icon} alt={`Hero Image ${index}`}
-                 className='h-[50vh] w-[40vw]' />
-                 <p>{image.title}</p>
-              </div>
-            ))
-          }
+          {displayedImages.map((image, index) => (
+            <div key={index} className="w-full lg:w-1/4 px-2">
+              <img src={image.icon} alt={`Hero Image ${index}`} className='h-[50vh] w-full object-cover' loading="lazy" />
+              <p className="text-center mt-2">{image.title}</p>
+            </div>
+          ))}
         </div>
-
-        <section>
-          <div className="flex justify-center mt-4 space-x-2">
-            {[0,1,2,3].map((image, index) => (
-              <FontAwesomeIcon
-                key={index}
-                icon={currentImageIndex === index ? faCircleDot : faCircle}
-                size="xs"
-                className="cursor-pointer"
-                onClick={handlePrevClick}
-
-              />
-            ))}
-          </div>
-        </section>
-
         <FontAwesomeIcon
           icon={faChevronRight}
           size="2x"
           className="absolute right-4 sm:right-8 lg:right-12 cursor-pointer z-10"
           onClick={handleNextClick}
         />
+      </div>
+      <div className="flex justify-center mt-4 space-x-2">
+        {heroimages.map((_, index) => (
+          <FontAwesomeIcon
+            key={index}
+            icon={currentImageIndex === index ? faCircleDot : faCircle}
+            size="xs"
+            className="cursor-pointer"
+            onClick={() => setCurrentImageIndex(index)}
+          />
+        ))}
       </div>
     </div>
   );
