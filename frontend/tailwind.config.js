@@ -7,6 +7,12 @@ module.exports = {
   theme: {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
+      arenq: ['Arenq'],
+      beckman: ['Beckman'],
+      mova: ['Mova'],
+      overcameBold: ['Overcame Bold'],
+      overcameOutline: ['Overcame Outline'],
+      poppins: ['Poppins', 'sans-serif'],
     },
     screens: {
       '2xsm': '375px',
@@ -25,8 +31,6 @@ module.exports = {
         bodydark: '#AEB7C0',
         bodydark1: '#DEE4EE',
         bodydark2: '#8A99AF',
-        primary: '#3C50E0',
-        secondary: '#80CAEE',
         stroke: '#E2E8F0',
         gray: '#EFF4FB',
         graydark: '#333A48',
@@ -51,6 +55,29 @@ module.exports = {
         success: '#219653',
         danger: '#D34053',
         warning: '#FFA70B',
+
+        primary: '#050816',
+        secondary: '#aaa6c3',
+        tertiary: '#151030',
+        'black-100': '#100d25',
+        'black-200': '#090325',
+        'white-100': '#f3f3f3',
+        flashWhite: '#f4f4f6',
+        platinum: '#e6e6e9',
+        platinumLight: '#f4f4f5',
+        timberWolf: '#d4d4d8',
+        taupe: '#9999a1',
+        silver: '#d6d6d6',
+        dim: '#66666e',
+        battleGray: '#858585',
+        french: '#b5b5ba',
+        night: '#141414',
+        jet: '#292929',
+        jetLight: '#333333',
+        jetGray: '#6d6d74',
+        richBlack: '#2e2e2e',
+        eerieBlack: '#1f1f1f',
+        onyx: '#5b5b5b',
       },
       fontSize: {
         'title-xxl': ['44px', '55px'],
@@ -61,6 +88,18 @@ module.exports = {
         'title-md2': ['26px', '30px'],
         'title-sm': ['20px', '26px'],
         'title-xsm': ['18px', '24px'],
+      },
+      backgroundImage: {
+        about:
+          'linear-gradient(165deg, rgba(244,244,246,1) 100%, rgba(122,122,122,1) 100%)',
+        experience:
+          "linear-gradient(135deg, rgba(244,244,246,0.5) 60%, rgba(10,10,10,0.2) 100%),url('/src/assets/backgrounds/white-abstract.png')",
+        experienceLight:
+          'linear-gradient(137deg, rgba(244,244,246,0.5) 60%, rgba(10,10,10,0.9) 60%)',
+        hero: 'linear-gradient(135deg, rgba(244,244,246,0.1) 60%, rgba(10,10,10,0.95) 10%)',
+        'hero-mobile':
+          'linear-gradient(137deg, rgba(244,244,246,0.1) 60%, rgba(10,10,10,1) 10%)',
+        tech: "linear-gradient(165deg, rgba(20,20,20,0.8) 100%, rgba(109,109,116,0.8) 100%), url('/src/assets/backgrounds/nairobi.png')",
       },
       spacing: {
         4.5: '1.125rem',
@@ -205,9 +244,9 @@ module.exports = {
       opacity: {
         65: '.65',
       },
-      backgroundImage: {
-        video: "url('../images/video/video.png')",
-      },
+      // backgroundImage: {
+      //   video: "url('../images/video/video.png')",
+      // },
       content: {
         'icon-copy': 'url("../images/icon/icon-copy-alt.svg")',
       },

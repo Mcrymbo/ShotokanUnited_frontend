@@ -24,3 +24,5 @@ function FeatureCard({ title, description }) {
     </div>
   );
 }
+
+export default Feature;

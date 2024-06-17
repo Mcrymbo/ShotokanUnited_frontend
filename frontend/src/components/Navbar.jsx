@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -22,7 +22,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='flex justify-between items-center h-40 max-w-[100vw] mx-auto px-4'>
+    <div className='flex justify-between items-center h-40 max-w-[100vw] mx-auto px-4 shadow-md'>
       {/* Logo */}
       <Link to='/'>
         <img src={logo} alt="" className='mx-10 w-[120px] h-[120px]' />

@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "apexcharts": "^3.48.0",
     "flatpickr": "^4.6.13",
     "flowbite-react": "^0.7.2",
