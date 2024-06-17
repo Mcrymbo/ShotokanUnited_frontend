@@ -13,7 +13,7 @@ const DefaultLayout = ({ children }) => {
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">          
           {/* main content */}
           <main className=''>
-            <div className="mx-auto max-w-screen-lg p-4 bg-white shadow-md md:p-6 2xl:p-10">
+            <div className="p-4 bg-white shadow-md md:p-6 2xl:p-10">
               {children}
             </div>
           </main>

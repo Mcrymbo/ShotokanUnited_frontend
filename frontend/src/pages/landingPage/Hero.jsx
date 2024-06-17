@@ -16,8 +16,8 @@ const Hero = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroimages.length);
   };
   return (
-    <DefaultLayout>
-      <div className="flex flex-col sm:flex-row items-center w-full mx-auto">
+    <div className='mx-auto max-w-screen-lg py-10'>
+      <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
           <div>
             <h1 className="text-2xl md:text-5xl lg:text-4xl font-bold text-eerieBlack font-poppins uppercase">
@@ -44,7 +44,7 @@ const Hero = () => {
           className="absolute left-4 sm:left-8 lg:left-12 cursor-pointer z-10"
         />
 
-        <div className="flex justify-center mt-4 space-x-6">
+        <div className="mx-auto max-w-screen-lg flex justify-center mt-4 lg:space-x-6">
           {
             heroimages.map((image, index) => (
               <div key={index}>
@@ -78,7 +78,7 @@ const Hero = () => {
           onClick={handleNextClick}
         />
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 

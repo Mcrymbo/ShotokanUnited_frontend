@@ -23,13 +23,13 @@ const styles = {
       'text-eerieBlack font-medium lg:text-[20px] sm:text-[14px] xs:text-[14px] text-[14px] lg:leading-[20px]',
   
     sectionHeadText:
-      'text-eerieBlack font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins',
+      'text-eerieBlack font-black md:text-[40px] sm:text-[28px] xs:text-[30px] text-[20px] font-poppins',
     sectionHeadTextLight:
       'text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins',
     sectionSubText:
-      'sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-poppins',
+      'sm:text-[18px] text-[16px] text-eerieBlack uppercase tracking-wider font-bold font-poppins',
     sectionSubTextLight:
-      'sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-poppins',
+      'sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-bold font-poppins',
   };
   
   export { styles };

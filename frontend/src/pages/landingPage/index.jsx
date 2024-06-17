@@ -1,7 +1,8 @@
 import Hero from "./Hero";
 import About from "./About";
-import Contact from "./Contact";
-import Footer from "./Footer";
+import Commitee from "./Commitee";
+import FooterComponent from "./Footer";
+import Navbar from "../../components/Navbar";
 
 const LandingPage = () => {
 
@@ -9,16 +10,17 @@ const LandingPage = () => {
         <>
             <div className="relative z-0">
                 <div>
+                    <Navbar />
                     <Hero />
                 </div>
                 <div>
                     <About />
                 </div>
                 <div>
-                    <Contact />
+                    <Commitee />
                 </div>
                 <div>
-                    <Footer />
+                    <FooterComponent />
                 </div>
             </div>
 
