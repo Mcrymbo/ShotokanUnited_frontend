@@ -1,23 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faCircle, faCircleDot } from '@fortawesome/free-solid-svg-icons';
-import { DefaultLayout } from '../../layout';
 import { homePic } from '../../assets';
 import { heroimages } from '../../constants';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroimages.length) % heroimages.length);
-  };
+  // Update window width state on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  const handleNextClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroimages.length);
-  };
-
+  // Determine how many images to display based on window width
   const getDisplayedImages = () => {
-    if (window.innerWidth >= 1024) {
+    if (windowWidth >= 1024) {
       // For large screens, show 4 images
       return heroimages.slice(currentImageIndex, currentImageIndex + 4);
     } else {
@@ -27,6 +29,14 @@ const Hero = () => {
   };
 
   const displayedImages = getDisplayedImages();
+
+  const handlePrevClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroimages.length) % heroimages.length);
+  };
+
+  const handleNextClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroimages.length);
+  };
 
   return (
     <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
@@ -51,14 +61,14 @@ const Hero = () => {
           loading="lazy"
         />
       </div>
-      <div className="relative mt-6">
+      <div className="relative flex justify-center items-center mt-6">
         <FontAwesomeIcon
           icon={faChevronLeft}
           size="2x"
-          className="absolute left-4 sm:left-8 lg:left-12 cursor-pointer z-10"
+          className="absolute -left-3 sm:left-8 lg:left-0 cursor-pointer z-10"
           onClick={handlePrevClick}
         />
-        <div className="mx-auto max-w-screen-lg flex justify-center mt-4 lg:space-x-6">
+        <div className="mx-auto max-w-screen-lg w-[100%] flex justify-center mt-4 lg:space-x-6">
           {displayedImages.map((image, index) => (
             <div key={index} className="w-full lg:w-1/4 px-2">
               <img src={image.icon} alt={`Hero Image ${index}`} className='h-[50vh] w-full object-cover' loading="lazy" />
@@ -69,7 +79,7 @@ const Hero = () => {
         <FontAwesomeIcon
           icon={faChevronRight}
           size="2x"
-          className="absolute right-4 sm:right-8 lg:right-12 cursor-pointer z-10"
+          className="absolute -right-3 sm:right-1 lg:right-0 cursor-pointer z-10"
           onClick={handleNextClick}
         />
       </div>

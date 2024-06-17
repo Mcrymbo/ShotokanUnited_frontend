@@ -1,16 +1,22 @@
 import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const [nav, setNav] = useState(false);
+  const history = useNavigate();
 
   const handleNav = () => {
     setNav(!nav);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setNav(false);
+    history.push('/');
   };
 
   const navItems = [
@@ -18,25 +24,26 @@ const Navbar = () => {
     { id: 2, text: 'About', to: '/about' },
     { id: 3, text: 'Contact', to: '/contact' },
     { id: 4, text: 'Events', to: '/events' },
-    { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' }, // Conditionally render Logout or Login
+    { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' },
   ];
 
   return (
-    <div className='flex justify-between items-center h-40 max-w-[100vw] mx-auto px-4 shadow-md'>
+    <div className='flex justify-between items-center h-20 max-w-[100vw] mx-auto px-4 shadow-md bg-white'>
       {/* Logo */}
-      <Link to='/'>
-        <img src={logo} alt="" className='mx-10 w-[120px] h-[120px]' />
-        <h1 className='w-full text-3xl font-bold text-red-400'>Shotokan-United</h1>
+      <Link to='/' className='flex items-center space-x-2'>
+        <img src={logo} alt="Shotokan United" className='w-[60px] h-[60px]' />
+        <h1 className='text-2xl font-bold text-red-400'>Shotokan United</h1>
       </Link>
 
       {/* Desktop Navigation */}
-      <ul className='hidden md:flex'>
+      <ul className='hidden md:flex space-x-4'>
         {navItems.map(item => (
-          <li
-            key={item.id}
-            className='p-4 hover:text-red-500 rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
-          >
-            <Link to={item.to} onClick={item.text === 'Logout' ? logout : undefined}>
+          <li key={item.id} className='hover:text-red-500 cursor-pointer'>
+            <Link
+              to={item.to}
+              onClick={item.text === 'Logout' ? handleLogout : undefined}
+              className='p-2 rounded hover:bg-gray-200 transition'
+            >
               {item.text}
             </Link>
           </li>
@@ -44,30 +51,35 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className='block md:hidden'>
-        {nav ? <AiOutlineClose size={40} /> : <AiOutlineMenu size={40} />}
+      <div onClick={handleNav} className='md:hidden'>
+        {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
       </div>
 
       {/* Mobile Navigation Menu */}
       <ul
-        className={
-          nav
-            ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500'
-            : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
-        }
+        className={`fixed top-0 left-0 w-[60%] h-full bg-black text-white border-r border-gray-900 transform ${
+          nav ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 z-50`}
       >
-        {/* Mobile Logo */}
-        <Link to='/'>
-          <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>SU</h1>
-        </Link>
+        <div className='flex justify-between items-center p-4'>
+          <Link to='/' onClick={handleNav}>
+            <h1 className='text-2xl font-bold text-[#00df9a]'>SU</h1>
+          </Link>
+          <AiOutlineClose size={30} onClick={handleNav} />
+        </div>
 
-        {/* Mobile Navigation Items */}
         {navItems.map(item => (
           <li
             key={item.id}
-            className='p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600'
+            className='p-4 border-b border-gray-600 hover:bg-[#00df9a] transition'
           >
-            <Link to={item.to} onClick={handleNav}>
+            <Link
+              to={item.to}
+              onClick={() => {
+                handleNav();
+                if (item.text === 'Logout') handleLogout();
+              }}
+            >
               {item.text}
             </Link>
           </li>
