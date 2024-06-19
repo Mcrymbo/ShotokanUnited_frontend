@@ -1,6 +1,6 @@
 import { useState, ReactNode } from 'react';
-// import Header from '../components/Header/index';
-// import Sidebar from '../components/Sidebar/index';
+import Sidebar from '../components/Sidebar/index';
+import Headers from '../components/Headers'
 
 const DashboardLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -8,11 +8,14 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       <div className="flex h-screen overflow-hidden">
-        {/* <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* Header */}
-          {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
+          <div className='ml-0.5'>
+            <Headers sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
+          </div>
+          
           
           {/* main content */}
           <main>

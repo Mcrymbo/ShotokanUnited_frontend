@@ -55,7 +55,7 @@ const Hero = () => {
           </button>
         </section>
         <img
-          className="w-full sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
+          className="w-full h- sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
           src={homePic}
           alt="SUK"
           loading="lazy"

@@ -23,8 +23,8 @@ const Navbar = () => {
     { id: 1, text: 'Home', to: '/' },
     { id: 2, text: 'About', to: '/about' },
     { id: 3, text: 'Contact', to: '/contact' },
-    { id: 4, text: 'Events', to: '/events' },
-    { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' },
+    // { id: 4, text: 'Events', to: '/events' },
+    // { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' },
   ];
 
   return (

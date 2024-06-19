@@ -29,7 +29,7 @@ module.exports = {
         'black-2': '#010101',
         body: '#64748B',
         bodydark: '#AEB7C0',
-        bodydark1: '#DEE4EE',
+        bodydark1: '#8A99AF',
         bodydark2: '#8A99AF',
         stroke: '#E2E8F0',
         gray: '#EFF4FB',
