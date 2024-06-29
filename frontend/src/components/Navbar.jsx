@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { useLogout } from '../hooks';
+import { useUser } from '../hooks';
 import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
-  // const { user, logout } = useAuth();
+  const { logout } = useLogout();
+  const { user } = useUser();
   const [nav, setNav] = useState(false);
   const history = useNavigate();
 
@@ -13,18 +15,18 @@ const Navbar = () => {
     setNav(!nav);
   };
 
-  const handleLogout = () => {
-    // logout();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout();
     setNav(false);
-    history.push('/');
+    history('/auth/login');
   };
 
   const navItems = [
     { id: 1, text: 'Home', to: '/' },
     { id: 2, text: 'About', to: '/about' },
     { id: 3, text: 'Contact', to: '/contact' },
-    // { id: 4, text: 'Events', to: '/events' },
-    // { id: 5, text: user ? 'Logout' : 'Login', to: user ? '/' : '/login' },
+    { id: 4, text: user.id ? 'Logout' : 'Login', to: user ? '/auth/login' : '/login' },
   ];
 
   return (

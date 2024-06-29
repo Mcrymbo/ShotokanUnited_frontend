@@ -106,7 +106,7 @@ export const RESET_USER_PASSWORD = async (email) => {
 // redirect to login
 export const redirectToLogin = () => {
   // Implement your logic to redirect to the login page
-  window.location.href = "/auth/login";
+  // window.location.href = "/auth/login";
 };
 
 // get access token

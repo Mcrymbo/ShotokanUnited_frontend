@@ -12,7 +12,7 @@ function App() {
           <Route path='/admin/*' element={<Admin />} />
           <Route path='/dashboard/*' element={<UserPage />} />
           <Route path='/auth/login' element={<SignIn />} />
-          <Route path='/register' element={<SignUp />} />
+          <Route path='/auth/register' element={<SignUp />} />
           <Route path="/auth/activate" element={<ActivateAccount />} />
       </Routes>
   )

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faCircle, faCircleDot } from '@fortawesome/free-solid-svg-icons';
 import { homePic } from '../../assets';
@@ -50,9 +51,11 @@ const Hero = () => {
               Join Shotokan United and become part of a legacy of strength, discipline, and community.
             </h2>
           </div>
-          <button className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white">
-            Explore more
-          </button>
+          <Link to='/auth/register'>
+            <button className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white">
+              Explore more
+            </button>
+          </Link>
         </section>
         <img
           className="w-full h- sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
