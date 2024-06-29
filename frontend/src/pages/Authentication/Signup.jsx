@@ -1,36 +1,23 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
-import axios from 'axios';
+import {useRegister} from '../../hooks';
 
 const SignUp = () => {
   const { register, handleSubmit, formState: { errors }, getValues, reset } = useForm();
 
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    first_name: '',
-    last_name: '',
-    password: '',
-  });
+  const { Register } = useRegister()
+  const navigate = useNavigate()
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
+ 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
-      await axios.post('http://127.0.0.1:8000/api/users/', formData);
+      await Register(data);
       reset();
     } catch (error) {
       console.log(error.message);
     }
+    navigate('auth/login')
   };
 
   return (
@@ -54,7 +41,6 @@ const SignUp = () => {
                       placeholder="Enter your username"
                       {...register('username', { required: 'Username is required' })}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      onChange={handleChange}
                     />
                     {errors.username && (
                       <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
@@ -78,7 +64,6 @@ const SignUp = () => {
                         },
                       })}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      onChange={handleChange}
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -96,7 +81,7 @@ const SignUp = () => {
                       placeholder="Enter your first name (optional)"
                       {...register('first_name')}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      onChange={handleChange}
+                    
                     />
                   </div>
                 </div>
@@ -111,7 +96,7 @@ const SignUp = () => {
                       placeholder="Enter your last name (optional)"
                       {...register('last_name')}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      onChange={handleChange}
+                     
                     />
                   </div>
                 </div>
@@ -132,7 +117,7 @@ const SignUp = () => {
                         },
                       })}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      onChange={handleChange}
+                    
                     />
                     {errors.password && (
                       <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
@@ -209,7 +194,7 @@ const SignUp = () => {
                 <div className="mt-6 text-center">
                   <p className="text-base font-medium text-body-color">
                     Already have an account?{' '}
-                    <Link to="/login" className="text-primary hover:underline">
+                    <Link to="auth/login" className="text-primary hover:underline">
                       Sign in
                     </Link>
                   </p>

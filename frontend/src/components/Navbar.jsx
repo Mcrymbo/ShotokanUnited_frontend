@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
   const [nav, setNav] = useState(false);
   const history = useNavigate();
 
@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    logout();
+    // logout();
     setNav(false);
     history.push('/');
   };

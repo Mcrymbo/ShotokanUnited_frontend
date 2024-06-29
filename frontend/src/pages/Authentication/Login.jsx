@@ -1,37 +1,24 @@
-import { useState } from 'react';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
+import { useLogin } from '../../hooks';
 
 const SignIn = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const navigate = useNavigate();
+  const { login } = useLogin();
   
-  const [formData, setFormData] = useState({
-    'username': '',
-    'email': '',
-    'first_name': '',
-    'last_name': '',
-    'password': '',
-  })
-
-  const handleChange = (e) => {
-    const { name, value} = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  }
-
   const onSubmit = async (data) => {
-    console.log(data);
-    
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/users/', formData);
-      console.log(response.data)
+      // const response = await axios.post('http://127.0.0.1:8000/auth/token/login/', data);
+      // console.log(response.data);
+      await login(data);
+      reset();
     } catch (error) {
       console.log(error.message);
     }
+
+    navigate('/');
   };
 
   return (
@@ -52,8 +39,8 @@ const SignIn = () => {
                   <div className="relative">
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email"
-                      onChange={handleChange}
                       className={`w-full rounded-lg border py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
                         errors.email ? 'border-red-500' : 'border-stroke'
                       }`}
@@ -93,8 +80,8 @@ const SignIn = () => {
                   <div className="relative">
                     <input
                       type="password"
+                      name="password"
                       placeholder="6+ Characters, 1 Capital letter"
-                      onChange={handleChange}
                       className={`w-full rounded-lg border py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
                         errors.password ? 'border-red-500' : 'border-stroke'
                       }`}
@@ -104,10 +91,10 @@ const SignIn = () => {
                           value: 6,
                           message: 'Password must be at least 6 characters long'
                         },
-                        pattern: {
-                          value: /(?=.*[A-Z])/,
-                          message: 'Password must contain at least one capital letter'
-                        }
+                        // pattern: {
+                        //   value: /(?=.*[A-Z])/,
+                        //   message: 'Password must contain at least one capital letter'
+                        // }
                       })}
                     />
                     {errors.password && <p className="text-red-500 mt-1">{errors.password.message}</p>}
