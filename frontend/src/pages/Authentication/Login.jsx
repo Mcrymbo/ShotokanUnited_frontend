@@ -7,7 +7,7 @@ const SignIn = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
   const { login } = useLogin();
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   
   const onSubmit = async (data) => {
     try {
@@ -173,7 +173,7 @@ const SignIn = () => {
               <div className="mt-6 text-center">
                 <p>
                   Don’t have any account?{' '}
-                  <Link to="/register" className="text-primary">
+                  <Link to="/auth/register" className="text-primary">
                     Sign Up
                   </Link>
                 </p>
