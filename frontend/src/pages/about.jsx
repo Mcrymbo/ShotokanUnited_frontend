@@ -14,7 +14,7 @@ function About() {
         <section  className=''>   
           <div>
             <div className='flex justify-center flex-col lg:flex-row lg:space-x-10 lg:py-20 my-4 lg:px-20'>
-              <div>
+              <div className='lg:w-1/2'>
                     <div className='text-center lg:text-xl font-semibold mb-6'>
                         <h1>OUR VISION</h1>
                     </div>
@@ -32,7 +32,7 @@ function About() {
                         facilis? Nemo corrupti sequi voluptas ab, cum nostrum autem ut.</p>
                     </div>
                 </div>
-                <img src={boyboy} alt="" className='rounded-md lg:w-[50%] lg:h-[70vh]'/>
+                <img src={boyboy} alt="" className='rounded-md lg:h-[80vh]'/>
               </div>
               <div className='bg-blue-50 -mx-4 mb-8 px-4 py-8 lg:px-20'>
                         <h1 className='text-center text-xl font-semibold uppercase md:mb-8'>Core values</h1>
@@ -68,7 +68,7 @@ function About() {
                         </div>
                     </div>
             <div>
-              <div className='lg:flex lg:space-x-8 lg:justify-center items-center'>
+              <div className='lg:flex lg:space-x-8 lg:justify-center items-center lg:mx-10'>
                     <div className='bg-orange-50 rounded-md justify-start lg:w-1/2'>
                       <article className='p-8 mb-4 text-lg'>
                         <h1 className='text-2xl font-semibold'>Karate Empowering communities through Holistic living</h1>

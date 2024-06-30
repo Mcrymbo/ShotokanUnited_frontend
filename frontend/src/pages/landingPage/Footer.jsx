@@ -4,11 +4,11 @@ import { logo } from '../../assets';
 import { useForm } from 'react-hook-form';
 
 function FooterComponent() {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onSubmit = () => {    
+ const onSubmit = () => {    
     reset();
-  };
+  };  
 
   return (
     <Footer container className='text-white bg-slate-800 rounded-none'>

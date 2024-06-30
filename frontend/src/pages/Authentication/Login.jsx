@@ -1,20 +1,18 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { useLogin, useUser } from '../../hooks';
+import { useLogin } from '../../hooks';
 
 const SignIn = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
   const { login } = useLogin();
-  const { setUser } = useUser();
   
   const onSubmit = async (data) => {
     try {
       // const response = await axios.post('http://127.0.0.1:8000/auth/token/login/', data);
       // console.log(response.data);
-      const response = await login(data);
-      setUser(response.data);
+      await login(data);
       reset();
     } catch (error) {
       console.log(error.message);
