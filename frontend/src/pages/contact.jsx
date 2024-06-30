@@ -3,13 +3,15 @@ import { FaWhatsappSquare, FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail, MdCall, MdLocationPin } from "react-icons/md";
 import { Email } from '../components/email';
+import DefaultLayout from '../layout/DefaultLayout';
 
 
 import pic from '../assets/images/img7.jpg'
 
 function Contact() {
   return (
-    <div id='contact-section' className='md:py-20 bg-neutral-200'>
+    <DefaultLayout>
+    <div id='contact-section' className='md:py-20 bg-white'>
        <div className='mx-auto md:w-3/4 border-b-2'>
           <h1 className='text-center text-4xl p-6 font-semibold'>Contact Us</h1>
         </div>
@@ -78,6 +80,8 @@ function Contact() {
       </section>
       
     </div>
+
+    </DefaultLayout>
   )
 }
 

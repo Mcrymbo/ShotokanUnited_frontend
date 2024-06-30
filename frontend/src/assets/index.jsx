@@ -10,6 +10,7 @@ import chairman from './commitee/chairman.jpg';
 import secretary from './commitee/chairman.jpg';
 import chief from './commitee/chairman.jpg';
 import member1 from './commitee/chairman.jpg'
+import boyboy from './about/boyboy.jpg'
 
 export {
     homePic,
@@ -24,4 +25,5 @@ export {
     secretary,
     chief,
     member1,
+    boyboy,
 }
