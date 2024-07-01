@@ -12,10 +12,10 @@ export const useLogin = () => {
         setTokens(data.access, data.refresh);
         const userData = await whoami();
         setUser(userData);
-        
     };
     return { login}
 }
+
 
 export const useLogout = () => {
     const { setUser } = useContext(UserContext);

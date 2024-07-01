@@ -2,23 +2,28 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { useLogin } from '../../hooks';
+import { useUser } from '../../hooks';
 
 const SignIn = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
   const { login } = useLogin();
+  const { user } = useUser();
+  const dest = sessionStorage.getItem('intendedDestination');
   
   const onSubmit = async (data) => {
     try {
-      // const response = await axios.post('http://127.0.0.1:8000/auth/token/login/', data);
-      // console.log(response.data);
       await login(data);
+      console.log(user)
       reset();
     } catch (error) {
       console.log(error.message);
     }
-
-    navigate('/');
+    if (dest) {
+      navigate(dest);
+    } else {
+      navigate('/');
+    }
   };
 
   return (

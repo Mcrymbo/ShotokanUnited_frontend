@@ -24,7 +24,7 @@ function Contact() {
        <div className='mx-auto md:w-3/4 border-b-2'>
           <h1 className='text-center text-4xl p-6 font-semibold'>Contact Us</h1>
         </div>
-      <section className='md:mx-4 md:grid md:grid-cols-2 gap-4 md:mx-20 my-10'>
+      <section className='md:mx-4 md:grid md:grid-cols-2 gap-4 md:mx-24 my-10'>
         <div className='p-2 md:p-8'>
           <h1 className='text-xl'>You can Find us Through:</h1>
           <div className='grid md:grid-cols-2'>
@@ -61,34 +61,34 @@ function Contact() {
       </section>
       <section className='bg-slate-800 py-10'>
       <form className='space-y-4 w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  {...register("name", { required: "Name is required" })}
-                  className={`w-full p-2 rounded bg-gray-700 text-black ${errors.name ? 'border border-red-500' : ''}`}
-                />
-                {errors.name && <span className="text-red-500">{errors.name.message}</span>}
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  {...register("email", { required: "Email is required", pattern: /^\S+@\S+$/i })}
-                  className={`w-full p-2 rounded bg-gray-700 text-black ${errors.email ? 'border border-red-500' : ''}`}
-                />
-                {errors.email && <span className="text-red-500">{errors.email.message}</span>}
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  {...register("message", { required: "Message is required" })}
-                  className={`w-full p-2 rounded bg-gray-700 text-black ${errors.message ? 'border border-red-500' : ''}`}
-                  rows="4"
-                />
-                {errors.message && <span className="text-red-500">{errors.message.message}</span>}
-                <button type="submit" className="w-full p-2 bg-orange-500 rounded text-white">
-                  Send Message
-                </button>
-              </form>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          {...register("name", { required: "Name is required" })}
+          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.name ? 'border border-red-500' : ''}`}
+        />
+        {errors.name && <span className="text-red-500">{errors.name.message}</span>}
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          {...register("email", { required: "Email is required", pattern: /^\S+@\S+$/i })}
+          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.email ? 'border border-red-500' : ''}`}
+        />
+        {errors.email && <span className="text-red-500">{errors.email.message}</span>}
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          {...register("message", { required: "Message is required" })}
+          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.message ? 'border border-red-500' : ''}`}
+          rows="4"
+        />
+        {errors.message && <span className="text-red-500">{errors.message.message}</span>}
+        <button type="submit" className="w-full p-2 bg-orange-500 rounded text-white">
+          Send Message
+        </button>
+      </form>
       </section>
 
       <section>
@@ -111,7 +111,7 @@ function Contact() {
       
     </div>
       <div className='text-white bg-slate-800 rounded-none text-center py-4'>
-        <Footer.Divider className='w-3/4 mx-auto' />
+        <hr className='w-3/4 mx-auto py-2' />
         <Footer.Copyright href="#" by="Alphy™" year={2024} />
       </div>
     </>

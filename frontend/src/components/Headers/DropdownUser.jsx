@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLogout, useUser } from '../../hooks';
 
 import {logo} from '../../assets';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { logout } = useLogout();
+  const { user } = useUser();
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
@@ -45,13 +48,13 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {user.username.toUpperCase()}
           </span>
           <span className="block text-xs">UX Designer</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={logo} alt="User" />
+          <img src={ user.profile.profile_pic_url || logo } alt="User" className='w-12 h-12 rounded-full' />
         </span>
 
         <svg
@@ -153,7 +156,9 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+        onClick={logout}
+        >
           <svg
             className="fill-current"
             width="22"

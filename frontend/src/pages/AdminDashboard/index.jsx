@@ -1,9 +1,10 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import UserPage from "./userPage";
+import UserPage from './userPage';
+import { Profile } from '../profile';
 import Loader from '../../common/Loader';
-import {PageTitle} from '../../components'
+import { PageTitle } from '../../components';
 
 const AdminPage = () => {
     const [loading, setLoading] = useState(true);
@@ -17,20 +18,20 @@ const AdminPage = () => {
         setTimeout(() => setLoading(false), 1000);
     }, []);
 
-    return loading ? (
-        <Loader />
-    ) : (
-        <>
-            <Routes>
-                <Route to='/users'
-                element={
-                    <>
-                        <PageTitle title='su | users'/>
-                        <UserPage />
-                    </>
-                }/>
-            </Routes>
-        </>
+    return (
+        <div>
+            {loading ? (
+                <Loader />
+            ) : (
+                <>
+                    <PageTitle title='su | Admin Dashboard' />
+                    <Routes>
+                        <Route path='/users' element={<UserPage />} />
+                        <Route path='/profile' element={<Profile />} />
+                    </Routes>
+                </>
+            )}
+        </div>
     );
 };
 

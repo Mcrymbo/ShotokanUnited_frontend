@@ -11,10 +11,10 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <UserProvider>
+    <UserProvider>
+    <Router>     
         <App />
-      </UserProvider>
     </Router>
+    </UserProvider>
   </React.StrictMode>,
 )
