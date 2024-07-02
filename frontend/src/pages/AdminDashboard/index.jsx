@@ -5,6 +5,8 @@ import UserPage from './userPage';
 import { Profile } from '../profile';
 import Loader from '../../common/Loader';
 import { PageTitle } from '../../components';
+import { Settings } from '../settings';
+import { Calendar } from '../calender';
 
 const AdminPage = () => {
     const [loading, setLoading] = useState(true);
@@ -28,6 +30,8 @@ const AdminPage = () => {
                     <Routes>
                         <Route path='/users' element={<UserPage />} />
                         <Route path='/profile' element={<Profile />} />
+                        <Route path='/settings' element={<Settings /> }/>
+                        <Route path='/calendar' element={<Calendar />} />
                     </Routes>
                 </>
             )}
