@@ -1,5 +1,4 @@
 import { Navigate } from "react-router-dom";
-// import { useAuth } from "../hooks/useAuth";
 import { useUser } from "../hooks";
 
 export const ProtectedRoute = ({ children }) => {
