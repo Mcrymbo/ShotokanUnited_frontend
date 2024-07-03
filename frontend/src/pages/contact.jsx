@@ -1,22 +1,18 @@
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { Footer } from 'flowbite-react';
 import { FaXTwitter } from "react-icons/fa6";
-import { useForm } from 'react-hook-form';
 import { MdCall, MdLocationPin } from "react-icons/md";
 import { CgMail } from "react-icons/cg";
 // import { Email } from '../components/email';
 import {Link} from 'react-router-dom'
 import Navbar from "../components/Navbar";
+import { ContactForm } from "../components";
 
 
 import pic from '../assets/images/img7.jpg'
 
 function Contact() {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
-  const onSubmit = () => {    
-    reset();
-  }; 
+ 
   return (
     <>
     <Navbar />
@@ -59,37 +55,9 @@ function Contact() {
           <img src={pic} alt="" className='h-full w-full rounded-md' />
         </div>
       </section>
-      <section className='bg-slate-800 py-10'>
-      <form className='space-y-4 w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          {...register("name", { required: "Name is required" })}
-          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.name ? 'border border-red-500' : ''}`}
-        />
-        {errors.name && <span className="text-red-500">{errors.name.message}</span>}
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          {...register("email", { required: "Email is required", pattern: /^\S+@\S+$/i })}
-          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.email ? 'border border-red-500' : ''}`}
-        />
-        {errors.email && <span className="text-red-500">{errors.email.message}</span>}
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          {...register("message", { required: "Message is required" })}
-          className={`w-full p-2 rounded bg-gray-700 text-black ${errors.message ? 'border border-red-500' : ''}`}
-          rows="4"
-        />
-        {errors.message && <span className="text-red-500">{errors.message.message}</span>}
-        <button type="submit" className="w-full p-2 bg-orange-500 rounded text-white">
-          Send Message
-        </button>
-      </form>
-      </section>
+      <div className='bg-slate-800 py-10 px-8'>
+      <ContactForm />
+      </div>
 
       <section>
         <div className='py-4'>

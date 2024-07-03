@@ -77,8 +77,8 @@ const Settings = () => {
                         type="text"
                         name="phone_number"
                         id="phone_number"
-                        placeholder={ user.profile.phone_number || '+254 700 000 000'}
-                        defaultValue={ user.profile.phone_number || '+254 700 000 000'}
+                        placeholder={ user.profile?.phone_number || '+254 700 000 000'}
+                        defaultValue={ user.profile?.phone_number || '+254 700 000 000'}
                       />
                     </div>
                   </div>
@@ -188,8 +188,8 @@ const Settings = () => {
                         name="bio"
                         id="bio"
                         rows={6}
-                        placeholder={user.profile.bio || "Write your bio here"}
-                        defaultValue={user.profile.bio || "Write your bio here"}
+                        placeholder={user.profile?.bio || "Write your bio here"}
+                        defaultValue={user.profile?.bio || "Write your bio here"}
                       ></textarea>
                     </div>
                   </div>
@@ -223,7 +223,7 @@ const Settings = () => {
                 <form action="#">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-14 w-14 rounded-full">
-                      <img src={user.profile.profile_pic_url} alt="User" className='w-14 h-14 rounded-full' />
+                      <img src={user.profile?.profile_pic_url} alt="User" className='w-14 h-14 rounded-full' />
                     </div>
                     <div>
                       <span className="mb-1.5 text-black dark:text-white">

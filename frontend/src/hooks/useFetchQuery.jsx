@@ -66,6 +66,30 @@ api.interceptors.response.use(
   }
 );
 
+// Response interceptor to handle token expiration and refresh
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    const originalRequest = error.config;
+
+    if (error.response && error.response.status === 401) {
+      try {
+        const newAccessToken = await refreshAccessToken();
+        originalRequest.headers["Authorization"] = "JWT " + newAccessToken;
+        return api(originalRequest); // Retry the original request with the new token
+      } catch (refreshError) {
+        removeTokens();
+        redirectToLogin();
+        return Promise.reject(refreshError);
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 //get my data incase there is a refresh
 export const whoami = async () => {
   const response = await api.get("auth/users/me/");
@@ -113,3 +137,28 @@ export const redirectToLogin = () => {
 export const getAccessToken = () => {
   return localStorage.getItem("accessToken");
 };
+
+// Function to refresh the access token using the refresh token
+const refreshAccessToken = async () => {
+  const refreshToken = getRefreshToken();
+  if (!refreshToken) {
+    throw new Error("Refresh token not available");
+  }
+
+  try {
+    const response = await auth.post("auth/jwt/refresh/", { refresh: refreshToken });
+    setTokens(response.data.access, refreshToken); // Assuming the refresh token remains the same
+    return response.data.access;
+  } catch (error) {
+    throw new Error("Unable to refresh token");
+  }
+};
+
+// Function to get refresh token from local storage
+export const getRefreshToken = () => {
+  return localStorage.getItem("refreshToken");
+};
+
+export {
+  api,
+}
