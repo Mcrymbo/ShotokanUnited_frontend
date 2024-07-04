@@ -35,10 +35,12 @@ export const commitee = [
         name: 'Atemi Sensei',
         photo: chairman,
         rank: '4th Dan',
-        description: '',
+        description: 'Mr. Atemi is a fitness enthusiast who has a passion for Karate. He has \
+        practiced Boxing and Karate for many years. Atemi is the former President \
+        of the Kenya Karate Federation.',
     },
     {
-        title: 'chief',
+        title: 'chief Technical Trainer',
         name: 'Joshua Oude Sensei',
         photo: chief,
         rank: '4th Dan',
@@ -49,7 +51,10 @@ export const commitee = [
         name: 'Musoga Goodric Sensei',
         photo: secretary,
         rank: '3rd Dan',
-        description: '',
+        description: 'Musoga started practicing martial arts while in primary school in Nakuru. \
+        He joined Taekwondo classes at the Christ the King Church. However, \
+        while in high school he switched to Karate which has remained his \
+        passion.',
     },
     {
         title: 'Commitee member',

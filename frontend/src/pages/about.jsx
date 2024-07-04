@@ -16,20 +16,24 @@ function About() {
             <div className='flex justify-center flex-col lg:flex-row lg:space-x-10 lg:py-20 my-4 lg:px-20'>
               <div className='lg:w-1/2'>
                     <div className='text-center lg:text-xl font-semibold mb-6'>
-                        <h1>OUR VISION</h1>
+                        <h1>About Us</h1>
                     </div>
                     <div className='text-left mb-8'>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Totam hic fugit cum, doloribus asperiores exercitationem a
-                        error nulla delectus optio. Consectetur dolorem dolor saepe similique
-                        impedit vitae architecto id vel repellat provident error, consequatur
-                        tenetur cumque praesentium quia. Ab possimus, ut eligendi nostrum
-                        accusamus esse mollitia unde dolor. Iste voluptate, culpa obcaecati,
-                        dignissimos veritatis eaque dicta laudantium dolor ut excepturi nostrum
-                        nam. Beatae, facere? Fugit placeat, inventore veritatis temporibus eum
-                        quae quas dolores quidem deleniti, fugiat ab nam sapiente distinctio,
-                        culpa ullam delectus totam. Ratione vitae ex soluta impedit repudiandae
-                        facilis? Nemo corrupti sequi voluptas ab, cum nostrum autem ut.</p>
+                      <p>
+                        Shotokan United Kenya is an organization that has a membership of about 300 members which grows
+                        daily as new students join our various coaches in different dojos.
+                      </p>
+                      <p>
+                        We greatly value learning and growing in our knowledge of shotokan karate and this has seen us
+                        travel widely in our region, Tanzania, Uganda and Rwanda to attend workshops. We have dreams of
+                        travelling to Japan one day.
+                      </p>
+                      <p>
+                        We have more than 20 dojos and institutions under us not just in Nairobi but also in Mombasa,
+                        Eldoret, Kisumu, Migori (neighboring cities to the capital city). Among our affiliate clubs are 3
+                        universities, two government institutions, private clubs and more than 20 schools. We desire to
+                        spread our love for the art in our country and impact lives.
+                      </p>
                     </div>
                 </div>
                 <img src={boyboy} alt="" className='rounded-md lg:h-[80vh]'/>

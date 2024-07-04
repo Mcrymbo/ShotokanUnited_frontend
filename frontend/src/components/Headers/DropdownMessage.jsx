@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../../hooks';
-
-import {logo} from '../../assets'
+import { logo } from '../../assets';
 
 const DropdownMessage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -11,22 +10,39 @@ const DropdownMessage = () => {
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
-  const [ messages, setMessages ] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const handleMessages = async () => {
+  const handleMessages = async (page) => {
     try {
-      const response = await api.get('/api/message/');
-      setMessages(response.data);
+      const response = await api.get('/api/message/', {
+        params: {
+          page: page,
+        },
+      });
+      setMessages(response.data.results);
+      setTotalPages(response.data.total_pages);
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
-  console.log(messages[0])
   useEffect(() => {
-    handleMessages();
-    console.log(messages)
-  }, []);
+    handleMessages(currentPage);
+  }, [currentPage]);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   // close on click outside
   useEffect(() => {
@@ -114,29 +130,43 @@ const DropdownMessage = () => {
         </div>
 
         <ul className="flex h-auto flex-col overflow-y-auto">
-        { messages.map((message, index) => (
-                <li key={index}>
-                  <Link
-                    className="flex gap-4.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-                    to="#"
-                  >
-                    <div className="h-12.5 w-12.5 rounded-full">
-                      <img src={logo} alt="User" />
-                    </div>
+          {messages.map((message, index) => (
+            <li key={index}>
+              <Link
+                className="flex gap-4.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
+                to="#"
+              >
+                <div className="h-12.5 w-12.5 rounded-full">
+                  <img src={logo} alt="User" />
+                </div>
 
-                    <div>
-                      <h6 className="text-sm font-medium text-black dark:text-white">
-                        {message.name}
-                      </h6>
-                      <p className="text-sm">{message.message}</p>
-                      <p className="text-xs">{message.updated_at}</p>
-                    </div>
-                  </Link>
-                </li>
-              
-            ))}
-          
+                <div>
+                  <h6 className="text-sm font-medium text-black dark:text-white">
+                    {message.name}
+                  </h6>
+                  <p className="text-sm">{message.message}</p>
+                  <p className="text-xs">{message.updated_at}</p>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
+        <div className="flex justify-between px-4.5 py-3">
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className="text-sm font-medium text-bodydark2"
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className="text-sm font-medium text-bodydark2"
+          >
+            Next
+          </button>
+        </div>
       </div>
       {/* <!-- Dropdown End --> */}
     </li>
