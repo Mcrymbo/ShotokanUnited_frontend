@@ -35,6 +35,19 @@ jobs:
     - name: List all files in frontend directory
       run: ls -al ./frontend
 
+    - name: Debug SSH key
+      run: |
+        echo "${{ secrets.SERVER_SSH_KEY }}" > private_key.pem
+        chmod 600 private_key.pem
+        ssh-keygen -y -f private_key.pem  # Check if this outputs the correct public key
+
+    - name: Attempt SSH connection
+      run: |
+        ssh -i private_key.pem username@server_ip_or_hostname
+      env:
+        SERVER_IP: ${{ secrets.SERVER_HOST }}
+        USERNAME: ${{ secrets.SERVER_USER }}
+
     - name: Restart Nginx
       uses: appleboy/ssh-action@v0.1.6
       with:
