@@ -5,6 +5,7 @@ import { About, Contact } from './pages'
 import {SignIn, SignUp, ActivateAccount} from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
 
+
 function App() {
   return (
       <Routes>
