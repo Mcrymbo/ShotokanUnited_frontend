@@ -36,14 +36,11 @@ jobs:
       run: |
         ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Test SSH connection
-      run: ssh -i ~/.ssh/deploy croco@157.245.98.236 echo "SSH connection successful"
-
     - name: Copy files to server
       uses: appleboy/scp-action@v0.1.0
       with:
         host: ${{ secrets.SERVER_HOST }}
-        username: croco
+        username: www-data
         key: ${{ secrets.SERVER_SSH_KEY }}
         source: "./frontend/dist/*"
         target: "/var/www/"
