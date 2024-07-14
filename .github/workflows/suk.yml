@@ -43,7 +43,7 @@ jobs:
 
     - name: Attempt SSH connection
       run: |
-        ssh -i private_key.pem username@server_ip_or_hostname
+        ssh -i private_key.pem croco@157.245.98.236
       env:
         SERVER_IP: ${{ secrets.SERVER_HOST }}
         USERNAME: ${{ secrets.SERVER_USER }}
