@@ -26,9 +26,9 @@ jobs:
       run: npm run build
       working-directory: ./frontend
 
-    - name: Update known_hosts
+    - name: Setup SSH
       run: |
-        ssh-keygen -R 157.245.98.236
+        mkdir -p ~/.ssh
         ssh-keyscan -H 157.245.98.236 >> ~/.ssh/known_hosts
 
     - name: SSH into server
