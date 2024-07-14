@@ -24,7 +24,7 @@ jobs:
 
     - name: Build frontend
       run: npm run build
-      working-directory: ./frontent
+      working-directory: ./frontend
 
     - name: Debug current directory
       run: pwd
