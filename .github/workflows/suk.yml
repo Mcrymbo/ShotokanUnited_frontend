@@ -25,24 +25,3 @@ jobs:
     - name: Build frontend
       run: npm run build
       working-directory: ./frontend
-
-    - name: Setup SSH
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-
-    - name: Deploy to Server
-      run: |
-        ssh -i ${{ secrets.PRIVATE_KEY_PATH }} croco@${{ secrets.SERVER_HOST }} << 'EOF'
-          cd /var/www/
-          # Commands to copy built files
-          # Example: scp -r /path/to/local/build/* .
-          sudo systemctl restart nginx
-        EOF
-      env:
-        PRIVATE_KEY_PATH: ${{ secrets.PRIVATE_KEY_PATH }}
-        SERVER_HOST: ${{ secrets.SERVER_HOST }}
-        USERNAME: croco
-
-    - name: Notify Success
-      run: echo "Deployment successful!"
