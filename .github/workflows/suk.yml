@@ -26,11 +26,11 @@ jobs:
       run: npm run build
       working-directory: ./frontend
 
-    - name: Generetae secrete key
-      run: mkdir ~/.ssh && chmod 700 ~/.ssh
-
-    - name: install key
-      run: echo ${{ secrets.SERVER_SSH_KEY }} > ~/.ssh/deploy
+    - name: Generate SSH directory and key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy
+        chmod 600 ~/.ssh/deploy
 
     - name: Copy files to server
       uses: appleboy/scp-action@v0.1.0
