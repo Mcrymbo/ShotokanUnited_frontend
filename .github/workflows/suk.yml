@@ -31,5 +31,19 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy
         chmod 600 ~/.ssh/deploy
-    - name: copy files using scp
-      run: ssh -i ~/.ssh/deploy croco@157.245.98.236
+
+    - name: Add server to known hosts
+      run: |
+        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Test SSH connection
+      run: ssh -i ~/.ssh/deploy croco@157.245.98.236 echo "SSH connection successful"
+
+    - name: Copy files to server
+      uses: appleboy/scp-action@v0.1.0
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: croco  # Replace with correct username if different
+        key: ~/.ssh/deploy
+        source: "./frontend/dist/*"
+        target: "/var/www/"
