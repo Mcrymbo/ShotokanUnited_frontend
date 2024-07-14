@@ -32,4 +32,4 @@ jobs:
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy
         chmod 600 ~/.ssh/deploy
     - name: copy files using scp
-      run: scp -i ~/.ssh/deploy -r dist/* croco@157.245.98.236:/var/www/157.245.98.236/
+      run: ssh -i ~/.ssh/deploy -r dist/* croco@157.245.98.236
