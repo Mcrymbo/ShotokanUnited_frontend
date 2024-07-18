@@ -11,6 +11,7 @@ import secretary from './commitee/chairman.jpg';
 import chief from './commitee/chairman.jpg';
 import member1 from './commitee/chairman.jpg'
 import boyboy from './about/boyboy.jpg'
+import cover from './icons/cover.png'
 
 export {
     homePic,
@@ -26,4 +27,5 @@ export {
     chief,
     member1,
     boyboy,
+    cover,
 }

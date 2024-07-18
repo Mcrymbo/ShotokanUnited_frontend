@@ -56,7 +56,7 @@ const AddUser = ({ onUserAdd }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute overflow-y-auto top-30 left-40 w-1/2 flex items-center justify-center shadowed-lg">
+        <div className="absolute overflow-y-auto top-30 left-40 w-1/2 flex items-center justify-center shadowed-lg h-3/4">
 
           <div ref={modal} className="relative bg-white rounded-lg shadow-lg max-w-md w-full p-6">
             <button
