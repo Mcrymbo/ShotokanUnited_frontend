@@ -21,7 +21,7 @@ const Profile = () => {
           />
         </div>
         <div className="px-4 pb-6 text-center lg:pb-8 xl:pb-11.5">
-          <div className="relative z-30 bg-blue-50  mx-auto -mt-22 h-30 w-full max-w-30 rounded-full p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
+          <div className="relative z-30 bg-white  mx-auto -mt-22 h-30 w-full max-w-30 rounded-full p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
             <div className="relative drop-shadow-2 flex justify-center items-center">
               
             { user?.profile?.profile_pic_url ? 
