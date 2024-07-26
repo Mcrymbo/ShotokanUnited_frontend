@@ -7,9 +7,8 @@ import { CgMail } from "react-icons/cg";
 import {Link} from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import { ContactForm } from "../components";
+import { teamSpirit1 } from "../assets";
 
-
-import pic from '../assets/images/img7.jpg'
 
 function Contact() {
  
@@ -20,7 +19,7 @@ function Contact() {
        <div className='mx-auto md:w-3/4 border-b-2'>
           <h1 className='text-center text-4xl p-6 font-semibold'>Contact Us</h1>
         </div>
-      <section className='md:mx-4 md:grid md:grid-cols-2 gap-4 md:mx-24 my-10'>
+      <section className='md:mx-4 md:grid md:grid-cols-2 gap-2 md:mx-24 my-10'>
         <div className='p-2 md:p-8'>
           <h1 className='text-xl'>You can Find us Through:</h1>
           <div className='grid md:grid-cols-2'>
@@ -52,7 +51,7 @@ function Contact() {
           </div>
         </div>
         <div className='mx-2'>
-          <img src={pic} alt="" className='h-full w-full rounded-md' />
+          <img src={teamSpirit1} alt="" className='h-full w-full rounded-md' />
         </div>
       </section>
       <div className='bg-slate-800 py-10 px-8'>

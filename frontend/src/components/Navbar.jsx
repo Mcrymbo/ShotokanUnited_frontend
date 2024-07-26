@@ -39,6 +39,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex space-x-4'>
+      {/* <input type="checkbox" value="light" className="toggle theme-controller" /> */}
         {navItems.map(item => (
           <li key={item.id} className='hover:text-red-500 cursor-pointer'>
             <Link

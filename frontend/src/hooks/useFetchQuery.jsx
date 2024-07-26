@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
 
-const baseUrl = "http://157.245.98.236:8000/";
+const baseUrl = "https://shotokanunitedkenya.org/backend/";
 // const baseUrl = "http://localhost:8000/";
 
 const api = axios.create({

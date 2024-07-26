@@ -12,6 +12,15 @@ import chief from './commitee/chairman.jpg';
 import member1 from './commitee/chairman.jpg'
 import boyboy from './about/boyboy.jpg'
 import cover from './icons/cover.png'
+import langi from './commitee/langi.png'
+import joshua from './commitee/joshua1.jpg';
+import jason from './commitee/jason.jpg'
+import musoga from './commitee/musoga.jpg';
+import teamTrain1 from './Team/teamTrain1.jpg';
+import teamRelax1 from './Team/teamRelax1.jpg';
+import teamSpirit1 from './Team/teamSpirit1.jpg'
+import teamSpirit2 from './Team/teamSpirit2.jpg';
+import chris from './personal/chris.jpg';
 
 export {
     homePic,
@@ -28,4 +37,13 @@ export {
     member1,
     boyboy,
     cover,
+    langi,
+    joshua,
+    jason,
+    musoga,
+    teamTrain1,
+    teamRelax1,
+    teamSpirit1,
+    teamSpirit2,
+    chris,
 }

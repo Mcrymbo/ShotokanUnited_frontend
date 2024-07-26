@@ -1,45 +1,23 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faCircle, faCircleDot } from '@fortawesome/free-solid-svg-icons';
-import { homePic } from '../../assets';
-import { heroimages } from '../../constants';
+import { 
+  homePic,
+  teamSpirit2,
+ } from '../../assets';
+
 
 const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // Update window width state on resize
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Determine how many images to display based on window width
-  const getDisplayedImages = () => {
-    if (windowWidth >= 1024) {
-      // For large screens, show 4 images
-      return heroimages.slice(currentImageIndex, currentImageIndex + 4);
-    } else {
-      // For smaller screens, show only the current image
-      return heroimages.slice(currentImageIndex, currentImageIndex + 1);
-    }
-  };
-
-  const displayedImages = getDisplayedImages();
-
-  const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroimages.length) % heroimages.length);
-  };
-
-  const handleNextClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroimages.length);
-  };
 
   return (
+    <>
+    {/* <div className='sticky -z-10 top-0'> */}
+      <div
+        style={{ backgroundImage: `url(${teamSpirit2})` }}
+        className="w-full h-64 bg-cover bg-center relative" >
+
+        <div className='absolute inset-0 bg-black opacity-50' />  
+      </div>       
+    {/* </div> */}
+  
     <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
       <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
@@ -61,43 +39,40 @@ const Hero = () => {
           className="w-full h- sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
           src={homePic}
           alt="SUK"
-          loading="lazy"
+          loading="eager"
         />
       </div>
-      <div className="relative flex justify-center items-center mt-6">
-        <FontAwesomeIcon
-          icon={faChevronLeft}
-          size="2x"
-          className="absolute -left-3 sm:left-8 lg:left-0 cursor-pointer z-10"
-          onClick={handlePrevClick}
-        />
-        <div className="mx-auto max-w-screen-lg w-[100%] flex justify-center mt-4 lg:space-x-6">
-          {displayedImages.map((image, index) => (
-            <div key={index} className="w-full lg:w-1/4 px-2">
-              <img src={image.icon} alt={`Hero Image ${index}`} className='h-[50vh] w-full object-cover' loading="lazy" />
-              <p className="text-center mt-2">{image.title}</p>
-            </div>
-          ))}
+
+      <div className="carousel w-full pt-20">
+        <div id="item1" className="carousel-item w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+            className="w-full" />
         </div>
-        <FontAwesomeIcon
-          icon={faChevronRight}
-          size="2x"
-          className="absolute -right-3 sm:right-1 lg:right-0 cursor-pointer z-10"
-          onClick={handleNextClick}
-        />
+        <div id="item2" className="carousel-item w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+            className="w-full" />
+        </div>
+        <div id="item3" className="carousel-item w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+            className="w-full" />
+        </div>
+        <div id="item4" className="carousel-item w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+            className="w-full" />
+        </div>
       </div>
-      <div className="flex justify-center mt-4 space-x-2">
-        {heroimages.map((_, index) => (
-          <FontAwesomeIcon
-            key={index}
-            icon={currentImageIndex === index ? faCircleDot : faCircle}
-            size="xs"
-            className="cursor-pointer"
-            onClick={() => setCurrentImageIndex(index)}
-          />
-        ))}
+      <div className="flex w-full justify-center gap-2 py-2">
+        <a href="#item1" className="btn btn-xs">1</a>
+        <a href="#item2" className="btn btn-xs">2</a>
+        <a href="#item3" className="btn btn-xs">3</a>
+        <a href="#item4" className="btn btn-xs">4</a>
       </div>
     </div>
+    </>
   );
 };
 

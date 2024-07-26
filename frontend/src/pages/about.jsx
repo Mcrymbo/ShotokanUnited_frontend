@@ -1,6 +1,4 @@
-import backgroundImage from '../assets/images/img7.jpg';
-import img6 from '../assets/images/img6.jpg'
-import { boyboy } from '../assets';
+import { boyboy, chris } from '../assets';
 import DefaultLayout from '../layout/DefaultLayout';
 
 
@@ -100,8 +98,9 @@ function About() {
                            of community life, contributing to overall well-being and unity.
                         </p>
                       </article>
-                    </div>                  
-                        <div className='lg:w-1/2 text-xl'>
+                    </div> 
+                               
+                        <div className='lg:w-1/2 text-xl' >
                             <h1 className='text-left italic font-bold'>SHU-HA-RI</h1>
                             <p className='italic mt-10 text-center'>
                               <p> "Teach good karate and be kind to people</p>
@@ -109,49 +108,12 @@ function About() {
                               <p>Provide Opportunity"</p>                            
                             </p>
                             <div className='text-end italic mt-20 font-bold'> Scott Langley Sensei</div>
-                        </div>
+                        </div> 
               </div>
               
             </div>
           </div>
-        </section>
-
-        <section className='bg-gradient-to-tr from-neutral-900 to-neutral-700 relative mt-20'>
-            <img src={backgroundImage} alt="" className='w-full h-full object-cover absolute mix-blend-overlay' />
-            <div className='grid md:grid-cols-4 w-full text-white md:px-20 md:py-10 '>
-                <div className='col-span-3 p-4'>
-                <div >
-                  <h1 className='text-2xl'><span className='uppercase font-semibold'>Shotokan-United Kenya</span> <span className='block'>"Empowering Communities through holistic living"</span></h1>
-                  <div className='my-6'>
-                    <h1> <span className='text-xl font-bold'>Sensei Joshua Oude</span>
-                    <span className='block text-lg'>"Chief-Technical Officer: </span><span className='block'> Shotokan-United Kenya"</span></h1>
-                  </div>
-                  <div className='space-y-4 text-lg'>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Totam hic fugit cum, doloribus asperiores exercitationem a
-                      error nulla delectus optio. Consectetur dolorem dolor saepe similique
-                      impedit vitae architecto id vel repellat provident error, consequatur
-                      tenetur cumque praesentium quia. Ab possimus, ut eligendi nostrum
-                      accusamus esse mollitia unde dolor.</p>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Totam hic fugit cum, doloribus asperiores exercitationem a
-                      error nulla delectus optio. Consectetur dolorem dolor saepe similique
-                      impedit vitae architecto id vel repellat provident error, consequatur
-                      tenetur cumque praesentium quia. Ab possimus, ut eligendi nostrum
-                      accusamus esse mollitia unde dolor.</p>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Totam hic fugit cum, doloribus asperiores exercitationem a
-                      error nulla delectus optio. Consectetur dolorem dolor saepe similique
-                      impedit vitae architecto id vel repellat provident error, consequatur
-                      tenetur cumque praesentium quia. Ab possimus, ut eligendi nostrum
-                      accusamus esse mollitia unde dolor.</p>
-                  </div>
-                </div>
-              </div>
-              <div></div>
-            </div>
-        </section>
-      
+        </section>    
     </div>
     </DefaultLayout>
   )
