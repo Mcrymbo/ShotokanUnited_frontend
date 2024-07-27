@@ -4,6 +4,7 @@ import LandingPage from './pages/landingPage';
 import { About, Contact } from './pages'
 import {SignIn, SignUp, ActivateAccount} from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path='/auth/login' element={<SignIn />} />
           <Route path='/auth/register' element={<SignUp />} />
           <Route path="/auth/activate" element={<ActivateAccount />} />
+
+          <Route path="*" element={ <NotFound /> }/>
       </Routes>
   )
 }

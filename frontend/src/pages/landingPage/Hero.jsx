@@ -4,20 +4,26 @@ import {
   teamSpirit2,
  } from '../../assets';
 
+ const items = [
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+  }
+ ]
+
 
 const Hero = () => {
 
   return (
     <>
-    {/* <div className='sticky -z-10 top-0'> */}
-      <div
-        style={{ backgroundImage: `url(${teamSpirit2})` }}
-        className="w-full h-64 bg-cover bg-center relative" >
-
-        <div className='absolute inset-0 bg-black opacity-50' />  
-      </div>       
-    {/* </div> */}
-  
     <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
       <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
@@ -43,34 +49,17 @@ const Hero = () => {
         />
       </div>
 
-      <div className="carousel w-full pt-20">
-        <div id="item1" className="carousel-item w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full" />
-        </div>
-        <div id="item2" className="carousel-item w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full" />
-        </div>
-        <div id="item3" className="carousel-item w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full" />
-        </div>
-        <div id="item4" className="carousel-item w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full" />
-        </div>
-      </div>
-      <div className="flex w-full justify-center gap-2 py-2">
-        <a href="#item1" className="btn btn-xs">1</a>
-        <a href="#item2" className="btn btn-xs">2</a>
-        <a href="#item3" className="btn btn-xs">3</a>
-        <a href="#item4" className="btn btn-xs">4</a>
-      </div>
+      <div className="carousel w-full">
+        {items.map((item, index) => (
+            <div key={index} id={`slide${index + 1}`} className="carousel-item relative w-full">
+              <img src={item.image} className="w-full" />
+              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                <a href={`#slide${(index === 0 ? items.length : index)}`} className="btn btn-circle">❮</a>
+                <a href={`#slide${(index + 2 > items.length ? 1 : index + 2)}`} className="btn btn-circle">❯</a>
+              </div>
+            </div>
+          ))}
+  </div>
     </div>
     </>
   );
