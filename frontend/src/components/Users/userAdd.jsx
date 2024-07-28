@@ -4,6 +4,7 @@ import AddUser from "./addUser";
 import Modal from "../modal";
 import ViewUserModal from "./userView";
 import UserEditModal from "./userEditModal";
+import DelUser from "./DelUser";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -51,6 +52,10 @@ const UserList = () => {
       console.log(error.message);
     }
   };
+
+  const handleDelete = (userId) => {
+    setUsers((prevUsers) => prevUsers.filter(user => user.id !== userId));
+  }
 
   const openDeleteModal = (userId) => {
     setSelectedUserId(userId);
@@ -101,41 +106,43 @@ const UserList = () => {
 
   return (
     <div className="rounded-sm border border-stroke h-screen bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <div className='flex justify-end'>
-        <AddUser onUserAdd={onUserAdd} />
+     <div className='flex justify-end'>
+        <Modal id="addUserModal" title="Add User" name="Add User">
+          <AddUser onUserAdd={onUserAdd} />
+        </Modal>
       </div>
       
-      <div className="max-w-full overflow-x-auto">
-        <table className="w-full table-auto">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra table-pin-rows table-sm">
           <thead>
-            <tr className="bg-gray-2 text-left dark:bg-meta-4">
-              <th className="min-w-[80px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">No.</th>
-              <th className="min-w-[10px] py-4 px-4 font-medium text-black dark:text-white">First Name</th>
-              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">Last Name</th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">Username</th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">Email</th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">Action</th>
+            <tr>
+              <th>No.</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
               <tr key={index}>
-                <td className="border-b border-[#eee] py-4 px-4 pl-4 dark:border-strokedark">
-                  <p className="text-sm">{calculateIndex(currentPage, index)}</p>
+                <td>
+                  <p>{calculateIndex(currentPage, index)}</p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{user?.first_name}</p>
+                <td>
+                  <p>{user?.first_name}</p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{user?.last_name}</p>
+                <td>
+                  <p>{user?.last_name}</p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{user?.username}</p>
+                <td>
+                  <p>{user?.username}</p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{user?.email}</p>
+                <td>
+                  <p>{user?.email}</p>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                <td>
                   <div className="flex items-center space-x-3.5">
                     <button onClick={() => onViewUser(user)} className="hover:text-primary">
                       <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,11 +165,20 @@ const UserList = () => {
                         </svg>
                     </button>
 
-                    <button onClick={() => openDeleteModal(user.id)} className="hover:text-primary">
+                    <Modal id="DelUserModal"
+                      title="Delete User"
+                      name={ <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style={{ fill: '#000000' }}>
+                      <path d="M20 2H15.41l-.83-.83C14.21 1.08 14 1 13.77 1H10.24C10.01 1 9.8 1.08 9.42 1.42L8.59 2H4c-.55 0-1 .45-1 1s.45 1 1 1h16c.55 0 1-.45 1-1S20.55 2 20 2zM17.71 6.29C17.54 6.11 17.28 6 17 6H7c-.28 0-.54.11-.71.29C6.11 6.46 6 6.72 6 7v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-.28-.11-.54-.29-.71zM9.17 9.17c.31-.31.85-.09.85.35v7.31c0 .44-.54.66-.85.35-.19-.2-.19-.51 0-.71V9.88C8.98 9.68 9.06 9.36 9.17 9.17zM15.83 9.17c.31-.31.85-.09.85.35v7.31c0 .44-.54.66-.85.35-.19-.2-.19-.51 0-.71V9.88C15.63 9.68 15.72 9.36 15.83 9.17zM12.5 9.5c.44 0 .5.6.5 1v6c0 .4-.06 1-.5 1s-.5-.6-.5-1v-6C12 10.1 12.06 9.5 12.5 9.5z"/>
+                    </svg>}
+                      >
+                      <DelUser onDel={handleDelete} id={user.id} />
+                    </Modal>
+
+                    {/* <button onClick={() => openDeleteModal(user.id)} className="hover:text-primary">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style={{ fill: '#000000' }}>
                         <path d="M20 2H15.41l-.83-.83C14.21 1.08 14 1 13.77 1H10.24C10.01 1 9.8 1.08 9.42 1.42L8.59 2H4c-.55 0-1 .45-1 1s.45 1 1 1h16c.55 0 1-.45 1-1S20.55 2 20 2zM17.71 6.29C17.54 6.11 17.28 6 17 6H7c-.28 0-.54.11-.71.29C6.11 6.46 6 6.72 6 7v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7c0-.28-.11-.54-.29-.71zM9.17 9.17c.31-.31.85-.09.85.35v7.31c0 .44-.54.66-.85.35-.19-.2-.19-.51 0-.71V9.88C8.98 9.68 9.06 9.36 9.17 9.17zM15.83 9.17c.31-.31.85-.09.85.35v7.31c0 .44-.54.66-.85.35-.19-.2-.19-.51 0-.71V9.88C15.63 9.68 15.72 9.36 15.83 9.17zM12.5 9.5c.44 0 .5.6.5 1v6c0 .4-.06 1-.5 1s-.5-.6-.5-1v-6C12 10.1 12.06 9.5 12.5 9.5z"/>
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </td>
               </tr>
@@ -170,6 +186,12 @@ const UserList = () => {
           </tbody>
         </table>
       </div>
+
+      {/* <Modal id="deleteModal" title="Delete User" name="Delete User">
+        <p>Are you sure you want to delete this user?</p>
+        <button onClick={onDeleteUser} className="btn">Confirm</button>
+        <button onClick={closeDeleteModal} className="btn">Cancel</button>
+      </Modal> */}
       
       <div className="mt-4 flex justify-center">
         <button
