@@ -1,20 +1,31 @@
-const Modal = ({ id, title, children, name }) => (
-  <>
-    {/* The button to open modal */}
-    <label htmlFor={id} className="btn">{name}</label>
+import React from 'react';
 
-    {/* Put this part before </body> tag */}
-    <input type="checkbox" id={id} className="modal-toggle" />
-    <div className="modal" role="dialog">
-      <div className="modal-box">
-        <div className='flex justify-between items-center'>
+
+const Modal = ({ id, title, children, name, styles }) => {
+
+  const closeModal = () => {
+    document.getElementById(id).checked = false;
+  };
+
+  return (
+    <>
+      {/* The button to open modal */}
+      <label htmlFor={id} className={styles}>{name}</label>
+
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id={id} className="modal-toggle" />
+      <div className="modal modal-right" role="dialog">
+        <div className="modal-box">
+          <div className='flex justify-between'>
+            <div></div>
+            <label htmlFor={id} className="w-[30px] modal-action py-2 px-4">X</label> 
+          </div>        
           <h3 className="text-lg font-bold">{title}</h3>
-          <label htmlFor={id} className="modal-action btn">X</label>
+          <div className="py-4">{React.cloneElement(children, { closeModal })}</div>
         </div>
-        <div className="py-4">{children}</div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 export default Modal;
