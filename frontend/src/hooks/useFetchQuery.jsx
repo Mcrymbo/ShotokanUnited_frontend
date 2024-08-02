@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const baseUrl = "https://shotokanunitedkenya.org/backend/";
-// const baseUrl = "http://localhost:8000/";
+// const baseUrl = "http://localhost:8000/backend/";
 
 const api = axios.create({
   baseURL: baseUrl,

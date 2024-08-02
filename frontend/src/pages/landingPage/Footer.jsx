@@ -15,7 +15,7 @@ function FooterComponent() {
             <div className='text-xl font-semibold'>Shotokan United</div>
           </div>
           
-          <div className="flex flex-col lg:flex-row lg:space-x-16 space-y-6 lg:space-y-0 text-center lg:text-left">
+          <div className="flex flex-col md:flex-row md:space-x-16 space-y-6 md:space-y-0 text-center md:text-left">
             <div className='flex flex-col'>
               <Footer.Title title="Contact us" />
               <ContactForm />

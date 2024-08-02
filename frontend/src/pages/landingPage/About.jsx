@@ -1,16 +1,17 @@
-import { dojo, mission } from "../../assets"
+// import { dojo, mission } from "../../assets"
 import { styles } from "../../styles"
+import {allTeam1, ladiesTeam1} from '../../assets';
 
 const About = () => {
   return (
     <div className='bg-white'>
-      <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 md:px-8'>
         <h1 className={`${styles.sectionHeadText} text-center`}>About Us</h1>
-        <section className='flex flex-wrap justify-between lg:py-10 lg:space-x-10 mb-6'>
-          <div className='w-full lg:w-[36vw] mb-6 lg:mb-0'>
+        <section className='md:flex justify-center md:py-10 md:space-x-10 mb-6'>
+          <div className='w-full mb-6 md:mb-0'>
             <h1 className={`${styles.sectionSubText}`}>What we do</h1>
             <p>
-              At our Shotokan Karate Club, we teach traditional Japanese karate, focusing on discipline,
+              At Shotokan United Kenya, we teach traditional Japanese karate, focusing on discipline,
               respect, and perseverance. Our expert instructors guide students of all levels to master Shotokan
               techniques, enhance physical fitness, and develop mental strength and self-defense skills. We provide
               a holistic training experience that improves coordination, flexibility, and overall well-being,
@@ -19,11 +20,11 @@ const About = () => {
               embark on a transformative journey that strengthens both body and mind.
             </p>
           </div>
-          <img src={dojo} alt="dojo" className='w-full lg:w-auto h-[45vh] object-cover' />        
+          <img src={ladiesTeam1} loading='eager' alt="dojo" className='w-full md:w-[50%] object-cover' />        
         </section>
-        <section className='flex flex-wrap justify-between'>
-          <img src={mission} alt="mission" className='w-full lg:w-auto h-[45vh] object-cover mb-6 lg:mb-0' />   
-          <div className='w-full lg:w-[36vw]'>
+        <section className='md:flex justify-between md:space-x-10'>
+          <img src={allTeam1} loading="eager" alt="mission" className='w-full md:w-[50%] md:h-auto object-cover mb-6 md:mb-0' />   
+          <div className='w-full'>
             <h1 className={`${styles.sectionSubText}`}>Mission</h1>
             <p>
               Our mission at Shotokan-United Kenya Karate Club is to empower individuals through traditional

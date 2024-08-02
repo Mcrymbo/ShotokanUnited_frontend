@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom';
 import { 
-  homePic,
-  teamSpirit2,
+  homePic, teamSpirit2, allTeam1, ladiesTeam1
  } from '../../assets';
 
  const items = [
   {
-    image: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+    image: allTeam1,
   },
   {
-    image: "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+    image: ladiesTeam1,
   },
   {
-    image: "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+    image: teamSpirit2,
   },
   {
     image: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
@@ -49,17 +48,17 @@ const Hero = () => {
         />
       </div>
 
-      <div className="carousel w-full">
+      {/* <div className="carousel w-full">
         {items.map((item, index) => (
             <div key={index} id={`slide${index + 1}`} className="carousel-item relative w-full">
-              <img src={item.image} className="w-full" />
+              <img src={item.image} alt='image' className="w-full" />
               <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                 <a href={`#slide${(index === 0 ? items.length : index)}`} className="btn btn-circle">❮</a>
                 <a href={`#slide${(index + 2 > items.length ? 1 : index + 2)}`} className="btn btn-circle">❯</a>
               </div>
             </div>
           ))}
-  </div>
+      </div> */}
     </div>
     </>
   );

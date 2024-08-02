@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useUser } from '../../hooks';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import {logo} from '../../assets'
 
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+
+  const { user } = useUser();
+
+
   const location = useLocation();
   const { pathname } = location;
 
@@ -111,18 +116,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   return (
                     <React.Fragment>
                       <NavLink
-                        to="#"
+                        to="/admin"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           (pathname === '/admin' ||
                             pathname.includes('dashboard')) &&
                           'bg-graydark dark:bg-meta-4'
                         }`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          sidebarExpanded
-                            ? handleClick()
-                            : setSidebarExpanded(true);
-                        }}
+                        
                       >
                         <svg
                           className="fill-current"
@@ -168,27 +168,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           />
                         </svg>
                       </NavLink>
-                      {/* <!-- Dropdown Menu Start --> */}
-                      <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
-                      >
-                        <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
-                          <li>
-                            <NavLink
-                              to="#"
-                              className={({ isActive }) =>
-                                'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-bodydark2 ' +
-                                (isActive && '!text-bodydark2')
-                              }
-                            >
-                              Overview
-                            </NavLink>
-                          </li>
-                        </ul>
-                      </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </React.Fragment>
                   );
                 }}
@@ -196,12 +175,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               {/* <!-- Menu Item Dashboard --> */}
 
              
-              {/* <!-- Menu Item Tables --> */}
+              {/* <!-- Users --> */}
+              { user && user.role === 1 && (
               <li>
                 <NavLink
                   to="/admin/users"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('users') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <svg
@@ -231,8 +211,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   </svg>
                  Users
                 </NavLink>
-              </li>
-              {/* <!-- Menu Item Tables --> */}
+              </li> )}
+              {/* <!-- Users--> */}
 
               
             </ul>

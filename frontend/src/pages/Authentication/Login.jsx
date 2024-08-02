@@ -22,7 +22,7 @@ const SignIn = () => {
     if (dest) {
       navigate(dest);
     } else {
-      navigate('/');
+      navigate('/admin');
     }
   };
 

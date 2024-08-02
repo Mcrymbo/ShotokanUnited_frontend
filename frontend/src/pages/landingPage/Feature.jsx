@@ -6,39 +6,30 @@ const Feature = () => {
         {
             href: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
             title: "Karate For Kids",
-            description: "Join Karate for Kids program to kickstart your Karate Journey. \
-            At Shotokan United, we believe that with correct foundation of learning we help foster in the \
-            development of not only chmpions but responsible future members of the community."
+            description: "We believe that the best time to nurture talent is from an early age. Giving a good \
+                foundation to a child helps in their development not just in competitive sports but Wholistically. "
         },
         {
             href: "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp",
             title: "Women in Karate",
-            description: "We have a program for women in Karate which focusses on best self defence practices \
-            that appreciates their physics. We train on avoidance rather than confrontation"
-        },
-        {
-            href: "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp",
-            title: "Self defence",
-            description: "This program focusses on advanced use of karate Kihon and form to immobilize an attacker \
-            in situations of extreme danger."
+            description: "In our efforts to promote karate for all, we tailor make women only classes on request. We have \
+                competent female instructors who run with this vision and we also invite international female instructors for \
+                workshops to promote the same. "
         },
         {
             href: "https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp",
             title: "Adults Karate training",
-            description: "This training program is suitable for all students above the age of 15 years. \
-            The team learn together where the young gain from the experience of the old, and the old gain from the \
-            agility and speed of the young"
+            description: "Preferably for those above 15 years of age. In this class, the young get experience from the older \
+                students while the old get inspired by the younger students to stay young at heart as they learn, grow and develop together."
         },
         {
             href: "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
             title: "Karate for school",
-            description: "At shotokan United, we appreciate the importance of co-curriculum activities in schools \
-            and we collaborate with schools to teach Karate to students. We have curriculum based approach that \
-            incoporate the fixed schedules in school and ensures we meet the learning objectives."
+            description: "Our coaches run vibrant karate clubs in various schools providing an alternative co curriculum activity for the learners"
         }
     ]
   return (
-    <div className=''>
+    <div className='mx-auto max-w-screen-lg'>
         <h1 className={`${styles.sectionHeadText} text-center py-16`}>Our Programs</h1>
         <div className="carousel carousel-en rounded-md">
             { data.map((item, index) => (

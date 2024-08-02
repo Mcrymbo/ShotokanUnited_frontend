@@ -3,10 +3,12 @@ import { useUser } from "../hooks";
 
 export const ProtectedRoute = ({ children }) => {
   const { user } = useUser();
+  sessionStorage.setItem('previousPath', window.location.pathname);
   console.log(user)
   if (!user.id) {
     sessionStorage.setItem('intendedDestination', window.location.pathname);
     return <Navigate to="/auth/login" />;
   }
+  
   return children;
 };

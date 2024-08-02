@@ -1,4 +1,4 @@
-import homePic from './Hero/HeroPic1.jpg'
+import homePic from './Hero/heroPic.png'
 import heroPic1 from './Hero/home.jpg';
 import heroPic2 from './Hero/heropic2.jpg';
 import heroPic3 from './Hero/heroPic3.jpg';
@@ -21,6 +21,8 @@ import teamRelax1 from './Team/teamRelax1.jpg';
 import teamSpirit1 from './Team/teamSpirit1.jpg'
 import teamSpirit2 from './Team/teamSpirit2.jpg';
 import chris from './personal/chris.jpg';
+import ladiesTeam1 from './Team/ladiesTeam1.jpg';
+import allTeam1 from './Team/allTeam1.jpg';
 
 export {
     homePic,
@@ -46,4 +48,7 @@ export {
     teamSpirit1,
     teamSpirit2,
     chris,
+
+    ladiesTeam1,
+    allTeam1,
 }

@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import UserPage from './userPage';
 import { Profile } from '../profile';
 import Loader from '../../common/Loader';
-import { PageTitle } from '../../components';
+import { PageTitle, ProtectedComponent } from '../../components';
 import { Settings } from '../settings';
 import { Calendar } from '../calender';
+import DashboardPage from './dashboard';
+
 
 const AdminPage = () => {
     const [loading, setLoading] = useState(true);
@@ -28,7 +30,8 @@ const AdminPage = () => {
                 <>
                     <PageTitle title='su | Admin Dashboard' />
                     <Routes>
-                        <Route path='/users' element={<UserPage />} />
+                        <Route path='/' element={<DashboardPage />} />
+                        <Route path='/users' element={ <ProtectedComponent requiredRole={1}><UserPage /></ProtectedComponent>} />
                         <Route path='/profile' element={<Profile />} />
                         <Route path='/settings' element={<Settings /> }/>
                         <Route path='/calendar' element={<Calendar />} />
