@@ -17,7 +17,7 @@ const SignUp = () => {
     } catch (error) {
       console.log(error.message);
     }
-    navigate('/auth/activate')
+    navigate('/activate')
   };
 
   return (

@@ -5,6 +5,7 @@ import { About, Contact } from './pages'
 import {SignIn, SignUp, ActivateAccount} from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
 import NotFound from './components/NotFound';
+import { Account } from './pages/Authentication';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path='/auth/login' element={<SignIn />} />
           <Route path='/auth/register' element={<SignUp />} />
           <Route path="/auth/activate" element={<ActivateAccount />} />
-
+          <Route path='/activate' element={<Account />} />
           <Route path="*" element={ <NotFound /> }/>
       </Routes>
   )
