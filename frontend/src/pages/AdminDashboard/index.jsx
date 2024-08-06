@@ -2,6 +2,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import UserPage from './userPage';
+import NewsPage from './newsPage';
+
 import { Profile } from '../profile';
 import Loader from '../../common/Loader';
 import { PageTitle, ProtectedComponent } from '../../components';
@@ -32,6 +34,7 @@ const AdminPage = () => {
                     <Routes>
                         <Route path='/' element={<DashboardPage />} />
                         <Route path='/users' element={ <ProtectedComponent requiredRole={1}><UserPage /></ProtectedComponent>} />
+                        <Route path='/news' element={<NewsPage />} />
                         <Route path='/profile' element={<Profile />} />
                         <Route path='/settings' element={<Settings /> }/>
                         <Route path='/calendar' element={<Calendar />} />
