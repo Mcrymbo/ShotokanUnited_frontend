@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useState, useRef, useEffect } from 'react';
 import { useRegister } from '../../hooks';
+import PropTypes from 'prop-types'
 
 const AddUser = ({ onUserAdd }) => {
   const { register, handleSubmit, formState: { errors }, getValues, reset } = useForm();
@@ -177,5 +178,9 @@ const AddUser = ({ onUserAdd }) => {
     </>
   );
 };
+
+AddUser.propTypes = {
+  onUserAdd: PropTypes.func.isRequired,
+}
 
 export default AddUser;

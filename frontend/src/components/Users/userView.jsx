@@ -1,4 +1,6 @@
-const ViewUser = ({ user, closeModal }) => {
+import PropTypes from 'prop-types'
+
+const ViewUser = ({ user }) => {
   return (
     <>
         <div>
@@ -20,5 +22,9 @@ const ViewUser = ({ user, closeModal }) => {
     </>
   );
 };
+
+ViewUser.propTypes = {
+  user: PropTypes.object.isRequired,
+}
 
 export default ViewUser;

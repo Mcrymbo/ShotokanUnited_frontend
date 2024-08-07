@@ -3,6 +3,7 @@ import { Dashboad } from "../../components/Dashboad";
 import { Breadcrumb } from "../../components/Breadcrumbs";
 
 const DashboardPage = () => {
+
     return (
         <DashboardLayout>
             <Breadcrumb pageName='Dashboard'/>

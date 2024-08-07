@@ -1,4 +1,5 @@
 import { api } from "../../hooks";
+import PropTypes from 'prop-types'
 
 const DelUser = ({onDel, id, closeModal}) => {
     const handleDelete = async () => {
@@ -21,4 +22,9 @@ const DelUser = ({onDel, id, closeModal}) => {
   )
 }
 
+DelUser.propTypes = {
+  onDel: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  closeModal: PropTypes.func,
+}
 export default DelUser

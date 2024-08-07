@@ -22,6 +22,7 @@ export const setTokens = (accessToken, refreshToken) => {
 export const removeTokens = () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
+  localStorage.removeItem("userData");
 };
 
 // check if the token is valid
@@ -94,6 +95,7 @@ api.interceptors.response.use(
 //get my data incase there is a refresh
 export const whoami = async () => {
   const response = await api.get("auth/users/me/");
+  localStorage.setItem('userData', JSON.stringify(response.data));
   return response.data;
 };
 

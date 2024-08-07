@@ -9,8 +9,8 @@ const Modal = ({ id, title, children, name, styles }) => {
 
   return (
     <>
-      {/* The button to open modal */}
-      <label htmlFor={id} className={`${styles} cursor-pointer`}>{name}</label>
+      { /* The button to open modal */ }
+      <label htmlFor={id} className={`${styles} cursor-pointer`}> {name} </label>
 
       {/* Put this part before </body> tag */}
       <input type="checkbox" id={id} className="modal-toggle" />

@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { api } from '../../hooks';
+import PropTypes from 'prop-types'
 
 const UserEdit = ({ onEdit, user, closeModal }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -96,5 +97,11 @@ const UserEdit = ({ onEdit, user, closeModal }) => {
     </>
   );
 };
+
+UserEdit.propTypes = {
+  onEdit: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  closeModal: PropTypes.func,
+}
 
 export default UserEdit;
