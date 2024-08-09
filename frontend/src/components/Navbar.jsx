@@ -24,9 +24,10 @@ const Navbar = () => {
 
   const navItems = [
     { id: 1, text: 'Home', to: '/' },
-    { id: 2, text: 'About', to: '/about' },
-    { id: 3, text: 'Contact', to: '/contact' },
-    { id: 4, text: user.id ? 'Logout' : 'Login', to: user ? '/auth/login' : '/login' },
+    { id: 2, text: 'News', to: '/news' },
+    { id: 3, text: 'About', to: '/about' },
+    { id: 4, text: 'Contact', to: '/contact' },
+    { id: 5, text: user.id ? 'Logout' : 'Login', to: user ? '/auth/login' : '/login' },
   ];
 
   return (
@@ -39,6 +40,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex space-x-4'>
+      {/* <input type="checkbox" value="light" className="toggle theme-controller" /> */}
         {navItems.map(item => (
           <li key={item.id} className='hover:text-red-500 cursor-pointer'>
             <Link

@@ -1,9 +1,46 @@
 import { Breadcrumb } from '../../components/Breadcrumbs';
+import { useForm } from 'react-hook-form';
 import { DashboardLayout } from '../../layout';
 import { useUser } from '../../hooks';
+import { api } from '../../hooks';
 
 const Settings = () => {
-    const { user } = useUser();
+    const { user, setUser } = useUser();
+    const { register, handleSubmit, reset } = useForm();
+
+    // search for first name and last name in object
+    const traverse = (obj) => {
+      for (let key in obj) {
+        if (key === 'fullname' && typeof obj[key] === 'string') {
+          const splitName = obj[key].split(' ');
+
+          obj['first_name'] = splitName[0];
+          obj['last_name'] = splitName[1];
+          obj['user'] = user.id;
+        }
+      }
+
+      return (obj);
+    }
+
+    const onSubmit = async (data) => {
+      const alldata = traverse(data);
+
+      try {
+        await api.put(`/api/users/${user.id}/`, alldata);
+        if (user.profile) {
+          await api.put(`/api/profile/${user.id}/`, alldata);
+        } else {
+          await api.post(`/api/profile/`, alldata);
+        }
+        // setUser(response.data)
+        reset();
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+
     
   return (
     <DashboardLayout>
@@ -19,7 +56,7 @@ const Settings = () => {
                 </h3>
               </div>
               <div className="p-7">
-                <form action="#">
+                <form action="#" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
                     <div className="w-full sm:w-1/2">
                       <label
@@ -58,6 +95,7 @@ const Settings = () => {
                           className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                           type="text"
                           name="fullName"
+                          {...register('fullname')}
                           id="fullName"
                           placeholder={`${user.first_name} ${user.last_name}`}
                           defaultValue={`${user.first_name} ${user.last_name}`}
@@ -76,6 +114,7 @@ const Settings = () => {
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="text"
                         name="phone_number"
+                        { ...register('phone_number') }
                         id="phone_number"
                         placeholder={ user.profile?.phone_number || '+254 700 000 000'}
                         defaultValue={ user.profile?.phone_number || '+254 700 000 000'}
@@ -120,6 +159,7 @@ const Settings = () => {
                         className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="email"
                         name="email"
+                        { ...register('email') }
                         id="email"
                         placeholder={user.email}
                         defaultValue={user.email}
@@ -138,6 +178,7 @@ const Settings = () => {
                       className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                       type="text"
                       name="Username"
+                      { ...register('username') }
                       id="Username"
                       placeholder={ user.username }
                       defaultValue={ user.username }
@@ -187,6 +228,7 @@ const Settings = () => {
                         className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         name="bio"
                         id="bio"
+                        { ...register('bio') }
                         rows={6}
                         placeholder={user.profile?.bio || "Write your bio here"}
                         defaultValue={user.profile?.bio || "Write your bio here"}

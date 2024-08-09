@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { FaRegUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useLogout, useUser } from '../../hooks';
-
-import {logo} from '../../assets';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -54,7 +53,10 @@ const DropdownUser = () => {
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={ user?.profile?.profile_pic_url || logo } alt="User" className='w-12 h-12 rounded-full' />
+        { user?.profile?.profile_pic_url ? 
+            <img src={user.profile.profile_pic_url} alt="profile" className='w-12 h-12 rounded-full' /> :
+            <FaRegUser className="size-12 " /> }
+              
         </span>
 
         <svg

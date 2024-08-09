@@ -21,9 +21,12 @@ const SignIn = () => {
     }
     if (dest) {
       navigate(dest);
-    } else {
+    } else if (user.role === 4) {
       navigate('/');
+    } else {
+      navigate('/admin');
     }
+
   };
 
   return (

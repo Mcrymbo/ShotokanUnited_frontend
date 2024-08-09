@@ -13,6 +13,7 @@ export const useLogin = () => {
         const userData = await whoami();
         setUser(userData);
     };
+
     return { login}
 }
 

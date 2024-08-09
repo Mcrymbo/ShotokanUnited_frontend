@@ -1,13 +1,26 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { homePic } from '../../assets';
-import { heroimages } from '../../constants';
+import { 
+  homePic, teamSpirit2, allTeam1, ladiesTeam1
+} from '../../assets';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
+const items = [
+  {
+    image: allTeam1,
+  },
+  {
+    image: ladiesTeam1,
+  },
+  {
+    image: teamSpirit2,
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+  }
+];
 
 const Hero = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,16 +37,15 @@ const Hero = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: windowWidth >= 1024 ? 3 : 1,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    autoplaySpeed: 2000,
+    arrows: true,
   };
 
   return (
-    <div className="mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8">
+    <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
       <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
           <div>
@@ -50,51 +62,20 @@ const Hero = () => {
             </button>
           </Link>
         </section>
-        <img
-          className="w-full h-auto sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
-          src={homePic}
-          alt="SUK"
-          loading="lazy"
-        />
-      </div>
-      <div className="relative mt-6">
-        <Slider {...sliderSettings}>
-          {heroimages.map((image, index) => (
-            <div key={index} className="px-2">
-              <img src={image.icon} alt={`Hero Image ${index}`} className="h-[50vh] w-full object-cover" loading="lazy" />
-              <p className="text-center mt-2">{image.title}</p>
-            </div>
-          ))}
-        </Slider>
+
+        {/* ---Slider--- */}
+        <div className="w-full h-auto sm:w-1/2 mt-6 sm:mt-0 sm:ml-6">
+          <Slider {...sliderSettings}>
+            {items.map((item, index) => (
+              <div key={index}>
+                <img src={item.image} alt={`Slide ${index + 1}`} className="w-full h-[50vh] lg:h-[32vh] object-cover" loading="lazy" />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );
-};
-
-const CustomPrevArrow = ({ onClick }) => (
-  <div
-    className="absolute left-5 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-black bg-opacity-50 p-2 rounded-full"
-    onClick={onClick}
-  >
-    <FontAwesomeIcon icon={faChevronLeft} size="2x" className="text-white" />
-  </div>
-);
-
-const CustomNextArrow = ({ onClick }) => (
-  <div
-    className="absolute right-5 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-black bg-opacity-50 p-2 rounded-full"
-    onClick={onClick}
-  >
-    <FontAwesomeIcon icon={faChevronRight} size="2x" className="text-white" />
-  </div>
-);
-
-CustomPrevArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
-
-CustomNextArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Hero;

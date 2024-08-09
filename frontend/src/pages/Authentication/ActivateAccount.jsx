@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../hooks';
 
 const ActivateAccount = () => {
   const location = useLocation();
@@ -24,15 +24,24 @@ const ActivateAccount = () => {
     const params = getQueryParams(location.search);
     const { uid, token } = params;
 
+    console.log("UID:", uid);
+    console.log("Token:", token);
+
     const activateAccount = async () => {
       try {
-        await axios.post(`http://localhost:8000/auth/users/activation/`, {
+        const response = await api.post(`/auth/users/activation/`, {
           uid,
           token,
         });
+        console.log("Activation Response:", response.data);
         setMessage('Account activated successfully!');
       } catch (error) {
-        setMessage('Activation failed. Please try again.');
+        console.error("Activation Error:", error);
+        if (error.response && error.response.data) {
+          setMessage(error.response.data.detail || 'Activation failed. Please try again.');
+        } else {
+          setMessage('Activation failed. Please try again.');
+        }
       } finally {
         setLoading(false);
       }
@@ -41,9 +50,14 @@ const ActivateAccount = () => {
     activateAccount();
   }, [location.search]);
 
-  const handleLoginRedirect = () => {
-    navigate('/auth/login');
-  };
+  useEffect(() => {
+    if (message === 'Account activated successfully!') {
+      const timer = setTimeout(() => {
+        navigate('/auth/login');
+      }, 5000); // Redirect after 5 seconds
+      return () => clearTimeout(timer); // Cleanup timer on component unmount
+    }
+  }, [message, navigate]);
 
   return (
     <div className="activation-container">
@@ -53,7 +67,7 @@ const ActivateAccount = () => {
         <>
           <p>{message}</p>
           {message === 'Account activated successfully!' && (
-            <button onClick={handleLoginRedirect}>Go to Login</button>
+            <button onClick={() => navigate('/auth/login')}>Go to Login</button>
           )}
         </>
       )}

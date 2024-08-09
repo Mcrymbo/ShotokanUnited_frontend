@@ -1,24 +1,39 @@
-const Modal = ({ isOpen, onCancel, onConfirm, message }) => {
-    return (
-      <>
-        {isOpen && (
-          <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="relative bg-white rounded-lg shadow-lg max-w-md w-full p-6">
-              <p className="text-lg text-center mb-4">{message}</p>
-              <div className="flex justify-center space-x-10">
-                <button onClick={onConfirm} className="bg-red-500 text-white px-4 py-2 rounded mr-2">
-                  Confirm
-                </button>
-                <button onClick={onCancel} className="bg-neutral-400 text-white px-4 py-2 rounded">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </>
-    );
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const Modal = ({ id, title, children, name, styles }) => {
+
+  const closeModal = () => {
+    document.getElementById(id).checked = false;
   };
-  
-  export default Modal;
+
+  return (
+    <>
+      { /* The button to open modal */ }
+      <label htmlFor={id} className={`${styles} cursor-pointer`}> {name} </label>
+
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id={id} className="modal-toggle" />
+      <div className="modal modal-right" role="dialog">
+        <div className="modal-box">
+          <div className='flex justify-between'>
+            <div></div>
+            <label htmlFor={id} className="w-[30px] modal-action cursor-pointer py-2 px-4">X</label> 
+          </div>        
+          <h3 className="text-lg font-bold">{title}</h3>
+          <div className="py-4">{React.cloneElement(children, { closeModal })}</div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+Modal.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.element.isRequired,
+  name: PropTypes.string.isRequired,
+  styles: PropTypes.string,
+};
+
+export default Modal;
