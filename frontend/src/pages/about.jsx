@@ -7,7 +7,7 @@ function About() {
   <Helmet>
     <title>History</title>
     <meta name='description'
-      content="About Shotokan United Kenya. Join Shotokan United and become part of a legacy of strength, discipline, and community."/>
+      content="Shotokan United Kenya. Join Shotokan United and become part of a legacy of strength, discipline, and community."/>
     <meta name="keywords" content="about, shotokan united kenya, karate kenya" />
     <link rel="canonical" href="/about" />
   </Helmet>
@@ -47,7 +47,7 @@ function About() {
                   width={240}
                   height={194}
                   title='kibadach stance'
-                  className='rounded-md lg:h-[80vh]'/>
+                  className='rounded-md w-auto md:h-[80vh]'/>
               </div>
               <div className='bg-blue-50 -mx-4 mb-8 px-4 py-8 lg:px-20'>
                         <h2 className='text-center text-xl font-semibold uppercase md:mb-8'>Core values</h2>
