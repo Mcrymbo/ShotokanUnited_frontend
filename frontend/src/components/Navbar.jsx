@@ -33,8 +33,13 @@ const Navbar = () => {
     <div className='flex justify-between items-center h-20 max-w-[100vw] mx-auto px-4 shadow-md bg-white'>
       {/* Logo */}
       <Link to='/' className='flex items-center space-x-2'>
-        <img src={logo} alt="Shotokan United" className='w-[60px] h-[60px]' />
-        <h1 className='text-2xl font-bold text-red-400'>Shotokan United</h1>
+        <img src={logo} alt="Shotokan United"
+            title='shotokan united'
+            width={240}
+            height={192}
+            loading='eager'
+            className='w-[60px] h-[60px]' />
+        <section className='text-2xl font-bold text-red-400'>Shotokan United</section>
       </Link>
 
       {/* Desktop Navigation */}
@@ -66,7 +71,7 @@ const Navbar = () => {
       >
         <div className='flex justify-between items-center p-4'>
           <Link to='/' onClick={handleNav}>
-            <h1 className='text-2xl font-bold text-[#00df9a]'>SU</h1>
+            <div className='text-2xl font-bold text-[#00df9a]'>SUK</div>
           </Link>
           <AiOutlineClose size={30} onClick={handleNav} />
         </div>

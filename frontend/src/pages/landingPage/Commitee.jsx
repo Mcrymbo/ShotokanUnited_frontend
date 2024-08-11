@@ -5,20 +5,24 @@ const Commitee = () => {
   return (
     <div className='bg-blue-50'>
       <div className="mx-auto max-w-screen-lg text-center py-10 sm:px-6 lg:px-8">
-        <h1 className={`${styles.sectionHeadText} md:py-4`}>Technical team</h1>
+        <h2 className={`${styles.sectionHeadText} md:py-4`}>Technical team</h2>
 
-        <div className="carousel carousel-center bg-inherit rounded-box max-w-full space-x-4 p-4 overflow-x-auto">
+        <div className="carousel bg-inherit max-w-full space-x-4 p-4">
           {commitee.map((member, index) => (
             <div key={index} className="carousel-item w-full sm:w-auto shadow-md p-2">
               <div className="flex flex-col items-center">
-                <h1 className="text-start text-lg font-bold py-2">{member.title}</h1>
+                <div className="text-start text-lg font-bold py-2">{member.title}</div>
                 <img
-                  src={member.photo}
-                  className="rounded-md w-full sm:w-60 md:h-48 object-cover"
+                  src={member.photo} alt="Technical team"
+                  title="Technical team photos"
+                  loading='lazy'
+                  width={240}
+                  height={192}
+                  className="rounded-md w-full sm:w-60 md:h-48 object-cover"                  
                 />
                 <div className="w-full sm:w-60 mt-4 text-start">
-                  <h1 className="text-lg font-semibold">{member.name}</h1>
-                  <h2 className="text-md font-semibold text-gray-600">{member.rank}</h2>
+                  <div className="text-lg font-semibold">{member.name}</div>
+                  <div className="text-md font-semibold text-gray-600">{member.rank}</div>
                   <p className="text-sm text-gray-700">{member.description}</p>
                 </div>
               </div>

@@ -11,7 +11,11 @@ function FooterComponent() {
       <div className="w-full mt-8 px-4 sm:px-6 lg:px-8">
         <div className="lg:flex justify-between items-center">
           <div className='flex items-center space-x-2 mb-6 lg:mb-0'>
-            <img src={logo} className='w-[60px] h-[60px]' alt="Shotokan United" />
+            <img src={logo} title='logo'
+                width={240}
+                height={192}
+                loading='lazy'
+                className='w-[60px] h-[60px]' alt="Shotokan United" />
             <div className='text-xl font-semibold'>Shotokan United</div>
           </div>
           

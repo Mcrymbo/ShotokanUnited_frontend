@@ -7,13 +7,16 @@ import './css/style.css';
 import './css/satoshi.css';
 import 'jsvectormap/dist/css/jsvectormap.css';
 import 'flatpickr/dist/flatpickr.min.css';
+import { HelmetProvider } from 'react-helmet-async'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserProvider>
-    <Router>     
-        <App />
-    </Router>
-    </UserProvider>
+    <HelmetProvider>
+      <UserProvider>
+      <Router>     
+          <App />
+      </Router>
+      </UserProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 )

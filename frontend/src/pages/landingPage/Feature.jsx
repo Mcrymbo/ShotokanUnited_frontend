@@ -30,13 +30,16 @@ const Feature = () => {
     ]
   return (
     <div className='mx-auto max-w-screen-lg'>
-        <h1 className={`${styles.sectionHeadText} text-center py-16`}>Our Programs</h1>
+        <h2 className={`${styles.sectionHeadText} text-center py-16`}>Our Programs</h2>
         <div className="carousel carousel-en rounded-md">
             { data.map((item, index) => (
                 <div key={index} className="carousel-item relative">
-                    <img src={item.href} alt="image relative" />
+                    <img src={item.href} alt="image relative"
+                        width={240}
+                        height={192}
+                        loading='eager' />
                     <div className='flex flex-col items-center gap-8 absolute inset-0 bg-black opacity-60 py-6 px-4'>
-                        <h1 className='text-2xl font-bold text-white'>{item.title}</h1>
+                        <div className='text-2xl font-bold text-white'>{item.title}</div>
                         <p className='text-lg text-semibold text-white'>{item.description}</p>
                     </div>
                 </div>

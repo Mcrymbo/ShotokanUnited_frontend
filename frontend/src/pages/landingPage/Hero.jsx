@@ -1,22 +1,7 @@
 import { Link } from 'react-router-dom';
 import { 
-  homePic, teamSpirit2, allTeam1, ladiesTeam1
+  homePic
  } from '../../assets';
-
- const items = [
-  {
-    image: allTeam1,
-  },
-  {
-    image: ladiesTeam1,
-  },
-  {
-    image: teamSpirit2,
-  },
-  {
-    image: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-  }
- ]
 
 
 const Hero = () => {
@@ -41,24 +26,15 @@ const Hero = () => {
           </Link>
         </section>
         <img
-          className="w-full h- sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
+          className="w-full h-auto sm:w-1/2 mt-6 sm:mt-0 sm:ml-6"
           src={homePic}
           alt="SUK"
           loading="eager"
+          width={240}
+          height={192}
+          title='logo'
         />
       </div>
-
-      {/* <div className="carousel w-full">
-        {items.map((item, index) => (
-            <div key={index} id={`slide${index + 1}`} className="carousel-item relative w-full">
-              <img src={item.image} alt='image' className="w-full" />
-              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href={`#slide${(index === 0 ? items.length : index)}`} className="btn btn-circle">❮</a>
-                <a href={`#slide${(index + 2 > items.length ? 1 : index + 2)}`} className="btn btn-circle">❯</a>
-              </div>
-            </div>
-          ))}
-      </div> */}
     </div>
     </>
   );
