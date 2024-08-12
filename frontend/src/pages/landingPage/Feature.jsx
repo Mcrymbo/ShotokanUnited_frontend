@@ -26,12 +26,18 @@ const Feature = () => {
             href: "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
             title: "Karate for school",
             description: "Our coaches run vibrant karate clubs in various schools providing an alternative co curriculum activity for the learners"
-        }
+        },
+        {
+            href: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+            title: "Karate For Kids",
+            description: "We believe that the best time to nurture talent is from an early age. Giving a good \
+                foundation to a child helps in their development not just in competitive sports but Wholistically. "
+        },
     ]
   return (
-    <div className='mx-auto max-w-screen-lg'>
+    <div className='mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg'>
         <h1 className={`${styles.sectionHeadText} text-center py-16`}>Our Programs</h1>
-        <div className="carousel carousel-en rounded-md">
+        <div className="carousel carousel-en rounded-md carousel-center">
             { data.map((item, index) => (
                 <div key={index} className="carousel-item relative">
                     <img src={item.href} alt="image relative" />

@@ -45,7 +45,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='mx-auto max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
+    <div className='mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8'>
       <div className="flex flex-col sm:flex-row items-center w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 lg:p-6">
           <div>
