@@ -37,6 +37,7 @@ const Feature = () => {
                     <img src={item.href} alt="image relative"
                         width={240}
                         height={192}
+                        className='w-full h-full'
                         loading='eager' />
                     <div className='flex flex-col items-center gap-8 absolute inset-0 bg-black opacity-60 py-6 px-4'>
                         <div className='text-2xl font-bold text-white'>{item.title}</div>
