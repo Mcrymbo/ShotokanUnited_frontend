@@ -4,7 +4,7 @@ import { styles } from "../../styles";
 const Commitee = () => {
   return (
     <div className='bg-blue-50'>
-      <div className="mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg text-center py-10 sm:px-6 lg:px-8">
+      <div className="container mx-auto p-4 sm:p-6 lg:p-8" >
         <h1 className={`${styles.sectionHeadText} md:py-4`}>Technical team</h1>
 
         <div className="carousel carousel-center bg-inherit rounded-box max-w-full space-x-4 p-4 overflow-x-auto">

@@ -1,40 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { api } from '../../hooks';
 import { Link } from 'react-router-dom';
 import { styles } from "../../styles"
 
 
-const newsItems = [
-  {
-    title: "News Title 1",
-    description: "This is a brief description of news item 1.",
-    date: "August 09, 2024",
-    image: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-  {
-    title: "News Title 2",
-    description: "This is a brief description of news item 2.",
-    date: "August 08, 2024",
-    image: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-  {
-    title: "News Title 3",
-    description: "This is a brief description of news item 3.",
-    date: "August 07, 2024",
-    image: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-];
-
 export default function News() {
+  const [newsItems, setNewsItems] = useState([]);
+
+  const handleNews = async () => {
+    try {
+      const response = await api.get('/api/news/');
+      console.log('users', response.data.results)
+      setNewsItems(response.data.results);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    handleNews();
+  }, [])
+
   return (
     <div className="container mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8">
       <h1 className={`${styles.sectionHeadText} text-center`}>Latest News</h1>
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {newsItems.map((item, index) => (
+        {newsItems.slice(0, 3).map((item, index) => (
           <div key={index} className="bg-white shadow-md rounded-lg p-4">
             <img
-              src={item.image}
+              src={item.cover_image_url}
               alt={`News ${index + 1}`}
-              className="w-full h-48 object-cover rounded-t-lg"
+              className="w-full h-52 object-cover rounded-t-lg"
             />
             <h3 className="mt-4 text-xl font-semibold text-eerieBlack">
               {item.title}

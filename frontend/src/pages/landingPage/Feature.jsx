@@ -35,7 +35,7 @@ const Feature = () => {
         },
     ]
   return (
-    <div className='mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg'>
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8" >
         <h1 className={`${styles.sectionHeadText} text-center py-16`}>Our Programs</h1>
         <div className="carousel carousel-en rounded-md carousel-center">
             { data.map((item, index) => (
