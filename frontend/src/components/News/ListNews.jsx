@@ -11,7 +11,7 @@ const ListNews = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [nextPageUrl, setNextPageUrl] = useState(null);
   const [previousPageUrl, setPreviousPageUrl] = useState(null);
-  const countPerPage = 5;
+  const countPerPage = 10;
 
   useEffect(() => {
     handleNews(currentPage);
@@ -95,7 +95,7 @@ const ListNews = () => {
           </thead>
           <tbody>
             {news.map((item, index) => (
-              <tr key={index}>
+              <tr key={item.id}>
                 <td>
                   <p>{calculateIndex(currentPage, index)}</p>
                 </td>
@@ -148,18 +148,18 @@ const ListNews = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex items-center justify-between pt-4">
+      <div className="max-w-40 justify-end join grid grid-cols-2">
         <button
           onClick={handlePreviousPage}
           disabled={!previousPageUrl}
-          className={`py-2 px-4 rounded-md ${previousPageUrl ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-500'}`}
+          className={`join-item btn btn-outline ${previousPageUrl ? 'bg-orange-500 text-white' : 'bg-gray-100 text-white'}`}
         >
           Previous
         </button>
         <button
           onClick={handleNextPage}
           disabled={!nextPageUrl}
-          className={`py-2 px-4 rounded-md ${nextPageUrl ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-500'}`}
+          className={`join-item btn btn-outline ${nextPageUrl ? 'bg-orange-500 text-white' : 'bg-gray-100 text-white'}`}
         >
           Next
         </button>
