@@ -6,6 +6,8 @@ import {SignIn, SignUp, ActivateAccount} from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
 import NotFound from './components/NotFound';
 import { Account } from './pages/Authentication';
+import DefaultNewsPage from './components/News/DefaultNewsPage';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           < Route path='/' element={<LandingPage /> } />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/news' element={<DefaultNewsPage />} />
           <Route path='/admin/*' element={<ProtectedRoute>
             <AdminPage />
           </ProtectedRoute>} />

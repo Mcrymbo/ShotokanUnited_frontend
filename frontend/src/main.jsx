@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './css/style.css';
 import './css/satoshi.css';
-import 'jsvectormap/dist/css/jsvectormap.css';
 import 'flatpickr/dist/flatpickr.min.css';
 import { HelmetProvider } from 'react-helmet-async'
 

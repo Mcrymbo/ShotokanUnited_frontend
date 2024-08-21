@@ -24,9 +24,10 @@ const Navbar = () => {
 
   const navItems = [
     { id: 1, text: 'Home', to: '/' },
-    { id: 2, text: 'About', to: '/about' },
-    { id: 3, text: 'Contact', to: '/contact' },
-    { id: 4, text: user.id ? 'Logout' : 'Login', to: user ? '/auth/login' : '/login' },
+    { id: 2, text: 'News', to: '/news' },
+    { id: 3, text: 'About', to: '/about' },
+    { id: 4, text: 'Contact', to: '/contact' },
+    { id: 5, text: user.id ? 'Logout' : 'Login', to: user ? '/auth/login' : '/login' },
   ];
 
   return (

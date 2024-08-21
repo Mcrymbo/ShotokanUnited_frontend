@@ -1,7 +1,7 @@
 import useLocalStorage from "./useLocalStorage";
 import useColorMode from './useColorMode';
 import { useUser } from "./useUser";
-import { api } from "./useFetchQuery";
+import { api, auth } from "./useFetchQuery";
 import { useLogin, useLogout, useRegister, useResetPassword, useCheckTokenValidity } from "./userAuth";
 
 export {
@@ -14,4 +14,5 @@ export {
     useResetPassword,
     useCheckTokenValidity,
     api,
+    auth,
 }

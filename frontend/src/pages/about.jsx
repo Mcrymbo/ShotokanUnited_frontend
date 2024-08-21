@@ -8,7 +8,7 @@ function About() {
     <title>History</title>
     <meta name='description'
       content="Shotokan United Kenya. Join Shotokan United and become part of a legacy of strength, discipline, and community."/>
-    <meta name="keywords" content="about, shotokan united kenya, karate kenya" />
+    <meta name="keywords" content="shotokan united kenya, karate kenya" />
     <link rel="canonical" href="/about" />
   </Helmet>
   return (

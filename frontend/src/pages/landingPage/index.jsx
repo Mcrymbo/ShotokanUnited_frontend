@@ -4,6 +4,7 @@ import Commitee from "./Commitee";
 import FooterComponent from "./Footer";
 import Navbar from "../../components/Navbar";
 import Feature from './Feature'
+import News from './News'
 
 const LandingPage = () => {
 
@@ -14,11 +15,16 @@ const LandingPage = () => {
                     <Navbar />
                     <Hero />
                 </div>
+              
                 <div>
                     <About />
                 </div>
+                
                 <div>
                     <Feature />
+                </div>
+                <div>
+                    <News/>
                 </div>
                 <div>
                     <Commitee />
