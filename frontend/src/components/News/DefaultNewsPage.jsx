@@ -34,7 +34,7 @@ export default function DefaultNewsPage() {
               <img
                 src={item.cover_image_url}
                 alt={`News ${index + 1}`}
-                className="max-w-full h-auto hover:object-scale-down object-cover rounded-t-lg"
+                className="w-full md:h-60 h-auto object-cover hover:object-scale-out rounded-t-lg"
               />
               <h3 className="mt-4 text-xl font-semibold text-eerieBlack">
                 {item.title}
