@@ -21,7 +21,7 @@ export default function News() {
   }, [])
 
   return (
-    <div className="container mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg py-10 px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <h1 className={`${styles.sectionHeadText} text-center`}>Latest News</h1>
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {newsItems.slice(0, 3).map((item, index) => (

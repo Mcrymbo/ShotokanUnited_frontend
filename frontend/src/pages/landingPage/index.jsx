@@ -9,8 +9,7 @@ import News from './News'
 const LandingPage = () => {
 
     return (
-        <>
-            <div className="relative z-0">
+            <div className='overflow-x-hidden'>
                 <div>
                     <Navbar />
                     <Hero />
@@ -33,8 +32,6 @@ const LandingPage = () => {
                     <FooterComponent />
                 </div>
             </div>
-
-        </>
     );
 
 }

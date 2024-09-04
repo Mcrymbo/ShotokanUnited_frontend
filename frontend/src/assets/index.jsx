@@ -23,6 +23,8 @@ import teamSpirit2 from './Team/teamSpirit2.jpg';
 import chris from './personal/chris.jpg';
 import ladiesTeam1 from './Team/ladiesTeam1.jpg';
 import allTeam1 from './Team/allTeam1.jpg';
+import jka_rwanda from './personal/jka_rwanda.jpg'
+import suk_team from './Team/suk_team.jpg'
 
 export {
     homePic,
@@ -51,4 +53,6 @@ export {
 
     ladiesTeam1,
     allTeam1,
+    jka_rwanda,
+    suk_team,
 }

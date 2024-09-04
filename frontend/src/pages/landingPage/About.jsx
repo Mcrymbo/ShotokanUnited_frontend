@@ -4,8 +4,8 @@ import {allTeam1, ladiesTeam1} from '../../assets';
 
 const About = () => {
   return (
-    <div className='bg-white'>
-      <div className='container mx-auto py-10 px-4 sm:px-6 md:px-8'>
+    <div className='bg-white container mx-auto py-10 px-4 sm:px-6 md:px-8'>
+      <div className=''>
         <h1 className={`${styles.sectionHeadText} text-center`}>About Us</h1>
         <section className='md:flex justify-center md:py-10 md:space-x-10 mb-6'>
           <div className='w-full mb-6 md:mb-0'>
