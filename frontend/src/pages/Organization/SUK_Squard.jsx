@@ -11,8 +11,8 @@ const SukSquard = () => {
         //     rank: '4th Dan HDKI',
         // },
         {
-            position: 'Assistant Coach',
-            name: 'Jason Kibe',
+            position: 'Assistant Head Coach',
+            name: 'Jason Kibe Sensei',
             photo: kibe,
             rank: '3rd Dan HDKI',
         },
@@ -30,7 +30,7 @@ const SukSquard = () => {
         </div>
         <div className='flex flex-col md:flex-row justify-center gap-8 mt-8'>
             {/* LEFT */}
-            <div className='md:w-[33%] flex flex-col gap-4 spacing-1.5'>
+            <div className='md:w-[33%] flex flex-col gap-6 spacing-1.5'>
                 <p>The Squad develops selected members of HDKI Kenya to represent HQ dojo in International competitions.
                     Training and competition continue throughout the year to ensure our members are ready to
                     compete at both local and International competitions.
@@ -66,17 +66,18 @@ const SukSquard = () => {
             {/* RIGHT */}
             <div className='md:w-[33%]'>
                 { coaches.map((item, index) => (
-                    <div key={index}>
+                    <div key={index} className='text-center'>
                         <img src={item.photo} alt="img" width={180} height={180} className='w-full rounded-md object-cover' />
-                        <p className='text-xl font-bold'>{item.name}</p>
-                        <p className='text-md font-semibold'>{item.rank}</p>
+                        <p className='text-xl font-bold'>{item.position}</p>
+                        <p className='text-md'>{item.name}</p>
+                        <p className='text-md'>{item.rank}</p>
                     </div>
                 ))
                 }
             </div>
         </div>
         <div>
-            <h2 className='text-xl text-black font-bold'>HDKI Kenya Squard <span >{currentYear}</span></h2>
+            <h2 className='text-xl text-black font-bold py-8'>HDKI Kenya Squard <span >{currentYear}</span></h2>
         </div>
     </DefaultLayout>
   )
