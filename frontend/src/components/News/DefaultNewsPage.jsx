@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { styles } from "../../styles";
 import { auth } from '../../hooks';
+import { hdki_cover } from '../../assets';
 
 
 export default function DefaultNewsPage() {
@@ -32,9 +33,9 @@ export default function DefaultNewsPage() {
           {newsItems.map((item, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-4">
               <img
-                src={item.cover_image_url}
-                alt={`News ${index + 1}`}
-                className="w-full md:h-60 h-auto object-cover hover:object-scale-out rounded-t-lg"
+                src={item.cover_image_url || hdki_cover}
+                alt='img'
+                className="w-full h-52 object-cover rounded-t-lg"
               />
               <h3 className="mt-4 text-xl font-semibold text-eerieBlack">
                 {item.title}

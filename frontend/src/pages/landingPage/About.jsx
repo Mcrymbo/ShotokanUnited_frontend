@@ -24,14 +24,14 @@ const About = () => {
             width={240}
             height={192}
             title="about image"
-            className='w-full md:w-[50%] object-cover' />        
+            className='w-full md:w-[50%] object-cover rounded-md' />        
         </section>
         <section className='md:flex justify-between md:space-x-10'>
           <img src={allTeam1} loading="eager" alt="mission"
               width={240}
               height={192}
               title="kibadachi"
-              className='w-full md:w-[50%] md:h-auto object-cover mb-6 md:mb-0' />   
+              className='w-full md:w-[50%] md:h-auto object-cover mb-6 md:mb-0 rounded-md' />   
           <div className='w-full'>
             <h3 className={`${styles.sectionSubText}`}>Mission</h3>
             <p>

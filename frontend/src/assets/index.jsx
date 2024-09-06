@@ -36,6 +36,7 @@ import kids_training from './Team/kids_training.jpg'
 import team_strath from './Team/Team_strath.jpg'
 import kibe from './personal/kibe.jpg'
 import medal_2 from './awards/medal-2.png'
+import hdki_cover from './background/Hdki_cover.png'
 
 export {
     team_strath,
@@ -78,4 +79,5 @@ export {
     allTeam1,
     jka_rwanda,
     suk_team,
+    hdki_cover,
 }

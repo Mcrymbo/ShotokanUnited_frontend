@@ -70,7 +70,7 @@ const Hero = () => {
           width={240}
           height={192}
           title='logo'
-          className="w-full h-auto sm:w-1/2 mt-6 sm:mt-0"
+          className="w-full h-auto sm:w-1/2 mt-6 sm:mt-0 rounded-md"
         />
         
       </div>
