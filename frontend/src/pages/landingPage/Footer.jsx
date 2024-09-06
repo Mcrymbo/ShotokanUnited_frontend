@@ -1,4 +1,5 @@
 import { logo } from '../../assets';
+import { Link } from 'react-router-dom';
 // import { ContactForm } from '../../components';
 
 
@@ -27,10 +28,10 @@ function FooterComponent() {
     </nav>
     <nav>
       <h6 className="footer-title">Organization</h6>
-      <a className="link link-hover">About us</a>
-      <a className="link link-hover">Contact</a>
-      <a className="link link-hover">News</a>
-      <a className="link link-hover">Blog</a>
+      <Link to={"/about"} className="link link-hover">About us</Link>
+      <Link to={"/contact"} className="link link-hover">Contact</Link>
+      <Link to={"/news"} className="link link-hover">News</Link>
+      <Link to={"#"} className="link link-hover">Blog</Link>
     </nav>
     <nav>
       <h6 className="footer-title">Legal</h6>

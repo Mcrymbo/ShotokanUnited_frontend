@@ -29,7 +29,7 @@ function About() {
                   <p>
                     Shotokan United Kenya is Non-profit organization located in
                     Kenya. It is associated with Hombu Dojo Karate international (HDKI) in Ireland,
-                    which is one of the world's most prestigious, and fast-growing Shotokan Karate organisations.
+                    which is one of the world’s most prestigious, and fast-growing Shotokan Karate organisations.
                   </p>
                   <p>
                     Sensei Joshua Oude (4th Dan) serves as Chief Instructor, and the Executive and Technical
@@ -93,7 +93,7 @@ function About() {
                             radiating empowerment throughout the community.
                         </p>
                         <p>
-                           Karate's impact is not confined to the physical realm; it's a transformative
+                           Karate’s impact is not confined to the physical realm; it’s a transformative
                            force that inspires a resilient and united collective spirit. This ripple effect,
                            originating in the disciplined dojo environment, resonates across various facets
                            of community life, contributing to overall well-being and unity.
@@ -104,9 +104,9 @@ function About() {
                         <div className='lg:w-1/2 text-xl' >
                             <h2 className='text-left italic font-bold'>SHU-HA-RI</h2>
                             <p className='italic mt-10 text-center'>
-                              <p>" Teach good karate and be kind to people</p>
+                              <p>’’ Teach good karate and be kind to people</p>
                               <p>Have Karate Adventures</p>
-                              <p>Provide Opportunities "</p>                            
+                              <p>Provide Opportunities ’’</p>                            
                             </p>
                             <div className='text-end italic mt-20 font-bold'> Scott Langley Sensei</div>
                         </div> 

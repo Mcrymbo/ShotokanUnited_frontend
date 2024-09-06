@@ -25,8 +25,27 @@ import ladiesTeam1 from './Team/ladiesTeam1.jpg';
 import allTeam1 from './Team/allTeam1.jpg';
 import jka_rwanda from './personal/jka_rwanda.jpg'
 import suk_team from './Team/suk_team.jpg'
+import vince_training from './Team/team1.jpg'
+import joshua_vince from './Team/joshua_vince.png'
+import medals from './feature/medals.jpg'
+import kids from './Team/kids.jpg'
+import flo from './personal/flo.jpg'
+import jos_mus_jka from './Team/jos_mus_jka.jpg'
+import k_flag from './Team/k_flag.jpeg'
+import kids_training from './Team/kids_training.jpg'
+import team_strath from './Team/Team_strath.jpg'
 
 export {
+    team_strath,
+    kids_training,
+    k_flag,
+    flo,
+    kids,
+    medals,
+    vince_training,
+    joshua_vince,
+    jos_mus_jka,
+
     homePic,
     heroPic1,
     heroPic2,

@@ -24,7 +24,7 @@ export default function DefaultNewsPage() {
 
   return (
     <DefaultLayout>
-      <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <div className="container min-h-screen mx-auto py-10 px-4 sm:px-6 lg:px-8">
       <h1 className={`${styles.sectionHeadText} text-center`}>
           Coming in Hot 🔥️🔥️
         </h1>

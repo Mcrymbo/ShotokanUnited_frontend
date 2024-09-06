@@ -64,9 +64,37 @@ const Navbar = () => {
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 z-[1] w-60 p-2 shadow">
               <li className='border-b border-neutral-300'><Link to='/about'>About Shotokan United Kenya</Link></li>
               <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>Technical Commitee</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>Executive commitee</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>SUK/HDKI Kenya Squad</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/technical-team'>Technical Commitee</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/executive-commitee'>Executive commitee</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/suk-squard'>SUK/HDKI Kenya Squad</Link></li>
+            </ul>
+          </div>
+          </li>
+
+          {/* Affiliation dropdown */}
+          <li>
+          <div className="dropdown dropdown-hover">
+          <div
+              tabIndex={0}
+              role="button"
+              className="flex items-center space-x-4 cursor-pointer hover:text-red-600 transition"
+            >
+              AFFILIATION
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+                </svg>
+              </span>
+            </div>
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 z-[1] w-60 p-2 shadow">
+              <li className='border-b border-neutral-300'><Link to='/suk-affiliation'>SUK/HDKI-K Affiliation</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/club-affiliation'>Club Affiliation</Link></li>
             </ul>
           </div>
           </li>
@@ -108,7 +136,7 @@ const Navbar = () => {
     
         <div className='text-lg font-medium text-neutral-400 mb-2 border-b mx-auto max-w-[90%]'>MENU</div>
         
-        <div className='max-h-[260px] overflow-y-auto'>
+        <div className='max-h-[300px] overflow-y-auto'>
         {/* Home */}
         <li><Link to={'/'} className='px-4'>Home</Link></li>
         {/* About dropdown */}
@@ -121,9 +149,23 @@ const Navbar = () => {
             <ul className="collapse-content peer-checked:block max-h-[80px] overflow-y-auto text-sm text-battleGray">
               <li className='border-b border-neutral-300'><Link to='/about'>About SUK</Link></li>
               <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>Technical Commitee</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>Executive commitee</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>SUK/HDKI-K Squad</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/technical-team'>Technical Commitee</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/executive-commitee'>Executive commitee</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/suk-squard'>SUK/HDKI-K Squad</Link></li>
+            </ul>
+          </div>
+        </li>
+
+        {/* About dropdown */}
+        <li>
+          <div tabIndex={0}  className="collapse collapse-arrow">
+            <input type="checkbox" className="peer" /> 
+            <div className="collapse-title p-y cursor-pointer">
+              Affiliation
+            </div>
+            <ul className="collapse-content peer-checked:block max-h-[80px] overflow-y-auto text-sm text-battleGray">
+              <li className='border-b border-neutral-300'><Link to='/suk-affiliation'>SUK/HDKI-K Affiliation</Link></li>
+              <li className='border-b border-neutral-300'><Link to='/club-affiliation'>Club Affiliation</Link></li>
             </ul>
           </div>
         </li>

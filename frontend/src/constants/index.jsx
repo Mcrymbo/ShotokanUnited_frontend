@@ -79,14 +79,64 @@ export const commitee = [
         Sensei Langi has demonstrated astitue commitment to the growth of Karate both as a player for the National team \
         and as a coach.'
     },
+    // {
+    //     title: '',
+    //     name: 'Caleb Owich',
+    //     photo: teamTrain1,
+    //     rank: 'Shodan',
+    //     description: 'A seasoned karate practisioner one of the earliest students of Joshua Sensei. \
+    //     An instrumental in the organization and management of the club activities and planning. Over the years \
+    //     Caleb has gained experience and developed karate skill sets both as a player and a scholar',
+    // },
+        
+];
+
+export const Excommitee = [
     {
-        title: '',
+        name: 'Caleb Atemi',
+        photo: teamRelax1,
+        role: 'Chairman of association',
+        email: 'chairman@hdki-kenya.org',
+        description: 'Mr. Atemi is a fitness enthusiast who has a passion for Karate. He has \
+        practiced Boxing and Karate for many years. Atemi is the former President \
+        of the Kenya Karate Federation.',
+    },
+    {
+        name: 'Joshua Oude',
+        photo: joshua,
+        role: 'Chief Instructor',
+        email: 'head@hdki-kenya.org',
+        description: 'Joshua Sensei has steered the group and developed the technical skillset in each and everyone \
+        of Shotokan united Kenya karate Family. With over 40 years of active Karate training Joshua sensei has \
+        developed in-depth understanding of the way of the hand. He has a rich comprehension of Kihon and Kata',
+    },
+    {
+        name: 'Musoga Goodric',
+        photo: musoga,
+        role: 'Technical Director',
+        email: 'sec-gen@hdki-kenya.org',
+        description: 'Musoga started practicing martial arts while in primary school in Nakuru. \
+        He joined Taekwondo classes at the Christ the King Church. However, \
+        while in high school he switched to Karate which has remained his \
+        passion.',
+    },
+    {
+        name: 'Flora Chandler',
+        photo: musoga,
+        role: 'Finance officer',
+        email: 'Flora@hdki-kenya.org',
+        description: 'Flora started practicing shotokan under Joshua oude Sensei while in Strathmoe University. \
+        With sheer commitment, she excelled in Karate representing her school in both local and regional competitions. \
+        She has travelled and trained under JKA instructors including Mori, Okuma. She has also attended internship \
+        training program at HDKI HQ in Dublin',
+    },
+    {
         name: 'Caleb Owich',
         photo: teamTrain1,
-        rank: 'Shodan',
+        role: 'Membership/Event Officer',
+        email: 'events@hdki-kenya.org',
         description: 'A seasoned karate practisioner one of the earliest students of Joshua Sensei. \
         An instrumental in the organization and management of the club activities and planning. Over the years \
         Caleb has gained experience and developed karate skill sets both as a player and a scholar',
     },
-        
-];
+]
