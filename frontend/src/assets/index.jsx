@@ -34,6 +34,8 @@ import jos_mus_jka from './Team/jos_mus_jka.jpg'
 import k_flag from './Team/k_flag.jpeg'
 import kids_training from './Team/kids_training.jpg'
 import team_strath from './Team/Team_strath.jpg'
+import kibe from './personal/kibe.jpg'
+import medal_2 from './awards/medal-2.png'
 
 export {
     team_strath,
@@ -42,6 +44,7 @@ export {
     flo,
     kids,
     medals,
+    medal_2,
     vince_training,
     joshua_vince,
     jos_mus_jka,
@@ -69,6 +72,7 @@ export {
     teamSpirit1,
     teamSpirit2,
     chris,
+    kibe,
 
     ladiesTeam1,
     allTeam1,
