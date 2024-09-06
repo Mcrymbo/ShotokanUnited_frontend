@@ -24,7 +24,7 @@ const SukSquard = () => {
   return (
     <DefaultLayout>
         <div className='container relative'>
-            <img src={team_strath} alt="img" width={100} height={100} className='w-full object-cover' />
+            <img src={team_strath} alt="img" width={100} height={100} className='w-full h-[200px] md:h-auto object-cover' />
             <div className='absolute inset-0 bg-black opacity-20'></div>
             <h2 className='absolute bottom-0 left-0 p-4 text-white text-4xl'>HDKI Kenya Squard</h2>
         </div>
@@ -58,7 +58,7 @@ const SukSquard = () => {
                     strong basis in kihon, kata and kumite, it is more important to have spirit! Oss! 
                 </p>
                 <div className='flex justify-center'>
-                    <img src={medal_2} alt="img" width={260} height={300} className='w-ful md:w-[64%] object-cover bg-gray-200 flex justify-center'/>
+                    <img src={medal_2} alt="img" width={260} height={300} className='w-full md:w-[64%] object-cover bg-gray-200 flex justify-center rounded-sm'/>
                 </div>
                 
                 <p className='text-start'>Contact: <span className='text-red-500 hover:underline cursor-pointer'>squard@hdki-kenya.org</span></p>

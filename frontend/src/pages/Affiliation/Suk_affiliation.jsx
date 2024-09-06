@@ -3,7 +3,7 @@ import DefaultLayout from "../../layout/DefaultLayout"
 
 const SukAffiliation = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout className='container'>
         <div className='relative'>
             <img src={vince_training} alt="suk" width={20} height={30} className='w-full'/>
             <div className="bg-black opacity-20 absolute inset-0"></div>
@@ -48,7 +48,7 @@ const SukAffiliation = () => {
                 </article>            
 
             </div>
-            <img src={joshua_vince} alt="affiliation" width={20} height={30} className='w-full md:w-1/4'/>
+            <img src={joshua_vince} alt="affiliation" width={20} height={30} className='w-full md:w-1/3 object-cover rounded-md'/>
         </div>
         
     </DefaultLayout>

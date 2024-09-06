@@ -63,7 +63,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 z-[1] w-60 p-2 shadow">
               <li className='border-b border-neutral-300'><Link to='/about'>About Shotokan United Kenya</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li>
+              {/* <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li> */}
               <li className='border-b border-neutral-300'><Link to='/technical-team'>Technical Commitee</Link></li>
               <li className='border-b border-neutral-300'><Link to='/executive-commitee'>Executive commitee</Link></li>
               <li className='border-b border-neutral-300'><Link to='/suk-squard'>SUK/HDKI Kenya Squad</Link></li>
@@ -102,7 +102,7 @@ const Navbar = () => {
           {/* News Link */}
           <li className='hover:text-red-600 transition'><Link to={'/news'}>NEWS</Link></li>
           {/* Contact */}
-          <li className='hover:text-red-600 transition'><Link to={'/contact'}>CONTACT US</Link></li>
+          <li className='hover:text-red-600 transition'><Link to={'/contact'}>CONTACT</Link></li>
           {/* Blog */}
           <li className='hover:text-red-600 transition'><Link to={'#'}>BLOG</Link></li>
           {/* Login */}
@@ -148,7 +148,7 @@ const Navbar = () => {
             </div>
             <ul className="collapse-content peer-checked:block max-h-[80px] overflow-y-auto text-sm text-battleGray">
               <li className='border-b border-neutral-300'><Link to='/about'>About SUK</Link></li>
-              <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li>
+              {/* <li className='border-b border-neutral-300'><Link to='#'>HDKI Kenya</Link></li> */}
               <li className='border-b border-neutral-300'><Link to='/technical-team'>Technical Commitee</Link></li>
               <li className='border-b border-neutral-300'><Link to='/executive-commitee'>Executive commitee</Link></li>
               <li className='border-b border-neutral-300'><Link to='/suk-squard'>SUK/HDKI-K Squad</Link></li>
