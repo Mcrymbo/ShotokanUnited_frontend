@@ -12,10 +12,10 @@ const ExecutiveTeam = () => {
     </div>
 
     <div>
-        <div className='flex flex-col md:flex-row justify-center items-center flex-wrap gap-4 mt-8'>
+        <div className='flex flex-col md:flex-row justify-start items-center flex-wrap gap-4 mt-8'>
             {Excommitee.map((item, index) => (
                 <div key={index} className='flex flex-col w-full md:w-auto shadow-md p-2'>
-                    <img src={item.photo} alt="img" width={40} height={40} className='w-full md:w-[210px] md:h-[160px] object-cover rounded-md bg-gray-300' />
+                    <img src={item.photo} alt="img" width={40} height={40} className='w-full md:w-[20vw] md:h-[30vh] object-cover rounded-t-md bg-gray-300' />
                     <h2 className='text-xl text-center font-semibold pb-4 border-b border-gray-500'>{item.name}</h2>
                     <h3 className='text-md font-bold text-center'>{item.role}</h3>
                     <p className='text-red-500 text-center cursor-pointer hover:underline'>{item.email}</p>

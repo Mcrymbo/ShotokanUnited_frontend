@@ -46,7 +46,7 @@ export const commitee = [
         title: '',
         name: 'Joshua Oude Sensei',
         photo: joshua,
-        rank: 'Yondan HDKI',
+        rank: '4th Dan HDKI',
         description: 'Joshua Sensei has steered the group and developed the technical skillset in each and everyone \
         of Shotokan united Kenya karate Family. With over 40 years of active Karate training Joshua sensei has \
         developed in-depth understanding of the way of the hand. He has a rich comprehension of Kihon and Kata',
@@ -55,7 +55,7 @@ export const commitee = [
         title: '',
         name: 'Jason Kibe Sensei',
         photo: jason,
-        rank: 'Sandan HDKI',
+        rank: '3rd Dan HDKI',
         description: 'Kibe Sensei is an experienced Karate instructor who has trained several Karatekas, \
         especially under the kids wing. Kibe is a charismatic teacher with more than 7 years experience in \
         karatekas'
@@ -64,7 +64,7 @@ export const commitee = [
         title: '',
         name: 'Musoga Goodric Sensei',
         photo: musoga,
-        rank: 'sandan HDKI',
+        rank: '3rd Dan HDKI',
         description: 'Musoga started practicing martial arts while in primary school in Nakuru. \
         He joined Taekwondo classes at the Christ the King Church. However, \
         while in high school he switched to Karate which has remained his \
@@ -74,7 +74,7 @@ export const commitee = [
         title: '',
         name: 'Cleven Langi',
         photo: langi,
-        rank: 'Nidan HDKI',
+        rank: '2nd Dan HDKI',
         description: 'An experienced instructor in both Shotokan Karate and Kapap Krav Maga. \
         Sensei Langi has demonstrated astitue commitment to the growth of Karate both as a player for the National team \
         and as a coach.'
