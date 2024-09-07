@@ -14,7 +14,7 @@ const TechnicalTeam = () => {
     <div>
         <div className='flex flex-col md:flex-row justify-center items-center flex-wrap gap-4 mt-8'>
             {commitee.map((item, index) => (
-                <div key={index} className='w-full flex flex-col gap-4 shadow-md p-4'>
+                <div key={index} className='w-full md:w-auto flex flex-col gap-4 shadow-md p-4'>
                     <img src={item.photo} alt="img" width={100} height={100} className='w-full md:w-[250px] md:h-[220px] object-cover rounded-md bg-gray-300' />
                     <h2 className='text-2xl font-bold'>{item.name}</h2>
                     <h3 className='text-xl font-bold ml-2'>{item.rank}</h3>
