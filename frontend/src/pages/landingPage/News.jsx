@@ -30,7 +30,7 @@ export default function News() {
             <img
               src={item.cover_image_url || hdki_cover}
               alt='img'
-              className="w-full h-52 object-left-top object-cover rounded-t-lg"
+              className="w-full h-52 object-cover rounded-t-lg"
             />
             <h3 className="mt-4 text-xl font-semibold text-eerieBlack">
               {item.title}

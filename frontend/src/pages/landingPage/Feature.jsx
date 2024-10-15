@@ -40,7 +40,7 @@ const Feature = () => {
                         width={20}
                         height={30}
                         className='w-[300px] object-cover'
-                        loading='eager' />
+                        loading='lazy' />
                     <div className='absolute bg-black inset-0 opacity-50'></div>
                     <div className='flex flex-col items-center gap-8 absolute py-6 px-4'>
                         <div className='text-2xl font-bold text-white'>{item.title}</div>

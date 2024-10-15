@@ -66,7 +66,7 @@ const Hero = () => {
         <img
           src={homePic}
           alt="SUK"
-          loading="eager"
+          loading="lazy"
           width={240}
           height={192}
           title='logo'

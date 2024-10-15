@@ -3,6 +3,7 @@ import AdminPage from './pages/AdminDashboard'
 import LandingPage from './pages/landingPage';
 import { About, Contact, SukAffiliation, ClubAffiliation } from './pages'
 import { TechnicalTeam, ExecutiveTeam, SukSquard } from './pages/Organization';
+import { BlogPage } from './pages/BlogPost';
 import {SignIn, SignUp, ActivateAccount} from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
 import NotFound from './components/NotFound';
@@ -21,6 +22,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/suk-affiliation' element={<SukAffiliation /> }/>
           <Route path='/club-affiliation' element={<ClubAffiliation />} />
+          <Route path='/blogs' element={<BlogPage />} />
           <Route path='/suk-squard' element={<SukSquard />} />
           <Route path='/news' element={<DefaultNewsPage />} />
           <Route path='/admin/*' element={<ProtectedRoute>

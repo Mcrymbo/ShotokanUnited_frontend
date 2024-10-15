@@ -104,7 +104,7 @@ const Navbar = () => {
           {/* Contact */}
           <li className='hover:text-red-600 transition'><Link to={'/contact'}>CONTACT</Link></li>
           {/* Blog */}
-          <li className='hover:text-red-600 transition'><Link to={'#'}>BLOG</Link></li>
+          <li className='hover:text-red-600 transition'><Link to={'/blogs'}>BLOG</Link></li>
           {/* Login */}
           {
             user.id ?
@@ -177,7 +177,7 @@ const Navbar = () => {
           {/* Contact */}
           <li className='py-4'><Link to={'/contact'} className='px-4'>Contact Us</Link></li>
           {/* Blog */}
-          <li><Link to={'#'} className='px-4'>Blog</Link></li>
+          <li><Link to={'/blogs'} className='px-4'>Blog</Link></li>
           {/* Login */}
           {
             user.id ?
