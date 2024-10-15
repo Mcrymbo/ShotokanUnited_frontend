@@ -9,7 +9,7 @@ const NewsView = ({ news }) => {
               <strong>Title:</strong> {news?.title}
             </div>
             <div className="mb-2">
-              <img src={news?.cover_image_url} alt="" className='object-cover w-full h-100' />
+              <img src={news?.cover_image_url} alt="cover image" className='object-cover w-full h-100' />
             </div>
             <div className="mb-2">
               <strong>Date:</strong> {news?.date}

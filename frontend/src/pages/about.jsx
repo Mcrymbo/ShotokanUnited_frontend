@@ -8,7 +8,7 @@ function About() {
     <title>About</title>
     <meta name='description'
       content="Shotokan karate Kenya. Join Shotokan United and become part of a legacy of strength, discipline, and community."/>
-    <meta name="keywords" content="shotokan united kenya, karate kenya" />
+    <meta name="keywords" content="shotokan united kenya, karate kenya, Kenya karate" />
     <link rel="canonical" href="/about" />
   </Helmet>
   return (
@@ -19,7 +19,8 @@ function About() {
           <img src={suk_team} alt="about shotokan united karate kenya" />
           <div className='absolute inset-0 bg-black opacity-20 h-full'></div>
           <div className='absolute bottom-0 left-0 p-6'>
-            <h1 className='md:text-4xl text-white font-semibold'>About Us</h1>
+            <h1 className='sr-only'>HDKI Kenya</h1>
+            <h2 className='md:text-4xl text-white font-semibold'>About Us</h2>
           </div>
         </div>
         <section>   

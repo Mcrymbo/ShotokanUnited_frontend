@@ -49,9 +49,10 @@ const Hero = () => {
       <div className="flex flex-col sm:flex-row items-center md:mb-8 w-full">
         <section className="relative flex flex-col w-full sm:w-1/2 md:p-6">
           <div>
-            <h1 className="text-2xl md:text-5xl lg:text-4xl font-bold text-eerieBlack font-poppins uppercase">
+            <h1 className='sr-only'>Shotokan United Kenya</h1>
+            <div className="text-2xl md:text-5xl lg:text-4xl font-bold text-eerieBlack font-poppins uppercase">
               Unleashing Inner Warrior
-            </h1>
+            </div>
             <h2 className="text-xl md:text-2xl lg:mt-4 text-eerieBlack w-full">
               Join Shotokan United and become part of a legacy of strength, discipline, and community.
             </h2>
