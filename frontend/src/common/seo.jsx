@@ -10,10 +10,10 @@ const SeoOptimizer = () => {
           "name": "Shotokan United Kenya",
           "url": "https://www.shotokanunitedkenya.org",
           "sameAs": [
-            "https://www.facebook.com/ShotokanUnitedKenya",
-            "https://www.instagram.com/ShotokanUnitedKenya",
+            "https://web.facebook.com/profile.php?id=61550226856236",
+            "https://www.instagram.com/shotokan_united_kenya/p/C_pEpWyIp9k/?img_index=1",
             "https://twitter.com/ShotokanKenya",
-            "https://www.youtube.com/channel/UCxXXXXXXXX"
+            "https://www.youtube.com/channel/UCn2J9fczXE9btjHaMJfsN_g"
           ]
         })}
       </script>
