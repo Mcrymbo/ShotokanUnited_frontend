@@ -5,7 +5,7 @@ const SukAffiliation = () => {
   return (
     <DefaultLayout className='container'>
         <div className='relative'>
-            <img src={vince_training} alt="suk" width={20} height={30} className='w-full'/>
+            <img src={vince_training} alt="suk" width={100} height={100} className='w-full'/>
             <div className="bg-black opacity-20 absolute inset-0"></div>
             <h1 className='absolute bottom-0 left-0 text-white font-semibold p-6 md:text-4xl'>HDKI-Kenya</h1>
         </div>

@@ -38,8 +38,8 @@ export default function News() {
             <p className="mt-2 text-gray-600">
               {item.description}
             </p>
-            <p className="mt-2 text-gray-400 text-sm">
-              {item.date}
+            <p className="mt-6 text-gray-900 font-semibold text-sm">
+              <strong>Date: </strong>{item.date}
             </p>
           </div>
         ))}

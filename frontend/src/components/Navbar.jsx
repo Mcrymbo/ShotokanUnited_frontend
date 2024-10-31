@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex justify-between items-center h-20 max-w-[100vw] mx-auto px-4 shadow-md bg-white'>
+    <nav className='sticky -top-4 z-50 flex justify-between items-center h-20 max-w-[100vw] mx-auto px-4 shadow-md bg-white'>
       {/* Logo */}
       <Link to='/' className='flex items-center space-x-2'>
         <img src={logo} alt="Shotokan United"
@@ -187,7 +187,7 @@ const Navbar = () => {
           }
         </div>
       </ul>
-    </div>
+    </nav>
   );
 };
 
