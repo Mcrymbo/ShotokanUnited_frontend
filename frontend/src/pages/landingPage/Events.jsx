@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { hdki_cover } from '../../assets';
 
 
-export default function News() {
+export default function Event() {
   const [newsItems, setNewsItems] = useState([]);
 
   const handleNews = async () => {
     try {
-      const response = await auth.get('/api/news/');
+      const response = await auth.get('/api/events/');
       setNewsItems(response.data.results);
     } catch (error) {
       console.error(error.message);
@@ -24,7 +24,7 @@ export default function News() {
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {newsItems.slice(0, 3).map((item, index) => (
-          <div key={index} className="bg-white rounded-lg p-4">
+          <div key={index} className="bg-white shadow-md rounded-lg p-4">
             <img
               src={item.cover_image_url || hdki_cover}
               alt='img'
@@ -43,15 +43,16 @@ export default function News() {
         ))}
       </div>
       { newsItems.length > 3 ?
-        <div className="text-center mt-6 flex justify-end">
-          <Link to='/news'>
-          <button className="hover:bg-orange-500 hover:text-white w-[48px] h-[48px] rounded-full text-2xl text-orange-500">
-            {'>'}
-          </button>
-          </Link>      
-        </div> : ''
+        <div className="text-center mt-2 flex justify-end">
+        <Link to='/events'>
+        <button className="hover:bg-orange-500 hover:text-white w-[48px] h-[48px] rounded-full text-2xl text-orange-500">
+          {'>'}
+        </button>
+        </Link>
+       
+      </div> : ''
       }
-      
+    
     </div>
   );
 }

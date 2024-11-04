@@ -9,6 +9,8 @@ import { ProtectedRoute } from './components/protectedRoute';
 import NotFound from './components/NotFound';
 import { Account } from './pages/Authentication';
 import DefaultNewsPage from './components/News/DefaultNewsPage';
+import { ListEvents } from './components/Events';
+
 
 
 
@@ -25,6 +27,7 @@ function App() {
           <Route path='/blogs' element={<BlogPage />} />
           <Route path='/suk-squard' element={<SukSquard />} />
           <Route path='/news' element={<DefaultNewsPage />} />
+          <Route path='/events' element={<ListEvents />} />
           <Route path='/admin/*' element={<ProtectedRoute>
             <AdminPage />
           </ProtectedRoute>} />
