@@ -16,7 +16,9 @@ function About() {
     <div id='about-section' className='container bg-white p-4  md:py-10'>
 
         <div className="relative">
-          <img src={suk_team} alt="about shotokan united karate kenya" />
+          <img src={suk_team} alt="about shotokan united karate kenya"
+           className='w-full h-[200px] md:h-auto object-cover'
+          />
           <div className='absolute inset-0 bg-black opacity-20 h-full'></div>
           <div className='absolute bottom-0 left-0 p-6'>
             <h1 className='sr-only'>HDKI Kenya</h1>

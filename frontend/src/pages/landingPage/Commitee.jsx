@@ -5,7 +5,7 @@ const Commitee = () => {
   return (
     <div className='bg-blue-50'>
       <div className="container mx-auto p-4 sm:p-6 lg:p-8" >
-        <h2 className={ `${styles.sectionHeadText} md:py-4`}>Technical team</h2>
+        <h2 className='text-start text-lg font-medium'>Technical team</h2>
         <div className="carousel bg-inherit max-w-full space-x-4 p-4">
           {commitee.map( (member, index) => (
             <div key={index} className="carousel-item w-full sm:w-auto shadow-md p-2">
