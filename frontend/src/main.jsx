@@ -9,7 +9,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { HelmetProvider } from 'react-helmet-async'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <HelmetProvider>
       <UserProvider>
       <Router>     
@@ -17,5 +17,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Router>
       </UserProvider>
     </HelmetProvider>
-  </React.StrictMode>,
+  //</React.StrictMode>,
 )

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../hooks';
 import { Link } from 'react-router-dom';
 import { hdki_cover } from '../../assets';
-
+import SingleNewsPage from '../../components/News/newsItem'
 
 export default function News() {
   const [newsItems, setNewsItems] = useState([]);
@@ -21,14 +21,15 @@ export default function News() {
   }, [])
 
   return (
-    <div className="container mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="container mx-auto sm:p-6 lg:p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {newsItems.slice(0, 3).map((item, index) => (
           <div key={index} className="bg-white rounded-lg p-4">
+            <Link to={`/news/${item.id}`} >
             <img
-              src={item.cover_image_url || hdki_cover}
+              src={item.images[0]?.image_url || hdki_cover}
               alt='img'
-              className="w-full h-52 object-cover rounded-md"
+              className="w-full h-52 object-cover object-top rounded-md"
             />
             <h3 className="mt-4 text-xl font-semibold text-eerieBlack">
               {item.title}
@@ -39,6 +40,7 @@ export default function News() {
             <p className="mt-6 text-gray-900 font-semibold text-sm">
               <strong>Date: </strong>{item.date}
             </p>
+            </Link>
           </div>
         ))}
       </div>

@@ -3,8 +3,8 @@ import axios from "axios";
 
 const baseUrl = "https://shotokanunitedkenya.org/backend/";
 const baseUrl2 = "wss://shotokanunitedkenya.org";
-// const baseUrl = "http://localhost:8000/backend/";
-// const baseUrl2 = "ws://localhost:8000"
+//const baseUrl = "http://localhost:8000/backend/";
+//const baseUrl2 = "ws://localhost:8000"
 
 
 const api = axios.create({

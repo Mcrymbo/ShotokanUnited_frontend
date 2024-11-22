@@ -24,6 +24,7 @@
     "flatpickr": "^4.6.13",
     "flowbite-react": "^0.7.2",
     "jsvectormap": "^1.6.0",
+    "lucide-react": "^0.460.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",

@@ -33,7 +33,7 @@ export default function DefaultNewsPage() {
           {newsItems.map((item, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-4">
               <img
-                src={item.cover_image_url || hdki_cover}
+                src={item.image_url || hdki_cover}
                 alt='img'
                 className="w-full h-52 object-cover rounded-t-lg"
               />

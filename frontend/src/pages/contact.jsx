@@ -28,13 +28,13 @@ function Contact() {
     }; 
 
   return (
-    <div className="bg-gradient-to-br from-gray-100 through-blue-500 to-gray-200 min-h-screen">
+    <div className="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen">
       <Navbar />
-      <div className='relative z-0'>
+      <div className='relative'>
          <img src={teamSpirit1} alt="about shotokan united karate kenya"
            width={100}
            height={100}
-           className='w-full h-[480px] object-cover'
+           className='w-full md:h-[480px] object-cover'
           />
           <div className='absolute inset-0 bg-black opacity-40 h-full'></div>
           <div className='absolute inset-0 flex flex-col items-center justify-center text-center p-6'>            
@@ -50,7 +50,7 @@ function Contact() {
             </div>  
           </div>
       </div>
-      <div className="container -mt-8 z-9 mx-auto px-4 4b-12">
+      <div className="mb-4 md:p-4">
         {/* Hero Section */}
        
 

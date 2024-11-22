@@ -10,6 +10,7 @@ import NotFound from './components/NotFound';
 import { Account } from './pages/Authentication';
 import DefaultNewsPage from './components/News/DefaultNewsPage';
 import { ListEvents } from './components/Events';
+import SingleNewsPage from './components/News/newsItem';
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/blogs' element={<BlogPage />} />
           <Route path='/suk-squard' element={<SukSquard />} />
           <Route path='/news' element={<DefaultNewsPage />} />
+          <Route path='/news/:id' element={<SingleNewsPage />} />
           <Route path='/events' element={<ListEvents />} />
           <Route path='/admin/*' element={<ProtectedRoute>
             <AdminPage />
