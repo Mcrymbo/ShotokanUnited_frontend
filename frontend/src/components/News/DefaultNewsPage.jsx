@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { styles } from "../../styles";
 import { auth } from '../../hooks';
@@ -32,8 +33,9 @@ export default function DefaultNewsPage() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {newsItems.map((item, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-4">
+              <Link to={`/news/${item.id}`} >
               <img
-                src={item.image_url || hdki_cover}
+                src={item.images[0]?.image_url || hdki_cover}
                 alt='img'
                 className="w-full h-52 object-cover rounded-t-lg"
               />
@@ -46,6 +48,7 @@ export default function DefaultNewsPage() {
               <p className="mt-2 text-gray-400 text-sm">
                 {item.date}
               </p>
+              </Link>
             </div>
           ))}
         </div>
