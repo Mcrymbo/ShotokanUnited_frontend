@@ -1,5 +1,9 @@
-import ListEvents from "./ListEvents"
+import ListEvents from "./ListEvents";
+import SingleEventPage from "./eventItem";
+import KarateRegistrationForm from "./register";
 
 export {
-    ListEvents
+    ListEvents,
+    SingleEventPage,
+    KarateRegistrationForm,
 }

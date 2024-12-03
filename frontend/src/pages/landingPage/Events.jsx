@@ -25,8 +25,9 @@ export default function Event() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {newsItems.slice(0, 3).map((item, index) => (
           <div key={index} className="bg-white shadow-md rounded-lg p-4">
+            <Link to={`/events/${item.id}`} >
             <img
-              src={item.cover_image_url || hdki_cover}
+              src={item.images[0]?.image_url || hdki_cover}
               alt='img'
               className="w-full h-52 object-cover rounded-md"
             />
@@ -39,6 +40,7 @@ export default function Event() {
             <p className="mt-6 text-gray-900 font-semibold text-sm">
               <strong>Date: </strong>{item.date}
             </p>
+            </Link>
           </div>
         ))}
       </div>
