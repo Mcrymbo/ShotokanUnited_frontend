@@ -48,7 +48,7 @@ const Navbar = () => {
         <li className="relative group">
           <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
             <span>ABOUT US</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 20 20" width="20">
+            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
@@ -65,7 +65,7 @@ const Navbar = () => {
         <li className="relative group">
           <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
             <span>AFFILIATION</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 20 20" width="20">
+            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
@@ -80,7 +80,7 @@ const Navbar = () => {
          <li className="relative group">
           <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
             <span>KARATE</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 20 20" width="20">
+            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>

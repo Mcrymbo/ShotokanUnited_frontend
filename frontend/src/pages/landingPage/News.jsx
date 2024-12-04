@@ -24,7 +24,7 @@ export default function News() {
     <div className="container mx-auto sm:p-6 lg:p-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {newsItems.slice(0, 3).map((item, index) => (
-          <div key={index} className="bg-white rounded-lg p-4">
+          <div key={index} className="bg-gray-300 rounded-lg shadow-md p-4">
             <Link to={`/news/${item.id}`} >
             <img
               src={item.images[0]?.image_url || hdki_cover}

@@ -4,7 +4,7 @@ import {allTeam1, ladiesTeam1} from '../../assets';
 
 const About = () => {
   return (
-    <div className='bg-white container mx-auto py-10 px-4 sm:px-6 md:px-8'>
+    <div className='bg-white container mx-auto py-10 text-lg text-gray-700 px-4 sm:px-6 md:px-8 bg-gradient-to-tl from-green-100 via-gray-400 to-gray-300 overflow-hidden'>
       <div className=''>
         <h1 className='text-start font-medium text-lg'>About Us</h1>
         <section className='md:flex justify-center md:py-4 md:space-x-10 mb-6'>

@@ -36,7 +36,9 @@ import kids_training from './Team/kids_training.jpg'
 import team_strath from './Team/Team_strath.jpg'
 import kibe from './personal/kibe.jpg'
 import medal_2 from './awards/medal-2.png'
-import hdki_cover from './background/Hdki_cover.png'
+import hdki_cover from './background/Hdki_cover.png';
+import teddy_bear from './personal/karate-teddy-bear.jpg';
+import sparrow_fight from './personal/sparrow_fight.webp';
 
 export {
     team_strath,
@@ -80,4 +82,7 @@ export {
     jka_rwanda,
     suk_team,
     hdki_cover,
+
+    teddy_bear,
+    sparrow_fight,
 }

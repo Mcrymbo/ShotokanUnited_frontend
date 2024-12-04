@@ -15,7 +15,7 @@ import { SingleEventPage, KarateRegistrationForm } from './components/Events';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-tl from-orange-100 via-gray-400 to-gray-200 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-tl from-gray-100 via-gray-400 to-gray-200 relative overflow-hidden text-gray-700">
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/about' element={<About />} />

@@ -31,7 +31,7 @@ const Feature = () => {
         
     ]
   return (
-    <div className="container mx-auto p-4 sm:p-6 lg:p-8" >
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8 bg-gray-400 text-gray-700 overflow-hidden" >
         <h2 className="text-start text-lg font-medium mb-4">Our Programs</h2>
         <div className="carousel carousel-en rounded-md carousel-center">
             { data.map((item, index) => (

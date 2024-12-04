@@ -28,7 +28,7 @@ const SukSquard = () => {
             <div className='absolute inset-0 bg-black opacity-20'></div>
             <h2 className='absolute bottom-0 left-0 p-4 text-white text-4xl'>HDKI Kenya Squard</h2>
         </div>
-        <div className='flex flex-col md:flex-row justify-center gap-8 mt-8'>
+        <div className='flex flex-col md:flex-row justify-center gap-8 mt-8 p-4 text-gray-800'>
             {/* LEFT */}
             <div className='md:w-[33%] flex flex-col gap-6 spacing-1.5'>
                 <p>The Squad develops selected members of HDKI Kenya to represent HQ dojo in International competitions.

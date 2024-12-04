@@ -17,7 +17,7 @@ const LandingPage = () => {
             <Hero />
             <About />
             <Feature />
-            <div className='bg-gray-300 py-4'>
+            <div className='py-4 bg-gradient-to-tl from-purple-200/80 via-gray-300 to-green-100/90 relative overflow-hidden'>
                 <div className='flex flex-col items-center'>
                     <h2 className='container text-center text-xl text-gray-600 mb-4 '>See what&apos;s happening at Shotokan United Kenya / HDKI-Kenya</h2>
                     <div>

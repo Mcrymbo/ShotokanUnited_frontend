@@ -41,7 +41,7 @@ function Contact() {
            <h1 className='sr-only'>hdki Kenya</h1>
            <div className="text-center mb-12 max-w-2xl mx-auto">
            <h2 className="text-5xl font-extrabold text-gray-900 mb-4 
-              bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-purple-600">
               Get In Touch
            </h2>
             <p className="text-2xl text-white">
@@ -98,7 +98,7 @@ function Contact() {
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 
+                className="w-full bg-gradient-to-r from-orange-600 via-purple-400 to-orange-300 
                   text-white py-3 rounded-lg hover:opacity-90 transition duration-300 
                   transform hover:scale-105 focus:outline-none focus:ring-2 
                   focus:ring-blue-500 focus:ring-opacity-50"

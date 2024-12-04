@@ -34,7 +34,10 @@ const Hero = () => (
           Join Shotokan United and become part of a legacy of strength, discipline, and community.
         </h2>
         <Link to="/auth/register">
-          <button className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white">
+          <button
+            type='button'
+            data-twe-ripple-init
+            className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white">
             Explore more
           </button>
         </Link>

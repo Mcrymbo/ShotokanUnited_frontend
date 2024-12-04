@@ -48,10 +48,10 @@ const KarateRegistrationForm = () => {
 
   return (
     <DefaultLayout>
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-200 flex items-center justify-center py-4">
       <div className="w-full max-w-5xl bg-white rounded-md overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white p-6 md:p-8 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div className="bg-gradient-to-r from-gray-300 via-orange-400 to-gray-300/70 text-white p-6 md:p-8 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <div className="flex items-center space-x-4">
             <Trophy className="h-10 w-10 text-white" />
             <h2 className="text-2xl md:text-3xl font-bold">Karate Championship Registration</h2>
