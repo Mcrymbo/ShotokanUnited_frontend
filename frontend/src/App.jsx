@@ -12,6 +12,7 @@ import DefaultNewsPage from './components/News/DefaultNewsPage';
 import { ListEvents } from './components/Events';
 import SingleNewsPage from './components/News/newsItem';
 import { SingleEventPage, KarateRegistrationForm } from './components/Events';
+import TermsOfUse from './components/termsOfUse';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/events/:id' element={<SingleEventPage />} />
         <Route path='/events/:id/:slug' element={<KarateRegistrationForm />} />
         <Route path='/admin/*' element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+        <Route path='/terms-of-use' element={<TermsOfUse />} />
         <Route path='/auth/login' element={<SignIn />} />
         <Route path='/auth/register' element={<SignUp />} />
         <Route path="/auth/activate" element={<ActivateAccount />} />

@@ -41,7 +41,7 @@ function FooterComponent() {
       <nav className="flex flex-col col-span-2 md:col-span-1">
         <h6 className="footer-title text-sm md:text-base mb-2">Legal</h6>
         <SeoOptimizer />
-        <a className="link link-hover text-xs md:text-sm mb-1">Terms of use</a>
+        <Link to='/terms-of-use' className="link link-hover text-xs md:text-sm mb-1">Terms of use</Link>
         <a className="link link-hover text-xs md:text-sm mb-1">Privacy policy</a>
         <a className="link link-hover text-xs md:text-sm">Cookie policy</a>
       </nav>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, AlertCircle } from 'lucide-react';
@@ -13,8 +13,11 @@ const SignIn = () => {
     register, 
     handleSubmit, 
     formState: { errors }, 
-    reset 
+    reset,
+    resetField,
+    setFocus
   } = useForm({ mode: 'onBlur' });
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { login } = useLogin();
   const { user } = useUser();
@@ -22,14 +25,29 @@ const SignIn = () => {
   
   const onSubmit = async (data) => {
     try {
-      await login(data);
-      reset();
-      navigate(dest || (user?.role === 4 ? '/' : '/admin'));
-      sessionStorage.removeItem('intendedDestination');
+        await login(data);
+        reset();
+        navigate(dest || (user?.role === 4 ? '/' : '/admin'));
+        sessionStorage.removeItem('intendedDestination');
     } catch (error) {
-      console.error('Login failed:', error.message);
+        if (error.response) {
+            // Server responded with a status code out of the range 2xx
+            setError(error.response.data.detail);
+            resetField('password');
+            setFocus('password')
+        } else if (error.request) {
+            console.error('No response received:', error.request);
+        } else {
+            // Something went wrong in setting up the request
+            console.error('Error message:', error.message);
+        }
+        // console.error('Error config:', error.config); // Request configuration details
     }
   };
+
+  useEffect(() => {
+    setFocus('email');
+  }, []);
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
@@ -48,6 +66,9 @@ const SignIn = () => {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {error != null ? <p className='border-red-500 text-red-600 placeholder-red-300 focus:ring-2 focus:ring-red-500' >
+                  {error}
+                </p> : ''}
               {/* Email Input */}
               <div>
                 <label 
