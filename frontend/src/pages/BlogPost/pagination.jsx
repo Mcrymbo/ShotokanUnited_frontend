@@ -19,7 +19,7 @@ const PaginationButton = ({ page, isActive, onClick }) => (
 
 // --- Pagination Control Component ---
 export const PaginationControls = ({currentPage, totalPages, handlePageChange, filteredBlogs, itemsPerPage}) => (
-    <div className="flex flex-col items-center space-y-4 mt-12 mb-20">
+    <div className="flex flex-col items-center space-y-4 mt-12">
         <div className="flex items-center space-x-2">
             <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -77,7 +77,7 @@ export const PaginationControls = ({currentPage, totalPages, handlePageChange, f
             </motion.button>
         </div>
         
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-900">
             Showing {((currentPage - 1) * itemsPerPage) + 1} to {Math.min(currentPage * itemsPerPage, filteredBlogs.length)} of {filteredBlogs.length} stories
         </div>
     </div>

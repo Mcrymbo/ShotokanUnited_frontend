@@ -1,4 +1,4 @@
-import { Menu, Search } from 'lucide-react'
+import { Menu, Search, X } from 'lucide-react'
 
 // --- Navigation Component ---
 export const NavigationBar = ({ categories, activeFilter, setActiveFilter, isMobileMenuOpen, setIsMobileMenuOpen }) => {
