@@ -23,6 +23,7 @@
     "axios": "^1.7.2",
     "flatpickr": "^4.6.13",
     "flowbite-react": "^0.7.2",
+    "framer-motion": "^11.15.0",
     "jsvectormap": "^1.6.0",
     "lucide-react": "^0.460.0",
     "prop-types": "^15.8.1",

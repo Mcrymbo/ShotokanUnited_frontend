@@ -15,7 +15,7 @@ function About() {
     <DefaultLayout>
     <div id='about-section' className='container bg-white p-4  md:py-10'>
 
-        <div className="relative">
+        <div className="relative w-full">
           <img src={suk_team} alt="about shotokan united karate kenya"
            className='w-full h-[200px] md:h-auto object-cover'
           />

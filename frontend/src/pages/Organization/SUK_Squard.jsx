@@ -23,7 +23,7 @@ const SukSquard = () => {
 
   return (
     <DefaultLayout>
-        <div className='container relative'>
+        <div className='container relative w-full'>
             <img src={team_strath} alt="img" width={100} height={100} className='w-full h-[200px] md:h-auto object-cover' />
             <div className='absolute inset-0 bg-black opacity-20'></div>
             <h2 className='absolute bottom-0 left-0 p-4 text-white text-4xl'>HDKI Kenya Squard</h2>
