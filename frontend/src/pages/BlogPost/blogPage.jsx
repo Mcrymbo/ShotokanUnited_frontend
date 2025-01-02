@@ -7,6 +7,7 @@ import {FeaturedPost} from './featureBlog';
 import { CategoryOverview } from './categoryOverview';
 import { Newsletter } from './newsLetter';
 import { StoriesGrid } from './stories';
+import { FullStoryModal } from './fullStory';
 
 // --- Helper Function ---
 const useScrollPosition = () => {
@@ -29,6 +30,7 @@ const BlogPage = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [featuredBlog, setFeaturedBlog] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedBlog, setSelectedBlog] = useState(null); //For full story modal
     const itemsPerPage = 6;
     const categories = ['All', 'Personal Journey', 'Technique', 'Training', 'Philosophy'];
     const [blogs, setBlogs] = useState(initialBlogs);
@@ -62,15 +64,29 @@ const BlogPage = () => {
     }
 
     const handleStoryClick = (blog) => {
-         if (blog.id === featuredBlog?.id) return;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setFeaturedBlog(blog);
+        if (blog.id === featuredBlog?.id) return;
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+       setFeaturedBlog(blog);
+   };
+
+
+    const handleReadFullStoryClick = (blog) => {
+        setSelectedBlog(blog);
     };
+
+    const handleCloseModal = () => {
+        setSelectedBlog(null);
+    }
 
     return (
         <DefaultLayout className="bg-gradient-to-br from-gray-50 to-blue-50/30">
             <div className="relative">
-                <FeaturedPost blog={featuredBlog} scrollPosition={scrollPosition} />
+                <FullStoryModal isOpen={!!selectedBlog} onClose={handleCloseModal} blog={selectedBlog} />
+                <FeaturedPost
+                    blog={featuredBlog}
+                    scrollPosition={scrollPosition}
+                    onReadFullStoryClick={handleReadFullStoryClick} />
+                    
                 <NavigationBar
                     categories={categories}
                     activeFilter={activeFilter}

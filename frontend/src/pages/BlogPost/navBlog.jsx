@@ -3,7 +3,7 @@ import { Menu, Search, X } from 'lucide-react'
 // --- Navigation Component ---
 export const NavigationBar = ({ categories, activeFilter, setActiveFilter, isMobileMenuOpen, setIsMobileMenuOpen }) => {
     return (
-        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <div className="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-gray-200">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between py-4">
                     {/* Mobile Menu Button */}

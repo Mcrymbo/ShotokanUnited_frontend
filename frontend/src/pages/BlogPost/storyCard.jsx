@@ -20,14 +20,14 @@ export const StoryCard = ({ blog, index, scrollPosition, handleStoryClick }) => 
             </div>
             
              {/* Category & Read Time */}
-            <div className="absolute top-6 right-6 flex flex-col gap-3">
+            {/* <div className="absolute top-6 right-6 flex flex-col gap-3">
                 <span className="bg-white/90 backdrop-blur-lg px-4 py-2 rounded-sm text-sm font-medium text-gray-700 shadow-sm">
                     {blog.readTime}
                 </span>
                 <span className="bg-orange-500/90 backdrop-blur-lg px-4 py-2 rounded-sm text-sm font-medium text-white shadow-sm">
                     {blog.category}
                 </span>
-            </div>
+            </div> */}
 
             <div className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
@@ -61,9 +61,9 @@ export const StoryCard = ({ blog, index, scrollPosition, handleStoryClick }) => 
                             <span>{blog.comments}</span>
                         </button>
                     </div>
-                    <button className="text-orange-600 font-medium hover:text-orange-700 transition-colors">
-                        Read More
-                    </button>
+                    <span className="bg-gray-500/10 px-4 py-2 rounded-sm text-sm font-medium text-gray-700">
+                        {blog.readTime}
+                    </span>
                 </div>
             </div>
         </div>

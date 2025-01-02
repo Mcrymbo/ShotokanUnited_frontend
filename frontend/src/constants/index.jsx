@@ -405,4 +405,35 @@ export const initialBlogs = [
         category: 'Philosophy',
         dojo: 'Ancient Ways Dojo'
     },
+    {
+        id: 16,
+        title: 'Advanced Kicks and Footwork',
+        excerpt: 'Mastering dynamic kicks and footwork patterns in karate.',
+        photo: 'https://unsplash.it/860/600',
+        author: 'Sensei Ito',
+        authorAvatar: 'https://unsplash.it/300/300',
+        date: '4/28/2024',
+        views: 1900,
+        likes: 400,
+        comments: 70,
+        isLiked: true,
+        belt: 'Black Belt',
+        readTime: '10 min read',
+        category: 'Technique',
+        dojo: 'Strong Fist Academy',
+        content: [
+              {
+                type: 'text',
+                value: 'Advanced kicking techniques require a combination of strength, flexibility, and precision. In this article, we will explore a few dynamic kicks such as the spinning hook kick and the axe kick.'
+              },
+              {
+                  type: 'image',
+                  value: 'https://unsplash.it/860/650'
+              },
+              {
+                 type: 'text',
+                 value: 'Footwork is also key to landing a powerful kick. Proper stance and weight distribution will ensure the maximum force is applied.'
+              }
+          ]
+   },
 ];

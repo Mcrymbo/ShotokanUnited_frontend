@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 // --- Featured Post Component ---
-export const FeaturedPost = ({ blog, scrollPosition }) => {
+export const FeaturedPost = ({ blog, scrollPosition,  onReadFullStoryClick }) => {
     if (!blog) return null;
     
     return (
@@ -53,7 +53,9 @@ export const FeaturedPost = ({ blog, scrollPosition }) => {
                                 <p className="text-orange-300 text-xs md:text-sm">{blog.dojo}</p>
                             </div>
                         </div>
-                        <button className="w-full sm:w-auto px-4 md:px-6 py-2 md:py-3 bg-orange-700/90 text-white rounded-md font-semibold flex items-center justify-center space-x-2 hover:bg-orange-700/60 transition-all duration-300 group shadow-lg hover:shadow-blue-500/50">
+                        <button
+                            onClick={() => onReadFullStoryClick(blog)}
+                            className="w-full sm:w-auto px-4 md:px-6 py-2 md:py-3 bg-orange-700/90 text-white rounded-md font-semibold flex items-center justify-center space-x-2 hover:bg-orange-700/60 transition-all duration-300 group shadow-lg hover:shadow-blue-500/50">
                             <span>Read Full Story</span>
                             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                         </button>
