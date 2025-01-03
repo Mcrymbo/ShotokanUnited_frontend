@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import AdminPage from './pages/AdminDashboard';
 import LandingPage from './pages/landingPage';
-import { About, Contact, SukAffiliation, ClubAffiliation } from './pages';
+import { About, Contact, SukAffiliation, ClubAffiliation, DefaultNewsPage } from './pages';
 import { TechnicalTeam, ExecutiveTeam, SukSquard } from './pages/Organization';
 import { BlogPage } from './pages/BlogPost';
 import { SignIn, SignUp, ActivateAccount } from './pages/Authentication';
 import { ProtectedRoute } from './components/protectedRoute';
 import NotFound from './components/NotFound';
 import { Account } from './pages/Authentication';
-import DefaultNewsPage from './components/News/DefaultNewsPage';
+// import DefaultNewsPage from './components/News/DefaultNewsPage';
 import { ListEvents } from './components/Events';
 import SingleNewsPage from './components/News/newsItem';
 import { SingleEventPage, KarateRegistrationForm } from './components/Events';

@@ -437,3 +437,66 @@ export const initialBlogs = [
           ]
    },
 ];
+
+// Mock Data
+export const mockNews = {
+    featured: {
+      id: 1,
+      title: "World Karate Championship 2025: Team Selection Announced",
+      description: "In a highly anticipated announcement, the national team roster has been finalized for the upcoming World Karate Championship. The selection includes both veteran champions and promising newcomers, representing various dojos across the country.",
+      date: "March 15, 2025",
+      category: "Championships",
+      imageUrl: "https://source.unsplash.com/random/1200x600",
+      readTime: "5 min read"
+    },
+    trending: [
+      {
+        id: 2,
+        title: "New Training Methodology Revolutionizes Kata Practice",
+        description: "Revolutionary approach combines traditional techniques with modern sports science.",
+        date: "March 14, 2025",
+        category: "Training",
+        imageUrl: "https://source.unsplash.com/random/800x600/?martial-arts",
+        readTime: "4 min read"
+      },
+      {
+        id: 3,
+        title: "Youth Development Program Launches Nationwide",
+        description: "Initiative aims to introduce karate to schools across the country.",
+        date: "March 13, 2025",
+        category: "Community",
+        imageUrl: "https://source.unsplash.com/random/800x600/?dojo",
+        readTime: "3 min read"
+      }
+    ],
+    latest: [
+      {
+        id: 4,
+        title: "International Seminar: Masters Share Ancient Techniques",
+        description: "Leading senseis from Japan conduct exclusive workshops on traditional karate forms.",
+        date: "March 12, 2025",
+        category: "Events",
+        imageUrl: "https://source.unsplash.com/random/800x600/?japanese-martial-arts",
+        readTime: "6 min read"
+      },
+      {
+        id: 5,
+        title: "Digital Dojo: Virtual Training Platform Launch",
+        description: "New online platform brings expert instruction to practitioners worldwide.",
+        date: "March 11, 2025",
+        category: "Technology",
+        imageUrl: "https://source.unsplash.com/random/800x600/?training",
+        readTime: "4 min read"
+      },
+      {
+        id: 6,
+        title: "Championship Series Dates Announced for 2025",
+        description: "Major tournaments scheduled across multiple cities with increased prize pools.",
+        date: "March 10, 2025",
+        category: "Tournaments",
+        imageUrl: "https://source.unsplash.com/random/800x600/?competition",
+        readTime: "5 min read"
+      }
+    ]
+  };
+  
