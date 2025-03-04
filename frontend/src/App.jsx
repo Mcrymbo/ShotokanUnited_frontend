@@ -13,6 +13,7 @@ import { ListEvents } from './components/Events';
 import SingleNewsPage from './components/News/newsItem';
 import { SingleEventPage, KarateRegistrationForm } from './components/Events';
 import TermsOfUse from './components/termsOfUse';
+import {RegistrationForm} from './pages';
 
 function App() {
   return (
@@ -31,11 +32,12 @@ function App() {
         <Route path='/news/:id' element={<SingleNewsPage />} />
         <Route path='/events' element={<ListEvents />} />
         <Route path='/events/:id' element={<SingleEventPage />} />
-        <Route path='/events/:id/:slug' element={<KarateRegistrationForm />} />
+        <Route path='/events/:slug' element={<KarateRegistrationForm />} />
         <Route path='/admin/*' element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
         <Route path='/terms-of-use' element={<TermsOfUse />} />
         <Route path='/auth/login' element={<SignIn />} />
         <Route path='/auth/register' element={<SignUp />} />
+        <Route path="/register/:token" element={<RegistrationForm />} />
         <Route path="/auth/activate" element={<ActivateAccount />} />
         <Route path='/activate' element={<Account />} />
         <Route path="*" element={<NotFound />} />

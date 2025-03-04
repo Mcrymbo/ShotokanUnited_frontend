@@ -2,6 +2,7 @@ import About from "./about";
 import Contact from "./contact";
 import {SukAffiliation, ClubAffiliation} from './Affiliation'
 import DefaultNewsPage from "./News/newsPage";
+import RegistrationForm from "./Authentication/RegistrationForm";
 
 export {
     About,
@@ -9,4 +10,5 @@ export {
     SukAffiliation,
     ClubAffiliation,
     DefaultNewsPage,
+    RegistrationForm,
 }

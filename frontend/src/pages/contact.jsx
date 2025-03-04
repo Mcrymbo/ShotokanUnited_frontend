@@ -267,7 +267,7 @@ function Contact() {
         </motion.div>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-8">
+        <footer className="text-gray-content py-8">
             <div className="container mx-auto text-center">
             <p>© 2024 Shotokan United. All Rights Reserved.</p>
             </div>

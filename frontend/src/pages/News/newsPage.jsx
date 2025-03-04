@@ -170,7 +170,7 @@ const LatestNewsSection = ({ categories, selectedCategory, onCategoryClick, filt
             ))}
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-            {filteredNews.length > 0 ? (
+            {filteredNews?.length > 0 ? (
                 filteredNews.map((item, index) => (
                     <NewsCard key={item.id} item={item} delay={index * 200} />
                 ))

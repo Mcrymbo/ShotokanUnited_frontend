@@ -4,7 +4,7 @@ import { SeoOptimizer } from '../../common';
 
 function FooterComponent() { 
   return (
-    <footer className="footer bg-neutral text-neutral-content p-4 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="footer bg-gray-300 text-gray-800 font-medium p-4 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8">
       <aside className="col-span-2 md:col-span-1 flex flex-col items-start">
         <img 
           src={logo} 

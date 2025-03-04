@@ -148,7 +148,7 @@ export default function SingleEventPage() {
                 {/* Related News Section */}
                 <div className="bg-white p-6 rounded-t-md shadow-md">
                   <h2 className="text-2xl font-bold mb-4 text-gray-900">Related News</h2>
-                  {relatedNews.length > 0 ? (
+                  {relatedNews?.length > 0 ? (
                     <div className="space-y-4">
                       {relatedNews.map((news) => (
                         <div

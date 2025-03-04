@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 flex justify-between items-center h-20 max-w-full mx-auto px-6 shadow-lg bg-gray-800">
+    <nav className="sticky top-0 z-50 flex justify-between items-center h-28 max-w-full mx-auto px-6 shadow-sm">
       {/* Logo */}
       <Link to="/" className="flex items-center space-x-2">
         <img
@@ -38,7 +38,7 @@ const Navbar = () => {
       </Link>
 
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex space-x-6 text-gray-200">
+      <ul className="hidden md:flex space-x-6 text-gray-900 font-semibold">
         {/* Home */}
         <li className="hover:text-orange-500 transition duration-300">
           <Link to="/">HOME</Link>
@@ -53,11 +53,11 @@ const Navbar = () => {
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
           </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-700 text-gray-200 p-2 w-60 shadow-lg">
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/about">About Shotokan United Kenya</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/technical-team">Technical Committee</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/executive-commitee">Executive Committee</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/suk-squard">SUK/HDKI Kenya Squad</Link></li>
+          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/60 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/about">About Shotokan United Kenya</Link></li>
+            {/* <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/technical-team">Technical Committee</Link></li>
+            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/executive-commitee">Executive Committee</Link></li> */}
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/suk-squard">SUK/HDKI Kenya Squad</Link></li>
           </ul>
         </li>
 
@@ -70,9 +70,9 @@ const Navbar = () => {
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
           </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-700 text-gray-200 p-2 w-60 shadow-lg">
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/suk-affiliation">SUK/HDKI-K Affiliation</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/club-affiliation">Club Affiliation</Link></li>
+          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/60 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/suk-affiliation">SUK/HDKI-K Affiliation</Link></li>
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/club-affiliation">Club Affiliation</Link></li>
           </ul>
         </li>
 
@@ -85,9 +85,9 @@ const Navbar = () => {
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
           </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-700 text-gray-200 p-2 w-60 shadow-lg">
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/news">News</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/blogs">Blogs</Link></li>
+          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/70 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/news">News</Link></li>
+            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/blogs">Blogs</Link></li>
           </ul>
         </li>
 
@@ -145,8 +145,8 @@ const Navbar = () => {
               <ul className="collapse-content peer-checked:block text-sm text-gray-300">
                 <li><Link to="/about">About SUK</Link></li>
                 <li><Link to="/technical-team">Technical Committee</Link></li>
-                <li><Link to="/executive-commitee">Executive Committee</Link></li>
-                <li><Link to="/suk-squard">SUK/HDKI-K Squad</Link></li>
+                {/* <li><Link to="/executive-commitee">Executive Committee</Link></li>
+                <li><Link to="/suk-squard">SUK/HDKI-K Squad</Link></li> */}
               </ul>
             </div>
           </li>

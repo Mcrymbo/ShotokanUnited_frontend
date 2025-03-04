@@ -23,7 +23,7 @@ const sliderSettings = {
 };
 
 const Hero = () => (
-  <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+  <div className="container mx-auto  max-w-full p-4 sm:p-6 lg:p-8">
     <div className="flex flex-col sm:flex-row items-center md:mb-8 w-full">
       <section className="relative flex flex-col w-full sm:w-1/2 md:p-6">
         <h1 className='sr-only'>Shotokan United Kenya</h1>
@@ -37,8 +37,8 @@ const Hero = () => (
           <button
             type='button'
             data-twe-ripple-init
-            className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white">
-            Explore more
+            className="sm:mx-auto mt-4 bg-orange-500 w-[30%] py-2 rounded-md text-white/80 font-medium hover:bg-orange-600">
+            BE PART OF US
           </button>
         </Link>
       </section>

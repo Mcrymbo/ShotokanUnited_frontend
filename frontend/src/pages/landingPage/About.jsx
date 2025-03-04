@@ -31,14 +31,18 @@ const About = () => {
               width={240}
               height={192}
               title="kibadachi"
-              className='w-full md:w-[50%] md:h-auto object-cover mb-6 md:mb-0 rounded-md' />   
+              className='w-full md:w-[50%] md:h-auto object-cover mb-6 md:mb-0 rounded-md' /> 
           <div className='w-full'>
-            <h3 className={`${styles.sectionSubText}`}>Mission</h3>
+            <h3 className={`${styles.sectionSubText}`}>Vision</h3>
             <p>
-              Our mission at Shotokan-United Kenya Karate Club is to empower individuals through traditional
-              Japanese karate, fostering discipline, respect, and perseverance. We aim to enhance members
-              physical fitness, mental strength, and self-defense skills, providing expert instruction and a
-              supportive community for lifelong martial arts dedication.
+            To cultivate a legacy of martial arts that shapes strong, disciplined, and confident individuals
+            who inspire positive change in society.
+            </p>
+
+            <h3 className={`${styles.sectionSubText} mt-8`}>Mission</h3>
+            <p>
+            To empower individuals through the fusion of traditional Shotokan karate and modern training,
+            building discipline, resilience, and lifelong excellence in a supportive community.
             </p>
           </div>
         </section>
