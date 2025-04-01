@@ -1,47 +1,110 @@
 import { Routes, Route } from 'react-router-dom';
-import AdminPage from './pages/AdminDashboard';
-import LandingPage from './pages/landingPage';
-import { About, Contact, SukAffiliation, ClubAffiliation, DefaultNewsPage } from './pages';
-import { TechnicalTeam, ExecutiveTeam, SukSquard } from './pages/Organization';
-import { BlogPage } from './pages/BlogPost';
-import { SignIn, SignUp, ActivateAccount } from './pages/Authentication';
+import { Suspense, lazy } from 'react';
+import LoadingSpinner from './components/LoadingSpinner';
 import { ProtectedRoute } from './components/protectedRoute';
-import NotFound from './components/NotFound';
-import { Account } from './pages/Authentication';
-// import DefaultNewsPage from './components/News/DefaultNewsPage';
-import { ListEvents } from './components/Events';
-import SingleNewsPage from './components/News/newsItem';
-import { SingleEventPage, KarateRegistrationForm } from './components/Events';
-import TermsOfUse from './components/termsOfUse';
-import {RegistrationForm} from './pages';
+
+// Lazy loaded components
+const LandingPage = lazy(() => import('./pages/landingPage'));
+const AdminPage = lazy(() => import('./pages/AdminDashboard'));
+const NotFound = lazy(() => import('./components/NotFound'));
+
+// About Section
+const About = lazy(() => import('./pages/About/About'));
+const History = lazy(() => import('./pages/About/History'));
+const MissionVision = lazy(() => import('./pages/About/MissionVision'));
+const TechnicalCommittee = lazy(() => import('./pages/About/TechnicalCommitee'));
+
+// Programs Section
+const Programs = lazy(() => import('./pages/Programs'));
+const KidsKarate = lazy(() => import('./pages/Programs/KidsKarate'));
+const AdultTraining = lazy(() => import('./pages/Programs/AdultTraining'));
+const WomenOnly = lazy(() => import('./pages/Programs/WomenOnly'));
+
+// Events Section
+const Events = lazy(() => import('./components/Events/ListEvents'));
+const SingleEvent = lazy(() => import('./components/Events/SingleEventPage'));
+const EventRegistration = lazy(() => import('./components/Events/KarateRegistrationForm'));
+
+// News Section
+const News = lazy(() => import('./pages/News'));
+const SingleNews = lazy(() => import('./components/News/newsItem'));
+
+// Club Affiliation Section
+const ClubAffiliation = lazy(() => import('./pages/Affiliation/ClubAffiliation'));
+const Benefits = lazy(() => import('./pages/Affiliation/Benefits'));
+const Requirements = lazy(() => import('./pages/Affiliation/Requirements'));
+const AffiliationForm = lazy(() => import('./pages/Affiliation/AffiliationForm'));
+
+// Authentication
+const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
+const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
+const ActivateAccount = lazy(() => import('./pages/Authentication/ActivateAccount'));
+const Account = lazy(() => import('./pages/Authentication/Account'));
+
+// Other Pages
+const Contact = lazy(() => import('./pages/Contact'));
+const TermsOfUse = lazy(() => import('./components/termsOfUse'));
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-tl from-gray-100 via-gray-400 to-gray-200 relative overflow-hidden text-gray-700">
-      <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/technical-team' element={<TechnicalTeam />} />
-        <Route path='/executive-commitee' element={<ExecutiveTeam />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/suk-affiliation' element={<SukAffiliation />} />
-        <Route path='/club-affiliation' element={<ClubAffiliation />} />
-        <Route path='/blogs' element={<BlogPage />} />
-        <Route path='/suk-squard' element={<SukSquard />} />
-        <Route path='/news' element={<DefaultNewsPage />} />
-        <Route path='/news/:id' element={<SingleNewsPage />} />
-        <Route path='/events' element={<ListEvents />} />
-        <Route path='/events/:id' element={<SingleEventPage />} />
-        <Route path='/events/:slug' element={<KarateRegistrationForm />} />
-        <Route path='/admin/*' element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
-        <Route path='/terms-of-use' element={<TermsOfUse />} />
-        <Route path='/auth/login' element={<SignIn />} />
-        <Route path='/auth/register' element={<SignUp />} />
-        <Route path="/register/:token" element={<RegistrationForm />} />
-        <Route path="/auth/activate" element={<ActivateAccount />} />
-        <Route path='/activate' element={<Account />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <div className="min-h-screen bg-flashWhite relative overflow-hidden">
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          {/* Main Route */}
+          <Route path="/" element={<LandingPage />} />
+
+          {/* About Routes */}
+          <Route path="/about" element={<About />} />
+          <Route path="/about/history" element={<History />} />
+          <Route path="/about/mission" element={<MissionVision />} />
+          <Route path="/about/committee" element={<TechnicalCommittee />} />
+
+          {/* Programs Routes */}
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/kids" element={<KidsKarate />} />
+          <Route path="/programs/adults" element={<AdultTraining />} />
+          <Route path="/programs/women" element={<WomenOnly />} />
+
+          {/* Events Routes */}
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<SingleEvent />} />
+          <Route path="/events/:slug/register" element={<EventRegistration />} />
+
+          {/* News Routes */}
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<SingleNews />} />
+
+          {/* Club Affiliation Routes */}
+          <Route path="/club-affiliation" element={<ClubAffiliation />} />
+          <Route path="/club-affiliation/benefits" element={<Benefits />} />
+          <Route path="/club-affiliation/requirements" element={<Requirements />} />
+          <Route path="/club-affiliation/apply" element={<AffiliationForm />} />
+
+          {/* Authentication Routes */}
+          <Route path="/auth/login" element={<SignIn />} />
+          <Route path="/auth/register" element={<SignUp />} />
+          <Route path="/auth/activate" element={<ActivateAccount />} />
+          <Route path="/account" element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          } />
+
+          {/* Admin Routes */}
+          <Route path="/admin/*" element={
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          } />
+
+          {/* Other Routes */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<TermsOfUse />} />
+
+          {/* 404 Route */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

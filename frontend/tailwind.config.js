@@ -75,6 +75,25 @@ module.exports = {
         richBlack: '#2e2e2e',
         eerieBlack: '#1f1f1f',
         onyx: '#5b5b5b',
+        wine: {
+          DEFAULT: '#722F37',
+          dark: '#4A1D22',
+          light: '#A64D57',
+          100: '#F5E6E8',
+          200: '#E8C1C5',
+          300: '#D99DA3',
+          400: '#C97981',
+          500: '#B9555F',
+          600: '#A64D57',
+          700: '#722F37',
+          800: '#4A1D22',
+          900: '#23090C',
+        },
+        gold: {
+          DEFAULT: '#D4AF37',
+          light: '#E5C76B',
+          dark: '#A88A1C',
+        },
       },
       fontSize: {
         'title-xxl': ['44px', '55px'],
@@ -172,7 +191,48 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["light", "dark",],
+    themes: [
+      {
+        wineTheme: {
+          "primary": "#722F37",          // wine
+          "primary-focus": "#4A1D22",    // dark wine
+          "primary-content": "#F5E6E8",  // light text on primary
+          
+          "secondary": "#D4AF37",        // gold
+          "secondary-focus": "#A88A1C",  // dark gold
+          "secondary-content": "#F5E6E8", // light text on secondary
+          
+          "accent": "#A64D57",           // light wine
+          "accent-focus": "#B9555F",     // lighter wine
+          "accent-content": "#F5E6E8",   // light text on accent
+          
+          "neutral": "#2C363F",          // charcoal
+          "neutral-focus": "#1F262D",    // dark charcoal
+          "neutral-content": "#F5E6E8",  // light text on neutral
+          
+          "base-100": "#F5E6E8",         // cream
+          "base-200": "#E8C1C5",         // blush
+          "base-300": "#7C8C7D",         // sage
+          "base-content": "#2C363F",     // dark text on base
+          
+          "info": "#3ABFF8",
+          "success": "#36D399",
+          "warning": "#FBBD23",
+          "error": "#F87272",
+
+          "--rounded-box": "0.5rem",
+          "--rounded-btn": "0.3rem",
+          "--rounded-badge": "1.9rem",
+          "--animation-btn": "0.25s",
+          "--animation-input": "0.2s",
+          "--btn-text-case": "uppercase",
+          "--navbar-padding": "0.5rem",
+          "--border-btn": "1px",
+        },
+      },
+      "light",
+      "dark",
+    ],
   },
 }
 

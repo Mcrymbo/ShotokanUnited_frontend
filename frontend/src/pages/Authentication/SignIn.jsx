@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Mail, Lock, AlertCircle } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { 
+  Eye, EyeOff, Mail, Lock, 
+  AlertCircle, ArrowRight 
+} from 'lucide-react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { useLogin } from '../../hooks';
 import { useUser } from '../../hooks';
@@ -9,53 +13,68 @@ import { sparrow_fight } from '../../assets';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { 
     register, 
     handleSubmit, 
     formState: { errors }, 
     reset,
-    resetField,
     setFocus
   } = useForm({ mode: 'onBlur' });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useLogin();
   const { user } = useUser();
-  const dest = sessionStorage.getItem('intendedDestination');
-  
-  const onSubmit = async (data) => {
-    try {
-        await login(data);
-        reset();
-        navigate(dest || (user?.role === 4 ? '/' : '/admin'));
-        sessionStorage.removeItem('intendedDestination');
-    } catch (error) {
-        if (error.response) {
-            // Server responded with a status code out of the range 2xx
-            setError(error.response.data.detail);
-            resetField('password');
-            setFocus('password')
-        } else if (error.request) {
-            console.error('No response received:', error.request);
-        } else {
-            // Something went wrong in setting up the request
-            console.error('Error message:', error.message);
-        }
-        // console.error('Error config:', error.config); // Request configuration details
-    }
-  };
+
+  // Get intended destination from session storage or location state
+  const dest = location.state?.from || sessionStorage.getItem('intendedDestination');
 
   useEffect(() => {
     setFocus('email');
-  }, []);
+    // Clear any success messages from previous operations
+    if (location.state?.message) {
+      const timer = setTimeout(() => {
+        navigate(location.pathname, { replace: true, state: {} });
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [setFocus, location, navigate]);
 
-  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      await login(data);
+      reset();
+      // Navigate to intended destination or default based on role
+      navigate(dest || (user?.role === 4 ? '/' : '/admin'));
+      sessionStorage.removeItem('intendedDestination');
+    } catch (error) {
+      if (error.response?.status === 401) {
+        setError('Invalid email or password');
+      } else if (error.response?.status === 403) {
+        setError('Account is not activated. Please check your email.');
+      } else {
+        setError('An error occurred. Please try again.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <DefaultLayout>
       <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50">
+        {/* Form Section */}
         <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12 lg:px-8">
-          <div className="w-full max-w-md space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full max-w-md space-y-8"
+          >
+            {/* Header */}
             <div className="text-center">
               <h2 className="text-4xl font-bold tracking-tight text-gray-900">
                 Welcome Back
@@ -65,10 +84,31 @@ const SignIn = () => {
               </p>
             </div>
 
+            {/* Success Message */}
+            {location.state?.message && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2"
+              >
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <p className="text-green-700">{location.state.message}</p>
+              </motion.div>
+            )}
+
+            {/* Error Message */}
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2"
+              >
+                <AlertCircle className="w-5 h-5 text-red-600" />
+                <p className="text-red-700">{error}</p>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {error != null ? <p className='border-red-500 text-red-600 placeholder-red-300 focus:ring-2 focus:ring-red-500' >
-                  {error}
-                </p> : ''}
               {/* Email Input */}
               <div>
                 <label 
@@ -84,13 +124,14 @@ const SignIn = () => {
                   <input
                     id="email"
                     type="email"
+                    autoComplete="email"
                     placeholder="Enter your email"
                     className={`
                       block w-full pl-10 pr-4 py-2.5 rounded-lg border 
                       transition duration-300 ease-in-out
                       ${errors.email 
                         ? 'border-red-500 text-red-600 placeholder-red-300 focus:ring-2 focus:ring-red-500' 
-                        : 'border-gray-300 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500'
+                        : 'border-gray-300 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-wine-500 focus:border-wine-500'
                       }
                     `}
                     {...register('email', { 
@@ -129,17 +170,18 @@ const SignIn = () => {
                   <input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
+                    autoComplete="current-password"
                     placeholder="Enter your password"
                     className={`
                       block w-full pl-10 pr-10 py-2.5 rounded-lg border 
                       transition duration-300 ease-in-out
                       ${errors.password 
                         ? 'border-red-500 text-red-600 placeholder-red-300 focus:ring-2 focus:ring-red-500' 
-                        : 'border-gray-300 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500'
+                        : 'border-gray-300 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-wine-500 focus:border-wine-500'
                       }
                     `}
                     {...register('password', { 
-                      required: 'Password is required', 
+                      required: 'Password is required',
                       minLength: {
                         value: 6,
                         message: 'Password must be at least 6 characters'
@@ -148,9 +190,8 @@ const SignIn = () => {
                   />
                   <button
                     type="button"
-                    aria-label="Toggle password visibility"
-                    onClick={togglePasswordVisibility}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center focus:outline-none"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   >
                     {showPassword ? (
                       <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
@@ -170,7 +211,7 @@ const SignIn = () => {
               <div className="text-right">
                 <Link 
                   to="/auth/forgot-password" 
-                  className="text-sm text-orange-500 hover:text-orange-600 hover:underline"
+                  className="text-sm text-wine-700 hover:text-wine-800 hover:underline"
                 >
                   Forgot Password?
                 </Link>
@@ -179,18 +220,20 @@ const SignIn = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="
-                  w-full py-3 px-4 
-                  bg-orange-500 text-white 
-                  rounded-lg 
-                  hover:bg-orange-600 
-                  focus:outline-none 
-                  focus:ring-2 focus:ring-offset-2 focus:ring-orange-500
+                disabled={isSubmitting}
+                className={`
+                  w-full py-3 px-4 flex items-center justify-center space-x-2
+                  rounded-lg text-white font-medium
                   transition duration-300 ease-in-out
                   transform hover:scale-[1.02]
-                "
+                  ${isSubmitting
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-wine-700 hover:bg-wine-800'
+                  }
+                `}
               >
-                Sign In
+                <span>{isSubmitting ? 'Signing in...' : 'Sign In'}</span>
+                {!isSubmitting && <ArrowRight className="w-5 h-5" />}
               </button>
             </form>
 
@@ -200,27 +243,25 @@ const SignIn = () => {
                 Don't have an account?{' '}
                 <Link 
                   to="/auth/register" 
-                  className="font-medium text-orange-500 hover:text-orange-600 hover:underline"
+                  className="font-medium text-wine-700 hover:text-wine-800 hover:underline"
                 >
                   Sign Up
                 </Link>
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Image Section */}
         <div className="hidden lg:block lg:w-1/2 bg-gray-100">
           <div className="h-full flex items-center justify-center p-8">
-            <img 
+            <motion.img 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               src={sparrow_fight} 
-              alt="sparrow" 
-              className="
-                max-h-[500px] w-full object-contain 
-                rounded-lg shadow-lg 
-                transition duration-300 ease-in-out 
-                transform hover:scale-105
-              " 
+              alt="Shotokan Karate" 
+              className="max-h-[500px] w-full object-contain rounded-lg shadow-lg" 
             />
           </div>
         </div>

@@ -39,7 +39,12 @@ import medal_2 from './awards/medal-2.png'
 import hdki_cover from './background/Hdki_cover.png';
 import teddy_bear from './personal/karate-teddy-bear.jpg';
 import sparrow_fight from './personal/sparrow_fight.webp';
-
+import joshua1 from './commitee/joshua1.jpg';
+import jason1 from './commitee/jason1.png';
+import karate_stance from './personal/karate-teddy-bear.jpg';
+import mission_image from './Hero/heropic2.jpg';
+import values_image from './Hero/HeroPic1.jpg';
+import vision_image from './Hero/heroPic3.jpg';
 export {
     team_strath,
     kids_training,
@@ -68,7 +73,9 @@ export {
     cover,
     langi,
     joshua,
+    joshua1,
     jason,
+    jason1,
     musoga,
     teamTrain1,
     teamRelax1,
@@ -85,4 +92,8 @@ export {
 
     teddy_bear,
     sparrow_fight,
+    karate_stance,
+    mission_image,
+    values_image,
+    vision_image,
 }

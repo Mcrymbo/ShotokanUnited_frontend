@@ -1,199 +1,270 @@
-import { useState } from 'react';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLogout } from '../hooks';
-import { useUser } from '../hooks';
-import logo from '../assets/images/logo.png';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronDown, User, Search, Bell } from 'lucide-react';
+import { logo } from '../assets';
 
 const Navbar = () => {
-  const { logout } = useLogout();
-  const { user } = useUser();
-  const [nav, setNav] = useState(false);
-  const history = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState('');
+  const location = useLocation();
 
-  const handleNav = () => {
-    setNav(!nav);
-  };
+  // Navigation Items
+  const navItems = [
+    { 
+      title: 'About', 
+      path: '/about',
+      dropdown: [
+        { title: 'About', path: '/about' },
+        { title: 'Our History', path: '/about/history' },
+        { title: 'Mission & Vision', path: '/about/mission' },
+        { title: 'Technical Committee', path: '/about/committee' }
+      ]
+    },
+    { 
+      title: 'Programs', 
+      path: '/programs',
+      dropdown: [
+        { title: 'Kids Karate', path: '/programs/kids' },
+        { title: 'Adult Training', path: '/programs/adults' },
+        { title: 'Women Only', path: '/programs/women' }
+      ]
+    },
+    { title: 'Events', path: '/events' },
+    { title: 'News', path: '/news' },
+    { 
+      title: 'Club Affiliation', 
+      path: '/club-affiliation',
+      dropdown: [
+        { title: 'Benefits', path: '/club-affiliation/benefits' },
+        { title: 'Requirements', path: '/club-affiliation/requirements' },
+        { title: 'Apply Now', path: '/club-affiliation/apply' }
+      ]
+    },
+    { title: 'Contact', path: '/contact' }
+  ];
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    logout();
-    setNav(false);
-    history('/auth/login');
-  };
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+    setDropdownOpen('');
+  }, [location.pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 flex justify-between items-center h-28 max-w-full mx-auto px-6 shadow-sm">
-      {/* Logo */}
-      <Link to="/" className="flex items-center space-x-2">
-        <img
-          src={logo}
-          alt="Shotokan United"
-          title="Shotokan United"
-          width={240}
-          height={192}
-          className="w-[60px] h-[60px] object-contain"
-        />
-        <span className="text-2xl font-bold text-orange-500">Shotokan United</span>
-      </Link>
-
-      {/* Desktop Navigation */}
-      <ul className="hidden md:flex space-x-6 text-gray-900 font-semibold">
-        {/* Home */}
-        <li className="hover:text-orange-500 transition duration-300">
-          <Link to="/">HOME</Link>
-        </li>
-        
-        {/* About dropdown */}
-        <li className="relative group">
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
-            <span>ABOUT US</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-            </svg>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+          : 'bg-transparent/60'
+      }`}
+    >
+      {/* Top Bar */}
+      <div className={`bg-wine-700 text-white transition-all duration-300 ${
+        isScrolled ? 'h-0 overflow-hidden' : 'h-10'
+      }`}>
+        <div className="container mx-auto px-4 h-full">
+          <div className="flex items-center justify-between h-full text-sm">
+            <div className="flex items-center gap-6">
+              <span>📞 +254 123 456 789</span>
+              <span>📧 info@shotokanunited.co.ke</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link to="/news" className="hover:text-gold transition-colors">Latest News</Link>
+              <Link to="/events" className="hover:text-gold transition-colors">Upcoming Events</Link>
+            </div>
           </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/60 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/about">About Shotokan United Kenya</Link></li>
-            {/* <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/technical-team">Technical Committee</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-500 transition duration-300"><Link to="/executive-commitee">Executive Committee</Link></li> */}
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/suk-squard">SUK/HDKI Kenya Squad</Link></li>
-          </ul>
-        </li>
-
-        {/* Affiliation dropdown */}
-        <li className="relative group">
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
-            <span>AFFILIATION</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-            </svg>
-          </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/60 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/suk-affiliation">SUK/HDKI-K Affiliation</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/club-affiliation">Club Affiliation</Link></li>
-          </ul>
-        </li>
-
-         {/* Karate dropdown */}
-         <li className="relative group">
-          <div className="flex items-center space-x-2 cursor-pointer hover:text-orange-500 transition duration-300">
-            <span>KARATE</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className='fill-orange-400 hover:fill-orange-600' height="20" viewBox="0 0 20 20" width="20">
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-            </svg>
-          </div>
-          <ul className="absolute left-0 hidden group-hover:block bg-gray-400/70 rounded-md text-gray-content font-normal p-2 w-60 shadow-md">
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/news">News</Link></li>
-            <li className="border-b border-gray-600 hover:text-orange-700 transition duration-300"><Link to="/blogs">Blogs</Link></li>
-          </ul>
-        </li>
-
-        {/* Contact */}
-        <li className="hover:text-orange-500 transition duration-300">
-          <Link to="/contact">CONTACT</Link>
-        </li>
-
-        {/* Login/Logout */}
-        {user.id ? (
-          <li className="hover:text-orange-500 transition duration-300 cursor-pointer" onClick={handleLogout}>
-            Logout
-          </li>
-        ) : (
-          <li className="hover:text-orange-500 transition duration-300">
-            <Link to="/auth/login">Login</Link>
-          </li>
-        )}
-      </ul>
-
-      {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className="md:hidden text-gray-200">
-        {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+        </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <ul
-        className={`fixed top-0 left-0 w-[60%] h-screen bg-gray-800 text-gray-200 transform ${
-          nav ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform duration-300 z-50`}
-      >
-        <div className="flex justify-end p-4">
-          <AiOutlineClose size={30} onClick={handleNav} />
-        </div>
-        <div className="flex justify-center mt-4 mb-6">
-          <Link to="/">
-            <img src={logo} alt="logo" className="w-32 h-auto" />
+      {/* Main Navbar */}
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Shotokan United" className="h-12 w-auto" />
           </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <div key={item.title} className="relative group">
+                <button
+                  onClick={() => setDropdownOpen(dropdownOpen === item.title ? '' : item.title)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300
+                    flex items-center gap-1 group ${
+                    location.pathname === item.path 
+                      ? 'text-wine-700 bg-wine-50' 
+                      : 'text-wine-800 hover:text-wine-700 hover:bg-wine-50'
+                  }`}
+                >
+                  {item.title}
+                  {item.dropdown && (
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
+                      dropdownOpen === item.title ? 'rotate-180' : ''
+                    }`} />
+                  )}
+                </button>
+
+                {/* Dropdown Menu */}
+                {item.dropdown && (
+                  <AnimatePresence>
+                    {dropdownOpen === item.title && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full left-0 w-64 py-2 mt-1 bg-white rounded-xl shadow-xl border border-wine-100"
+                      >
+                        {item.dropdown.map((dropItem) => (
+                          <Link
+                            key={dropItem.title}
+                            to={dropItem.path}
+                            className="block px-4 py-2 text-sm text-neutral-700 hover:bg-wine-50 
+                              hover:text-wine-700 transition-all duration-300 first:rounded-t-lg last:rounded-b-lg"
+                          >
+                            {dropItem.title}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
+            ))}
+
+            {/* Action Buttons */}
+            <div className="ml-6 flex items-center space-x-3">
+              {/* <button className="p-2 rounded-full text-neutral-600 hover:text-wine-700 hover:bg-wine-50 transition-all duration-300">
+                <Search className="w-5 h-5" />
+              </button>
+              <button className="p-2 rounded-full text-neutral-600 hover:text-wine-700 hover:bg-wine-50 transition-all duration-300">
+                <Bell className="w-5 h-5" />
+              </button> */}
+              <div className="h-6 w-px bg-neutral-200"></div>
+              <Link 
+                to="/auth/login" 
+                className="px-4 py-2 rounded-lg text-wine-700 hover:bg-wine-50 transition-all duration-300 font-medium"
+              >
+                Sign In
+              </Link>
+              <Link 
+                to="/auth/register" 
+                className="px-4 py-2 rounded-lg bg-wine-700 text-white hover:bg-wine-800 
+                  transition-all duration-300 font-medium shadow-lg shadow-wine-700/20"
+              >
+                Join Now
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-wine-50 transition-all duration-300"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-        <div className="text-lg font-semibold text-gray-400 mb-4 border-b mx-auto max-w-[90%]">MENU</div>
+      </div>
 
-        <div className="max-h-[300px] overflow-y-auto">
-          {/* Home */}
-          <li>
-            <Link to="/" className="block px-4 py-2 hover:text-orange-500">
-              Home
-            </Link>
-          </li>
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-t border-neutral-100"
+          >
+            <div className="container mx-auto px-4 py-4">
+              {/* Mobile Search */}
+              <div className="mb-4 relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-full px-4 py-2 rounded-lg bg-neutral-50 border border-neutral-200 
+                    focus:outline-none focus:border-wine-300 focus:ring-2 focus:ring-wine-100"
+                />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
+              </div>
 
-          {/* About Dropdown */}
-          <li>
-            <div className="collapse collapse-arrow">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title cursor-pointer">About</div>
-              <ul className="collapse-content peer-checked:block text-sm text-gray-300">
-                <li><Link to="/about">About SUK</Link></li>
-                <li><Link to="/technical-team">Technical Committee</Link></li>
-                {/* <li><Link to="/executive-commitee">Executive Committee</Link></li>
-                <li><Link to="/suk-squard">SUK/HDKI-K Squad</Link></li> */}
-              </ul>
+              {/* Mobile Menu Items */}
+              <div className="space-y-2">
+                {navItems.map((item) => (
+                  <div key={item.title}>
+                    <button
+                      onClick={() => setDropdownOpen(dropdownOpen === item.title ? '' : item.title)}
+                      className={`w-full px-4 py-3 flex items-center justify-between rounded-lg 
+                        transition-all duration-300 ${
+                        location.pathname === item.path 
+                          ? 'text-wine-700 bg-wine-50' 
+                          : 'text-neutral-800 hover:bg-wine-50'
+                      }`}
+                    >
+                      {item.title}
+                      {item.dropdown && (
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
+                          dropdownOpen === item.title ? 'rotate-180' : ''
+                        }`} />
+                      )}
+                    </button>
+
+                    {/* Mobile Dropdown */}
+                    <AnimatePresence>
+                      {item.dropdown && dropdownOpen === item.title && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="ml-4 mt-1 space-y-1"
+                        >
+                          {item.dropdown.map((dropItem) => (
+                            <Link
+                              key={dropItem.title}
+                              to={dropItem.path}
+                              className="block px-4 py-2 text-sm text-neutral-700 hover:bg-wine-50 
+                                hover:text-wine-700 rounded-lg transition-all duration-300"
+                            >
+                              {dropItem.title}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile Auth Buttons */}
+              <div className="mt-6 grid grid-cols-2 gap-3 px-4">
+                <Link 
+                  to="/login" 
+                  className="btn btn-outline border-wine-200 text-wine-700 hover:bg-wine-50 
+                    hover:border-wine-300 transition-all duration-300"
+                >
+                  Sign In
+                </Link>
+                <Link 
+                  to="/register" 
+                  className="btn bg-wine-700 text-white hover:bg-wine-800 transition-all duration-300"
+                >
+                  Join Now
+                </Link>
+              </div>
             </div>
-          </li>
-
-          {/* Affiliation Dropdown */}
-          <li>
-            <div className="collapse collapse-arrow">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title cursor-pointer">Affiliation</div>
-              <ul className="collapse-content peer-checked:block text-sm text-gray-300">
-                <li><Link to="/suk-affiliation">SUK/HDKI-K Affiliation</Link></li>
-                <li><Link to="/club-affiliation">Club Affiliation</Link></li>
-              </ul>
-            </div>
-          </li>
-
-           {/* Karate Dropdown */}
-           <li>
-            <div className="collapse collapse-arrow">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title cursor-pointer">KARATE</div>
-              <ul className="collapse-content peer-checked:block text-sm text-gray-300">
-                <li><Link to="/news">News</Link></li>
-                <li><Link to="/blogs">Blog</Link></li>
-              </ul>
-            </div>
-          </li>
-
-          {/* Contact */}
-          <li>
-            <Link to="/contact" className="block px-4 py-2 hover:text-orange-500">
-              Contact Us
-            </Link>
-          </li>
-
-          {/* Login/Logout */}
-          {user.id ? (
-            <li className="py-4 block px-4 hover:text-orange-500 cursor-pointer" onClick={handleLogout}>
-              Logout
-            </li>
-          ) : (
-            <li className="py-4 block px-4 hover:text-orange-500">
-              <Link to="/auth/login">Login</Link>
-            </li>
-          )}
-        </div>
-      </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
