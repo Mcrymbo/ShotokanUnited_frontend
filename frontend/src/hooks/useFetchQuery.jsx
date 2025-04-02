@@ -1,10 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
 
-const baseUrl = "https://shotokanunitedkenya.org/backend/";
-const baseUrl2 = "wss://shotokanunitedkenya.org";
-// const baseUrl = "http://localhost:8000/backend/";
-// const baseUrl2 = "ws://localhost:8000"
+// const baseUrl = "https://shotokanunitedkenya.org/backend/";
+// const baseUrl2 = "wss://shotokanunitedkenya.org";
+const baseUrl = import.meta.env.VITE_API_URL;
+const baseUrl2 = import.meta.env.VITE_WS_URL;
+
 
 
 const api = axios.create({

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { Link } from 'react-router-dom';
+import { ladiesTeam1 } from '@/assets';
 import { 
   Shield, Heart, Target, Users, 
   Award, Clock, ChevronRight, 
@@ -110,9 +111,9 @@ const WomenOnly = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <img
-          src="/assets/images/women-karate-hero.jpg" // Replace with actual image
+          src={ladiesTeam1} // Replace with actual image
           alt="Women's Karate Training"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[20%_36%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-wine-900/90 via-wine-900/50 to-transparent"></div>
         <motion.div 

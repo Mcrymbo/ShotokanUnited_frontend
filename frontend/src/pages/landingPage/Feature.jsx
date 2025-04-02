@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { chris, medals, kids, flo } from '../../assets';
 import { ArrowRight, Award, Users, Target, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Feature = () => {
     const programs = [
@@ -9,28 +10,32 @@ const Feature = () => {
             title: "Karate For Kids",
             description: "We believe that the best time to nurture talent is from an early age. Giving a good foundation to a child helps in their development not just in competitive sports but holistically.",
             icon: <Users className="w-5 h-5" />,
-            benefits: ["Character Building", "Physical Development", "Mental Focus"]
+            benefits: ["Character Building", "Physical Development", "Mental Focus"],
+            href: "/programs/karate-for-kids"
         },
         {
             image: flo,
             title: "Women in Karate",
             description: "We tailor-make women-only classes on request, with competent female instructors who run with this vision. We also invite international female instructors for workshops to promote inclusive training.",
             icon: <Shield className="w-5 h-5" />,
-            benefits: ["Self-Defense", "Confidence", "Empowerment"]
+            benefits: ["Self-Defense", "Confidence", "Empowerment"],
+            href: "/programs/women-in-karate"
         },
         {
             image: chris,
             title: "Adults Karate Training",
             description: "For those above 15 years of age, where young students gain experience from seniors while older students stay young at heart as they learn, grow and develop together.",
             icon: <Target className="w-5 h-5" />,
-            benefits: ["Fitness", "Discipline", "Community"]
+            benefits: ["Fitness", "Discipline", "Community"],
+            href: "/programs/adults-karate-training"
         },
         {
             image: medals,
             title: "Karate for Schools",
             description: "Our coaches run vibrant karate clubs in various schools, providing an alternative co-curricular activity for learners to develop discipline and physical fitness.",
             icon: <Award className="w-5 h-5" />,
-            benefits: ["Structure", "Team Spirit", "Achievement"]
+            benefits: ["Structure", "Team Spirit", "Achievement"],
+            href: "/programs/karate-for-schools"
         },
     ];
 
@@ -48,9 +53,9 @@ const Feature = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <span className="text-secondary-700 font-bold tracking-wider uppercase">Excellence in Training</span>
+                    <span className="text-wine-600/80 font-bold tracking-wider uppercase">Excellence in Training</span>
                     <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mt-4 mb-6">Our Programs</h2>
-                    <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+                    <div className="w-24 h-1 bg-wine-600/50 mx-auto mb-8"></div>
                     <p className="text-lg md:text-xl text-neutral-800 max-w-3xl mx-auto leading-relaxed font-medium">
                         Discover our comprehensive karate training programs designed to nurture excellence at every level
                     </p>
@@ -107,12 +112,12 @@ const Feature = () => {
                                     </div>
 
                                     {/* Enhanced Button */}
-                                    <div className="card-actions justify-end mt-auto pt-2">
+                                    <Link to={program.href} className="card-actions justify-end mt-auto pt-2">
                                         <button className="btn btn-primary btn-sm gap-2 group-hover:gap-3 transition-all text-white font-semibold">
                                             Learn More 
                                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </button>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

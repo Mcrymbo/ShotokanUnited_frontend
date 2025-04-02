@@ -63,9 +63,10 @@ function App() {
 
           {/* Programs Routes */}
           <Route path="/programs" element={<Programs />} />
-          <Route path="/programs/kids" element={<KidsKarate />} />
-          <Route path="/programs/adults" element={<AdultTraining />} />
-          <Route path="/programs/women" element={<WomenOnly />} />
+          <Route path="/programs/karate-for-kids" element={<KidsKarate />} />
+          <Route path="/programs/adults-karate-training" element={<AdultTraining />} />
+          <Route path="/programs/women-in-karate" element={<WomenOnly />} />
+          <Route path="/programs/karate-for-schools" element={<KidsKarate />} />
 
           {/* Events Routes */}
           <Route path="/events" element={<Events />} />

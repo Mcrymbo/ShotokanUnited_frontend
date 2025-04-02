@@ -12,7 +12,7 @@ const History = () => {
       icon: <Calendar className="w-5 h-5" />
     },
     {
-      year: "201o",
+      year: "2010",
       title: "JKA Affiliation",
       description: "Official Affiliation with JKA with the first dojo in Nairobi.",
       icon: <Calendar className="w-5 h-5" />
@@ -24,13 +24,13 @@ const History = () => {
       icon: <Calendar className="w-5 h-5" />
     },
     {
-      year: "2010",
+      year: "2020",
       title: "HDKI Affiliation",
       description: "Official affiliation with Hombu Dojo Karate International (HDKI) Ireland.",
       icon: <Award className="w-5 h-5" />
     },
     {
-      year: "2018",
+      year: "2021",
       title: "Regional Expansion",
       description: "Expansion to major cities including Mombasa, Eldoret, and Kisumu.",
       icon: <Calendar className="w-5 h-5" />

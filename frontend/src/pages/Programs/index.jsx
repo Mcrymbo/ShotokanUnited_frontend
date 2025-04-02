@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { ChevronRight, Users, Star, Clock, Shield } from 'lucide-react';
+import { kids, ladiesTeam1, teamSpirit1 } from '@/assets';
 
 const Programs = () => {
   const programs = [
     {
       title: "Kids Karate",
-      path: "/programs/kids",
+      path: "/programs/karate-for-kids",
       description: "A structured program designed specifically for children aged 5-12, focusing on discipline, coordination, and confidence building through karate training.",
-      image: "/assets/images/kids-karate.jpg", // Replace with actual image path
+      image: kids, // Replace with actual image path
       features: [
         "Age-appropriate training methods",
         "Character development focus",
@@ -21,9 +22,9 @@ const Programs = () => {
     },
     {
       title: "Adult Training",
-      path: "/programs/adults",
+      path: "/programs/adults-karate-training",
       description: "Comprehensive karate training for adults of all skill levels, combining traditional techniques with practical applications and fitness development.",
-      image: "/assets/images/adult-training.jpg", // Replace with actual image path
+      image: teamSpirit1, // Replace with actual image path
       features: [
         "Traditional kata training",
         "Self-defense applications",
@@ -34,9 +35,9 @@ const Programs = () => {
     },
     {
       title: "Women Only",
-      path: "/programs/women",
+      path: "/programs/women-in-karate",
       description: "Specialized karate classes designed for women, focusing on self-defense, fitness, and building confidence in a supportive environment.",
-      image: "/assets/images/women-karate.jpg", // Replace with actual image path
+      image: ladiesTeam1, // Replace with actual image path
       features: [
         "Women-specific self-defense",
         "Fitness and flexibility",

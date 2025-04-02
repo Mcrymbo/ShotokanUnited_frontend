@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { Link } from 'react-router-dom';
+import {kids} from '@/assets';
 import { 
   Heart, Shield, Target, Star, 
   Award, Users, Clock, ChevronRight 
@@ -96,7 +97,7 @@ const KidsKarate = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <img
-          src="/assets/images/kids-karate-hero.jpg" // Replace with actual image
+          src={kids} // Replace with actual image
           alt="Kids Karate Training"
           className="w-full h-full object-cover"
         />

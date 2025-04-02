@@ -26,9 +26,9 @@ const Navbar = () => {
       title: 'Programs', 
       path: '/programs',
       dropdown: [
-        { title: 'Kids Karate', path: '/programs/kids' },
-        { title: 'Adult Training', path: '/programs/adults' },
-        { title: 'Women Only', path: '/programs/women' }
+        { title: 'Kids Karate', path: '/programs/karate-for-kids' },
+        { title: 'Adult Training', path: '/programs/adults-karate-training' },
+        { title: 'Women Only', path: '/programs/women-in-karate' }
       ]
     },
     { title: 'Events', path: '/events' },
@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-full text-sm">
             <div className="flex items-center gap-6">
               <span>📞 +254 123 456 789</span>
-              <span>📧 info@shotokanunited.co.ke</span>
+              <span>📧 info@shotokanunited.org</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/news" className="hover:text-gold transition-colors">Latest News</Link>
@@ -107,7 +107,9 @@ const Navbar = () => {
                       : 'text-wine-800 hover:text-wine-700 hover:bg-wine-50'
                   }`}
                 >
-                  {item.title}
+                  <Link to={item.path}>
+                    {item.title}
+                  </Link>
                   {item.dropdown && (
                     <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
                       dropdownOpen === item.title ? 'rotate-180' : ''

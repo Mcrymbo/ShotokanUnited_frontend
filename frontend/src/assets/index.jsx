@@ -45,6 +45,8 @@ import karate_stance from './personal/karate-teddy-bear.jpg';
 import mission_image from './Hero/heropic2.jpg';
 import values_image from './Hero/HeroPic1.jpg';
 import vision_image from './Hero/heroPic3.jpg';
+
+
 export {
     team_strath,
     kids_training,

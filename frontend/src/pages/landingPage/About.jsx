@@ -69,9 +69,9 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="text-secondary font-semibold tracking-wider uppercase">Discover Our Legacy</span>
+          <span className="text-wine-700/80 font-semibold tracking-wider uppercase">Discover Our Legacy</span>
           <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mt-4 mb-6">About Shotokan United</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-wine-800/50 mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-neutral-800 max-w-3xl mx-auto leading-relaxed font-medium">
             Embark on a transformative journey of martial arts excellence with Kenya's premier Shotokan karate organization.
           </p>
@@ -80,8 +80,8 @@ const About = () => {
         {/* What We Do Section - Darker text colors */}
         <motion.section className="grid md:grid-cols-2 gap-16 items-center mb-24">
           <div className="space-y-8">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
-              <span className="text-primary-900 font-bold">Our Approach</span>
+            <div className="inline-block px-4 py-2 bg-wine/10 rounded-full">
+              <span className="text-wine-700 font-bold">Our Approach</span>
             </div>
             
             <h3 className="text-3xl font-bold text-neutral-900 leading-tight">
@@ -105,7 +105,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               {coreValues.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-900">
+                  <div className="w-8 h-8 rounded-full bg-wine/10 flex items-center justify-center text-wine-700">
                     {item.icon}
                   </div>
                   <div>
@@ -153,7 +153,7 @@ const About = () => {
               className="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <div className="card-body">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary-900">
+                <div className="w-12 h-12 rounded-full bg-wine/10 flex items-center justify-center text-wine-700">
                   {feature.icon}
                 </div>
                 <h3 className="card-title text-neutral-900 font-bold">{feature.title}</h3>
@@ -193,8 +193,8 @@ const About = () => {
           </div>
 
           <div className="space-y-8 order-1 md:order-2">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
-              <span className="text-primary-900 font-bold">Our Purpose</span>
+            <div className="inline-block px-4 py-2 bg-wine/10 rounded-full">
+              <span className="text-wine-700 font-bold">Our Purpose</span>
             </div>
 
             {/* Vision Card */}

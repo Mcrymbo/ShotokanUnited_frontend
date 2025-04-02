@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { Link } from 'react-router-dom';
+import { teamSpirit1 } from '@/assets';
 import { 
   Target, Shield, Sword, Dumbbell, 
   Brain, Heart, Clock, ChevronRight, 
@@ -99,9 +100,9 @@ const AdultTraining = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <img
-          src="/assets/images/adult-training-hero.jpg" // Replace with actual image
+          src={teamSpirit1} // Replace with actual image
           alt="Adult Karate Training"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[20%_20%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-wine-900/90 via-wine-900/50 to-transparent"></div>
         <motion.div 
@@ -259,7 +260,7 @@ const AdultTraining = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="/assets/images/adult-training-benefits.jpg" // Replace with actual image
+                src={teamSpirit1} // Replace with actual image
                 alt="Karate Training Benefits"
                 className="rounded-xl shadow-lg"
               />
