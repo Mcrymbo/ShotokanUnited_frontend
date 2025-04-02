@@ -5,7 +5,7 @@ import DefaultLayout from '../../layout/DefaultLayout';
 import { 
   Shield, Award, Globe, Users, 
   CheckCircle, ChevronRight, Mail, 
-  Calendar, Certificate 
+  Calendar, BadgeCheck 
 } from 'lucide-react';
 import { jos_mus_jka, k_flag } from "../../assets";
 
@@ -22,7 +22,7 @@ const ClubAffiliation = () => {
       description: "Access to nationwide kata and kumite courses led by SUK/HDKI-K instructors."
     },
     {
-      icon: <Certificate className="w-6 h-6" />,
+      icon: <BadgeCheck className="w-6 h-6" />,
       title: "International Certification",
       description: "HDKI-approved Kyu/Dan gradings with internationally recognized certifications."
     },

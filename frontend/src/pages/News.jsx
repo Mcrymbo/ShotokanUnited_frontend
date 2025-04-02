@@ -6,9 +6,9 @@ import {
   ChevronLeft, ChevronRight, Search,
   Filter, ArrowUpRight
 } from 'lucide-react';
-import DefaultLayout from '../../layout/DefaultLayout';
-import { useNews } from '../../hooks/useNews';
-import { formatDate } from '../../utils/dateUtils';
+import DefaultLayout from '@/layout/DefaultLayout';
+import { useNews } from '@/hooks/useNews';
+import { formatDate } from '@/utils/dateUtils';
 
 const News = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,7 +62,7 @@ const News = () => {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20">
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-12">
           <motion.div

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import LoadingSpinner from './components/LoadingSpinner';
 import { ProtectedRoute } from './components/protectedRoute';
+import { AuthProvider } from '@/hooks/useAuth';
 
 // Lazy loaded components
 const LandingPage = lazy(() => import('./pages/landingPage'));
@@ -21,7 +22,7 @@ const AdultTraining = lazy(() => import('./pages/Programs/AdultTraining'));
 const WomenOnly = lazy(() => import('./pages/Programs/WomenOnly'));
 
 // Events Section
-const Events = lazy(() => import('./components/Events/ListEvents'));
+const Events = lazy(() => import('./components/Events/EventList.jsx'));
 const SingleEvent = lazy(() => import('./components/Events/SingleEventPage'));
 const EventRegistration = lazy(() => import('./components/Events/KarateRegistrationForm'));
 
@@ -49,6 +50,7 @@ function App() {
   return (
     <div className="min-h-screen bg-flashWhite relative overflow-hidden">
       <Suspense fallback={<LoadingSpinner />}>
+        <AuthProvider>
         <Routes>
           {/* Main Route */}
           <Route path="/" element={<LandingPage />} />
@@ -104,6 +106,7 @@ function App() {
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </AuthProvider>
       </Suspense>
     </div>
   );
