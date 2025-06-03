@@ -1,7 +1,5 @@
-import {useState} from 'react'
 import Hero from "./Hero";
 import About from "./About";
-import Commitee from "./Commitee";
 import FooterComponent from "./Footer";
 import Navbar from "../../components/Navbar";
 import Feature from './Feature';
@@ -9,10 +7,18 @@ import News from './News';
 import Event from './Events';
 import { motion } from 'framer-motion';
 import CallToAction from './CallToAction';
+import { Helmet } from "react-helmet-async";
 
 const LandingPage = () => {
-    const [status, setStatus] = useState(false)
     return (
+        <>
+        <Helmet>
+            <title>shotokan karate kenya</title>
+            <meta name='description'
+                content="Explore karate in kenya. SU kenya incoporate modern karate rooted on traditional priciples."/>
+            <meta name="keywords" content="shotokan united kenya, karate kenya, Kenya karate" />
+            <link rel="canonical" href="/" />
+        </Helmet>
         <div className="relative min-h-screen bg-white overflow-hidden">
             <Navbar />
 
@@ -141,6 +147,7 @@ const LandingPage = () => {
             />
 
         </div>
+        </>
     );
 }
 

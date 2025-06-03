@@ -1,6 +1,4 @@
-// import { dojo, mission } from "../../assets"
 import { motion } from 'framer-motion';
-import { styles } from "../../styles"
 import {allTeam1, ladiesTeam1} from '../../assets';
 import { Target, Users, Award, Brain, Star, Shield, Heart, Sword } from 'lucide-react';
 

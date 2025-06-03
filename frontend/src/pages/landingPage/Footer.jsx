@@ -101,15 +101,15 @@ function FooterComponent() {
             <h3 className="text-lg font-semibold text-primary-content">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-primary" />
+                <MapPin className="w-5 h-5 text-green-700" />
                 <span>123 Dojo Street, Nairobi, Kenya</span>
               </li>
               <li className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary" />
+                <Phone className="w-5 h-5 text-blue-500" />
                 <span>+254 123 456 789</span>
               </li>
               <li className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
+                <Mail className="w-5 h-5 text-wine-500" />
                 <span>info@shotokanunited.co.ke</span>
               </li>
             </ul>

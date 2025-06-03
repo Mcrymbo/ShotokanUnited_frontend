@@ -22,7 +22,8 @@ const AdultTraining = lazy(() => import('./pages/Programs/AdultTraining'));
 const WomenOnly = lazy(() => import('./pages/Programs/WomenOnly'));
 
 // Events Section
-const Events = lazy(() => import('./components/Events/EventList.jsx'));
+// const Events = lazy(() => import('./components/Events/EventList.jsx'));
+const Events = lazy(() => import('./pages/Events'));
 const SingleEvent = lazy(() => import('./components/Events/SingleEventPage'));
 const EventRegistration = lazy(() => import('./components/Events/KarateRegistrationForm'));
 
@@ -46,7 +47,13 @@ const Account = lazy(() => import('./pages/Authentication/Account'));
 const Contact = lazy(() => import('./pages/Contact'));
 const TermsOfUse = lazy(() => import('./components/termsOfUse'));
 
+// chartbot
+import Chatbot from './components/Chatbot';
+
 function App() {
+
+  // const [showChatbot, setShowChatbot] = useState(false);
+  
   return (
     <div className="min-h-screen bg-flashWhite relative overflow-hidden">
       <Suspense fallback={<LoadingSpinner />}>
@@ -109,6 +116,7 @@ function App() {
         </Routes>
         </AuthProvider>
       </Suspense>
+      <Chatbot />
     </div>
   );
 }

@@ -58,7 +58,7 @@ export const useNews = ({ page = 1, category = 'all', search = '' } = {}) => {
   const setupWebSocket = useCallback(() => {
     if (wsRef.current) return;
 
-    const ws = new WebSocket(`${import.meta.env.VITE_API_URL}/ws/news/`);
+    const ws = new WebSocket(`${import.meta.env.REACT_APP_WS_URL}/ws/news/`);
     
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);

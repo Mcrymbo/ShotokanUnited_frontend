@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.shotokanunitedkenya.org/sitemap.xml

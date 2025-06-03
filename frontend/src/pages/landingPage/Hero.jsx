@@ -1,6 +1,6 @@
 import { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { homePic, teamSpirit2, allTeam1, ladiesTeam1 } from '../../assets';
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 

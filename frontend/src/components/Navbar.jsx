@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, User, Search, Bell } from 'lucide-react';
+import { Menu, X, ChevronDown, Search } from 'lucide-react';
 import { logo } from '../assets';
 
 const Navbar = () => {
@@ -75,12 +75,12 @@ const Navbar = () => {
         <div className="container mx-auto px-4 h-full">
           <div className="flex items-center justify-between h-full text-sm">
             <div className="flex items-center gap-6">
-              <span>📞 +254 123 456 789</span>
+              <span className='hidden sm:block'>📞 +254 123 456 789</span>
               <span>📧 info@shotokanunited.org</span>
             </div>
             <div className="flex items-center gap-4">
-              <Link to="/news" className="hover:text-gold transition-colors">Latest News</Link>
-              <Link to="/events" className="hover:text-gold transition-colors">Upcoming Events</Link>
+              <Link to="/news" className="hover:text-gold transition-colors"><span className='hidden sm:block'>Latest </span>News</Link>
+              <Link to="/events" className="hover:text-gold transition-colors"><span className='hidden sm:block'>Upcoming </span>Events</Link>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Shotokan United" className="h-12 w-auto" />
+            <img src='./suk-1.png' alt="Shotokan United" className="h-20 object-cover w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

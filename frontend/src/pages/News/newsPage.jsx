@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { FeaturedArticle, AnimatedContainer } from './featureNews';
 import { NewsCard, NewsletterSection } from './newsCard';

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { auth } from '../../hooks';
 import { hdki_cover } from '../../assets';
-import { ArrowRight, Calendar, MapPin, Users, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, Users, Clock } from 'lucide-react';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
