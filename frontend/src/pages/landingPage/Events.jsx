@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { auth } from '../../hooks';
 import { hdki_cover } from '../../assets';
-import { ArrowRight, MapPin, Users, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, Users, Clock, X } from 'lucide-react';
+import EventRegistrationForm from '../../components/Events/EventRegistrationForm';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleEvents = async () => {
     try {
@@ -64,7 +67,8 @@ export default function Events() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {events.slice(0, 3).map((event, index) => (
         <motion.div
           key={index}
@@ -145,12 +149,17 @@ export default function Events() {
 
                 {/* Action Button */}
                 <div className="mt-6 flex justify-between items-center pt-4 border-t border-wine-100">
-                  {event.registration_link && (
-                    <button className="btn btn-primary gap-2 text-white font-semibold">
-                      Register Now
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  )}
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectedEvent(event);
+                      setIsModalOpen(true);
+                    }}
+                    className="btn btn-primary gap-2 text-white font-semibold"
+                  >
+                    Register Now
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                   
                   <div className="flex items-center gap-2 text-wine-700 font-semibold group-hover:text-wine-800 transition-colors">
                     View Details
@@ -163,5 +172,43 @@ export default function Events() {
         </motion.div>
       ))}
     </div>
+    {/* Registration Modal */}
+    <AnimatePresence>
+      {isModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-5"
+              onClick={() => setIsModalOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-2xl overflow-auto max-h-[90vh] w-full max-w-2xl mx-auto shadow-xl relative"
+            >
+              <div className="sticky top-0 flex justify-end p-4 bg-white border-b z-10">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="w-5 h-5 text-gray-500" />
+                </button>
+              </div>
+              <div className="p-6">
+                {selectedEvent && (
+                  <EventRegistrationForm
+                    eventId={selectedEvent.id}
+                    eventTitle={selectedEvent.title}
+                  />
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

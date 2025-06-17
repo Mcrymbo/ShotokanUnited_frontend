@@ -39,7 +39,7 @@ const EventNotifications = ({ events }) => {
     <div className="relative">
       <button
         onClick={() => setShowNotifications(!showNotifications)}
-        className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
+        className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-none"
       >
         <Bell className="h-6 w-6" />
         {unreadCount > 0 && (

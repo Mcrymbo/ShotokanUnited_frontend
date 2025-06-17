@@ -20,6 +20,7 @@ const Programs = lazy(() => import('./pages/Programs'));
 const KidsKarate = lazy(() => import('./pages/Programs/KidsKarate'));
 const AdultTraining = lazy(() => import('./pages/Programs/AdultTraining'));
 const WomenOnly = lazy(() => import('./pages/Programs/WomenOnly'));
+const ProgramRegistration = lazy(() => import('./components/Programs/ProgramRegistrationForm'));
 
 // Events Section
 // const Events = lazy(() => import('./components/Events/EventList.jsx'));
@@ -74,6 +75,7 @@ function App() {
           <Route path="/programs/adults-karate-training" element={<AdultTraining />} />
           <Route path="/programs/women-in-karate" element={<WomenOnly />} />
           <Route path="/programs/karate-for-schools" element={<KidsKarate />} />
+          <Route path="/programs/register" element={<ProgramRegistration />} />
 
           {/* Events Routes */}
           <Route path="/events" element={<Events />} />

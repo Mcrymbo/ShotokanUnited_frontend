@@ -138,10 +138,12 @@ const Feature = () => {
                         <p className="text-neutral-800 font-medium mb-6">
                             Join our community and start your path to mastery today
                         </p>
-                        <button className="btn btn-secondary btn-lg gap-2 hover:gap-3 transition-all text-white font-semibold">
-                            Join a Program
-                            <ArrowRight className="w-5 h-5" />
-                        </button>
+                        <Link to="/programs/register" className="inline-block">
+                            <button className="btn btn-secondary btn-lg gap-2 hover:gap-3 transition-all text-white font-semibold">
+                                Join a Program
+                                <ArrowRight className="w-5 h-5" />
+                            </button>
+                        </Link>
                     </div>
                 </motion.div>
 
